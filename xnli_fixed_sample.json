@@ -1,0 +1,2722 @@
+{
+  "metadata": {
+    "dataset": "facebook/xnli",
+    "revision": "b8dd5d7af51114dbda02c0e3f6133f332186418e",
+    "split": "test",
+    "source_files": [
+      "all_languages/test-00000-of-00001.parquet"
+    ],
+    "seed": 42,
+    "pairs_per_class": 50,
+    "pairs": 150,
+    "languages": [
+      "ar",
+      "en"
+    ],
+    "created_utc": "2026-10-06T14:40:16.145018+00:00",
+    "purpose": "Preliminary NLI screening, not full administrative-system evaluation.",
+    "warning": "Do not tune on these test cases; use separate validation examples."
+  },
+  "cases": [
+    {
+      "case_id": "xnli-test-2113-ar",
+      "pair_id": "xnli-test-2113",
+      "source_row": 2113,
+      "language": "ar",
+      "premise": "الصيف يجلب الطقس الدافئ (ولكن ليس حارًا) ودرجات حرارة البحر الدافئة ، تجعلها مثالية للغطس والغوص والرياضات المائية الأخرى.",
+      "hypothesis": "عادة ما تكون 75 في فصل الصيف.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-2113-en",
+      "pair_id": "xnli-test-2113",
+      "source_row": 2113,
+      "language": "en",
+      "premise": "Summer brings warm (but not hot) weather and warm sea temperatures, making it ideal for diving, snorkeling, and other water sports.",
+      "hypothesis": "It's usually 75 in the summer.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-2839-ar",
+      "pair_id": "xnli-test-2839",
+      "source_row": 2839,
+      "language": "ar",
+      "premise": "أولاً، نحن نستخدم حجم كل فرد لكل بلد لتقريب القطع من كل محطة محتملة.",
+      "hypothesis": "لم يكن لدينا طريقة لمعرفة عدد القطع الممكنة في كل محطة.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-2839-en",
+      "pair_id": "xnli-test-2839",
+      "source_row": 2839,
+      "language": "en",
+      "premise": "First, we use volume per capita for each country to approximate pieces per possible stop.",
+      "hypothesis": "We had no way to figure out how many pieces were possible per stop.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-3928-ar",
+      "pair_id": "xnli-test-3928",
+      "source_row": 3928,
+      "language": "ar",
+      "premise": "من المقرر عقد مأدبة غداء لخريجي هذا العام في 23 أكتوبر 1991 خلال الاجتماع السنوي لـ إيه إم آر إيه في ناشفيل بولاية تينيسي.",
+      "hypothesis": "كان الاجتماع السنوي إيه إم آر إيه في ناشفيل في عام 1991.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-3928-en",
+      "pair_id": "xnli-test-3928",
+      "source_row": 3928,
+      "language": "en",
+      "premise": "This year's alumni luncheon is scheduled for October 23, 1991, during the AMRA Annual Meeting in Nashville, Tennessee.",
+      "hypothesis": "The AMRA Annual Meeting was in Nashville in 1991.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-685-ar",
+      "pair_id": "xnli-test-685",
+      "source_row": 685,
+      "language": "ar",
+      "premise": "أمْ، لدي ابنة، طفلة عمرها ثمانية عشر شهرًا",
+      "hypothesis": "لدي طفل واحد، وهي ابنة عمرها ثمانية عشر شهراً.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-685-en",
+      "pair_id": "xnli-test-685",
+      "source_row": 685,
+      "language": "en",
+      "premise": "um i have one child a little girl who's eighteen months old",
+      "hypothesis": "I have one child, an eighteen-month-old daughter.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-3709-ar",
+      "pair_id": "xnli-test-3709",
+      "source_row": 3709,
+      "language": "ar",
+      "premise": "إذا بدأنا العام المالي الجديد بعجز، فسيكون هذا تحديًا حقيقيًا.",
+      "hypothesis": "قد لا يكون العمل ممكنًا إذا بدأنا السنة المالية الجديدة بعجز.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3709-en",
+      "pair_id": "xnli-test-3709",
+      "source_row": 3709,
+      "language": "en",
+      "premise": "If we begin our new fiscal year with a deficit, this will be a real challenge.",
+      "hypothesis": "Business may not be possible if we begin a new fiscal year with a deficit.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-2333-ar",
+      "pair_id": "xnli-test-2333",
+      "source_row": 2333,
+      "language": "ar",
+      "premise": "تجول في الطوابق وتحدث مع الممثلين الذين يلعبون أجزاء من البحارة والحجاج.",
+      "hypothesis": "البحارة والحجاج كانوا مائة بالمائة أصليين.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-2333-en",
+      "pair_id": "xnli-test-2333",
+      "source_row": 2333,
+      "language": "en",
+      "premise": "Wander the decks and talk to the actors who play the parts of sailors and pilgrims.",
+      "hypothesis": "The sailors and pilgrims were all one hundred percent authentic.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1624-ar",
+      "pair_id": "xnli-test-1624",
+      "source_row": 1624,
+      "language": "ar",
+      "premise": "إذا لقد أخبروك عن ذلك!",
+      "hypothesis": "ولذا، لم يخبروك عن الموقف الصعب!",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1624-en",
+      "pair_id": "xnli-test-1624",
+      "source_row": 1624,
+      "language": "en",
+      "premise": "So they've told you about that!",
+      "hypothesis": "So they've told you about the difficult situation!",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-155-ar",
+      "pair_id": "xnli-test-155",
+      "source_row": 155,
+      "language": "ar",
+      "premise": "كانت هذه هي المرة الأولى التي حدث فيها ذلك ، منذ 75 سنة ، أن الهيئة التشريعية في ولاية تكساس قد صوتت لوحدة عسكرية في منصب سفراء تكساس ، لذا فقد احتاجت إلى سفراء تكساس.",
+      "hypothesis": "تم تسمية الوحدة العسكرية باسم سفراء تكساس.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-155-en",
+      "pair_id": "xnli-test-155",
+      "source_row": 155,
+      "language": "en",
+      "premise": "This was the first time that, that had happened in 75 years, that TX legislature had voted a military unit being TX Ambassadors, so, needed TX Ambassadors.",
+      "hypothesis": "The military unit was named TX Ambassadors.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-1656-ar",
+      "pair_id": "xnli-test-1656",
+      "source_row": 1656,
+      "language": "ar",
+      "premise": "كان اللورد جوليان غاضباً ، وأنا أرجح أنه كثيراً ما كان.",
+      "hypothesis": "لا أعتقد أن اللورد جوليان كان موضع خلاف ، لقد كان غبيا جدا!",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1656-en",
+      "pair_id": "xnli-test-1656",
+      "source_row": 1656,
+      "language": "en",
+      "premise": "Lord Julian was sententious, as I gather that he often was.",
+      "hypothesis": "I don't think Lord Julian was sententious, he was so dumb!",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4556-ar",
+      "pair_id": "xnli-test-4556",
+      "source_row": 4556,
+      "language": "ar",
+      "premise": "ليس من المقترح أن يتم حظر هذه المواضيع ، فقط أنه من الصعب ، حتى بعد حوالي عشرين سنة من التبادل الثقافي ، أن يكتشف شخص غريب الكثير مما هو مضحك عنها.",
+      "hypothesis": "تلك المواضيع يصعب على الأجانب فهمها.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-4556-en",
+      "pair_id": "xnli-test-4556",
+      "source_row": 4556,
+      "language": "en",
+      "premise": "It is not suggested that these subjects be interdicted, merely that it is difficult, even after some twenty years of acculturation, for an outlander to discern much that is funny about them.",
+      "hypothesis": "These subjects are difficult for outsiders to understand.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-3932-ar",
+      "pair_id": "xnli-test-3932",
+      "source_row": 3932,
+      "language": "ar",
+      "premise": "ما هو التحدي الأكبر؟",
+      "hypothesis": "نحن لا نتلقّى أيّ برنامج لأكبر.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-3932-en",
+      "pair_id": "xnli-test-3932",
+      "source_row": 3932,
+      "language": "en",
+      "premise": "WHAT IS THE SENIOR CHALLENGE?",
+      "hypothesis": "We don't have any programs for seniors.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4956-ar",
+      "pair_id": "xnli-test-4956",
+      "source_row": 4956,
+      "language": "ar",
+      "premise": "أحد الفوارق هو أن المجموعات الأخرى تحتاج إلى القيام بذلك لأنه من أجل عملها ، يجب عليها إما إرفاق معانٍ جديدة للكلمات والعبارات الموجودة أو الكلمات والعبارات الجديدة.",
+      "hypothesis": "تحتاج بعض المجموعات إلى تكوين كلمات جديدة لمعالجة الأوقات المتغيرة.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-4956-en",
+      "pair_id": "xnli-test-4956",
+      "source_row": 4956,
+      "language": "en",
+      "premise": "One difference is that other groups need to do so because in order to function they must either attach new meanings to existing words and phrases or coin new words and pharases.",
+      "hypothesis": "Some groups need make up new words to address changing times.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1689-ar",
+      "pair_id": "xnli-test-1689",
+      "source_row": 1689,
+      "language": "ar",
+      "premise": "اقتحم كرسيًا في المقصورة، وانفجر بعنف وهو أمر غريب عنه بالكامل.",
+      "hypothesis": "جلس على كرسي في المقصورة.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-1689-en",
+      "pair_id": "xnli-test-1689",
+      "source_row": 1689,
+      "language": "en",
+      "premise": "In the cabin he flung into a chair, and exploded, with a violence altogether foreign to his nature.",
+      "hypothesis": "He sat in a chair in the cabin.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-265-ar",
+      "pair_id": "xnli-test-265",
+      "source_row": 265,
+      "language": "ar",
+      "premise": "يقول الرئيس كيندي للطيارين، يا رجال، أنتم تلتقطون صور جيدة.",
+      "hypothesis": "تحدث كنيدي لطياري القوات الجوية.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-265-en",
+      "pair_id": "xnli-test-265",
+      "source_row": 265,
+      "language": "en",
+      "premise": "President Kennedy says to the pilots, says, Gentlemen you take good pictures.",
+      "hypothesis": "Kennedy spoke to the Air Force pilots.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-4227-ar",
+      "pair_id": "xnli-test-4227",
+      "source_row": 4227,
+      "language": "ar",
+      "premise": "اتصلت ب يوهول للإستفسار عن سياسة الكراء الخاصة بها.",
+      "hypothesis": "اتصلت بـ Budget لأستفسر عن سياسات التأجير.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4227-en",
+      "pair_id": "xnli-test-4227",
+      "source_row": 4227,
+      "language": "en",
+      "premise": "So, I called U-Haul to inquire about its rental policies.",
+      "hypothesis": "I called Budget to ask about their rental policies.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1503-ar",
+      "pair_id": "xnli-test-1503",
+      "source_row": 1503,
+      "language": "ar",
+      "premise": "أؤكد لكم يا سيدي ، أنني على علم تام بكل شيء.",
+      "hypothesis": "إنني أخبرتك بأنني حصلت على المعرفة عن كل شيء.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-1503-en",
+      "pair_id": "xnli-test-1503",
+      "source_row": 1503,
+      "language": "en",
+      "premise": "I assure you, sir, that I was fully informed of all.",
+      "hypothesis": "I am telling you that I was given knowledge about everything.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-4484-ar",
+      "pair_id": "xnli-test-4484",
+      "source_row": 4484,
+      "language": "ar",
+      "premise": "الجزء الأفضل من عمل دود ككاتبة مقالات وتحديدًا في مقالات صائدة الذباب التي مكنتها من الفوز بجائزة بوليتزر هو أنها يعد أفضل تجسيد شعور العمال بالأسى على أنفسهم.",
+      "hypothesis": "بالإضافة إلى واحد من ألمع عن جلد الذات، يتضمن جوهر أعمال داود العديد من الأعمدة بخصوص الملاحقة القضائية للبيئيين المتطرفين..",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-4484-en",
+      "pair_id": "xnli-test-4484",
+      "source_row": 4484,
+      "language": "en",
+      "premise": "The body of Dowd's work as a columnist, and in particular the Flytrap pieces that won her the Pulitzer, is one of the most brilliant examples yet of boomer self-castigation.",
+      "hypothesis": "In addition to one of the most brilliant examples of boomer self-castigation, Dowd's body of work includes many columns about the prosecution of radical environmentalists.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3421-ar",
+      "pair_id": "xnli-test-3421",
+      "source_row": 3421,
+      "language": "ar",
+      "premise": "لترتيبات الفندق ، انظر تقرير المخابرات ، استجواب خلاد ، يناير.",
+      "hypothesis": "لا يوجد شيء معروف عن ترتيبات الفندق.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-3421-en",
+      "pair_id": "xnli-test-3421",
+      "source_row": 3421,
+      "language": "en",
+      "premise": "For the hotel arrangements, see Intelligence report, interrogation of Khallad, Jan.",
+      "hypothesis": "Nothing further is know about the hotel arrangements.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-2820-ar",
+      "pair_id": "xnli-test-2820",
+      "source_row": 2820,
+      "language": "ar",
+      "premise": "إلى جانب برنامج  لات نايت ليف  و الينبراند درو أسماء المدعي عليهم في الدعوة غري درو و لوين درو  مديريالينبراند درو والمطورين",
+      "hypothesis": "رفع آلين براند و درياس دعوى  بسبب السجن غير القانوني.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-2820-en",
+      "pair_id": "xnli-test-2820",
+      "source_row": 2820,
+      "language": "en",
+      "premise": "Besides LNL and Allenbrand-Drews, the suit names as defendants Gary Allenbrand and Loren Drews, principals of Allenbrand-Drews; and developers or contractors R.L.",
+      "hypothesis": "Allenbrand and Drews are getting sued for false imprisionment.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1371-ar",
+      "pair_id": "xnli-test-1371",
+      "source_row": 1371,
+      "language": "ar",
+      "premise": "واحدة من التصميمات الداخلية الرائعة لهذه الفترة هي مساحة المعيشة الرئيسية في منزل توجندهات، والتي صممها ميس فان دير روه في عام 1928.",
+      "hypothesis": "صمم ميس فان دير روه منزل تاجيندهات.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-1371-en",
+      "pair_id": "xnli-test-1371",
+      "source_row": 1371,
+      "language": "en",
+      "premise": "One of the great interiors of this period is the main living space of the Tugendhat House, designed by Mies Van der Rohe in 1928.",
+      "hypothesis": "Mies Van der Rohe designed the Tugendhat House.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-1349-ar",
+      "pair_id": "xnli-test-1349",
+      "source_row": 1349,
+      "language": "ar",
+      "premise": "فالأرابيسك والتجاعيد التي هي من القوالب والزخارف المعمارية في الصالون الفرنسي تعكس الأشرطة المُزينة التي تزين الفساتين النسائية والقمصان الرجالية.",
+      "hypothesis": "كانت الفساتين النسائية بسيطة جدًا.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1349-en",
+      "pair_id": "xnli-test-1349",
+      "source_row": 1349,
+      "language": "en",
+      "premise": "The arabesques and curlicues of the moldings and architectural ornaments in a French salon mirrored the flouncing ribbons that adorned the women's dresses and the frills of the men's shirts.",
+      "hypothesis": "The women's dresses were very plain.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-3295-ar",
+      "pair_id": "xnli-test-3295",
+      "source_row": 3295,
+      "language": "ar",
+      "premise": "فيما يتعلق باقتراح KSM الإضافي بتفجير طائرات الشحن من خلال شحن سترات تحتوي على نيتروسيليولوز، يقول KSM أن بن لادن عبر عن اهتمامه بتغيير العملية لتشمل عملية انتحارية.",
+      "hypothesis": "اختلف KSM مع اقتراح بن لادن بشأن استخدام مفجر انتحاري.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3295-en",
+      "pair_id": "xnli-test-3295",
+      "source_row": 3295,
+      "language": "en",
+      "premise": "With respect to KSM's additional proposal to bomb cargo planes by shipping jackets containing nitrocellulose, KSM states that Bin Ladin expressed interest in changing the operation so that it would involve a suicide operative.",
+      "hypothesis": "KSM disagreed with Bin Ladin's suggestion to use a suicide bomber.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-856-ar",
+      "pair_id": "xnli-test-856",
+      "source_row": 856,
+      "language": "ar",
+      "premise": "نعم أنت هناك أنت تعرف عادة هناك لدي مزرعة على بعد 100 ميل شرقا من هنا في ولاية تكساس الشرقية",
+      "hypothesis": "لدي مزرعة هنا في تكساس.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-856-en",
+      "pair_id": "xnli-test-856",
+      "source_row": 856,
+      "language": "en",
+      "premise": "yeah there you you know usually there's uh i have a a farm a hundred miles east of here in East Texas",
+      "hypothesis": "I have a farm here in Texas.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-4208-ar",
+      "pair_id": "xnli-test-4208",
+      "source_row": 4208,
+      "language": "ar",
+      "premise": "تقول نيوزويك أن السائحين والمشاهير يذهبون إلى باتاجونيا، والتي كانت فيما سبق ملاذ للنازين الهاربين.",
+      "hypothesis": "ذكرت نيوزويك أن باتاغونيا قد غرق في الماء منذ الحرب، ولا أحد يذهب إلى هناك.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4208-en",
+      "pair_id": "xnli-test-4208",
+      "source_row": 4208,
+      "language": "en",
+      "premise": "Newsweek says tourists and celebs are flocking to Patagonia, once a haven for escaped Nazis.",
+      "hypothesis": "Newsweek reports that Patagonia has been drowned in water since the war, and no one ever goes there.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4524-ar",
+      "pair_id": "xnli-test-4524",
+      "source_row": 4524,
+      "language": "ar",
+      "premise": "وأنا أتعاطف مع ملاحظتك في الصفحة 19: قانون التأليف الأول لبرونر- في أي نص معين، يوجد خطأ واحد على الأقل قرأه كاتبه ثلاث مرات متتالية.",
+      "hypothesis": "من الشائع لدى الكتاب عدم تحديد الأخطاء في النصوص الخاصة بهم.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-4524-en",
+      "pair_id": "xnli-test-4524",
+      "source_row": 4524,
+      "language": "en",
+      "premise": "And I sympathize with your remark on page 19: Brunner's First Law of Authorship   In any given body of text there is at least one error that its writer has read straight past three times.",
+      "hypothesis": "It is common for writers to not pick out errors in their own texts.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-767-ar",
+      "pair_id": "xnli-test-767",
+      "source_row": 767,
+      "language": "ar",
+      "premise": "أنا وهم نحب بعض أغانيهم، ولكن وبالرغم من موافقتي، فبشكل عام لن أختار موسيقى الراب أيضاً",
+      "hypothesis": "كان لديهم عدد قليل يضرب واحد.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-767-en",
+      "pair_id": "xnli-test-767",
+      "source_row": 767,
+      "language": "en",
+      "premise": "themselves and i like some of their songs but as as i agree as a general rule i i wouldn't choose rap either",
+      "hypothesis": "They had a few number one hits.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1992-ar",
+      "pair_id": "xnli-test-1992",
+      "source_row": 1992,
+      "language": "ar",
+      "premise": "وماذا يجب أن يحدث لي، جيريمي؟ بالتأكيد، الآن، سأعود لتناول العشاء، لذلك سأفعل. هبط بلاد في القارب المنتظر.",
+      "hypothesis": "ذهب بلود الي حوض الاستحمام وأبحر بعيدا.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1992-en",
+      "pair_id": "xnli-test-1992",
+      "source_row": 1992,
+      "language": "en",
+      "premise": "And what should be happening to me, Jeremy? Sure, now, I'll be back for dinner, so I will.   Blood climbed down into the waiting boat.",
+      "hypothesis": "Blood got into a bathtub and sailed away.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-628-ar",
+      "pair_id": "xnli-test-628",
+      "source_row": 628,
+      "language": "ar",
+      "premise": "هو ذلك مثل التوفيق بين المباراة",
+      "hypothesis": "هل هذا هو نفس الشيء كالحفاظ على المباراة",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-628-en",
+      "pair_id": "xnli-test-628",
+      "source_row": 628,
+      "language": "en",
+      "premise": "is that like match savings",
+      "hypothesis": "Is that the same thing as match savings",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-2325-ar",
+      "pair_id": "xnli-test-2325",
+      "source_row": 2325,
+      "language": "ar",
+      "premise": "ال فترة الكساد ، كانت أفقر مقاطعة في البلاد ، قريبة من المجاعة.",
+      "hypothesis": "استمر الكساد لأكثر من عشر سنوات.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-2325-en",
+      "pair_id": "xnli-test-2325",
+      "source_row": 2325,
+      "language": "en",
+      "premise": "During the Depression, it was the country's poorest province, close to starvation.",
+      "hypothesis": "The Depression lasted for more than ten years.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-4721-ar",
+      "pair_id": "xnli-test-4721",
+      "source_row": 4721,
+      "language": "ar",
+      "premise": "لقد نظمها بنوعٍ من الصخب، مدفوعًا بكل تلك الدعاوى التي نشأت من مساحات وقوف السيارات في الأماكن المشتركة وحفلات الشواء في شرف المنازل والحيوانات الأليفة التي تتبرز في القاعات، ربما كان محقًا في اختيار أسلوب جديد للتعبير.",
+      "hypothesis": "لم يكن هناك شيء يمكن أن يكون قافية شعر.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4721-en",
+      "pair_id": "xnli-test-4721",
+      "source_row": 4721,
+      "language": "en",
+      "premise": "He rhymed it with pandemonium ; judging from the lawsuits which proliferate over condominium parking spaces, balcony barbecues, and pets pooping in the halls, he might have been right to use the neologism.",
+      "hypothesis": "There was nothing it could rhyme with.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4767-ar",
+      "pair_id": "xnli-test-4767",
+      "source_row": 4767,
+      "language": "ar",
+      "premise": "وبهذه الطريقة ، غالباً ما يتعلق تهجئة الكلمة بكلمات أخرى تنتمي إلى نفس الصيغة، أو إلى تاريخها الخاص.",
+      "hypothesis": "يرتبط تهجئة الكلمة فقط بالشخص الذي اخترعها.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4767-en",
+      "pair_id": "xnli-test-4767",
+      "source_row": 4767,
+      "language": "en",
+      "premise": "In this way, the spelling of a word often relates to that of other words belonging to the same paradigm, or to its own history.",
+      "hypothesis": "The spelling of a word is just tied to the person who invented it.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-485-ar",
+      "pair_id": "xnli-test-485",
+      "source_row": 485,
+      "language": "ar",
+      "premise": "أنا بالفعل لا أعرف السيدة فولك جيداً كان عمرها حوالي 80 عام وكانت شخصاً ظريفاً وقد رأيتها بضع مرات لكني كنت عصبياً بالفعل بسبب ذلك.",
+      "hypothesis": "قامت السيدة فولك بقيادة هوندا الصفراء للعمل كل يوم.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-485-en",
+      "pair_id": "xnli-test-485",
+      "source_row": 485,
+      "language": "en",
+      "premise": "I didn't really know Mrs. Faulk very well she was about 80 and, ah, she was a nice person I had seen her a few times but I was really nervous about that.",
+      "hypothesis": "Mrs. Faulk drove a yellow Honda to work every day.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-4157-ar",
+      "pair_id": "xnli-test-4157",
+      "source_row": 4157,
+      "language": "ar",
+      "premise": "دافع رودولف جولياني عن طريقة تعامله مع تصوير أمادو ديالو في نيوزويك. [إدارة شرطة نيويورك] ليس KKK ، هو ما يقدم.",
+      "hypothesis": "أدلى رودلف جيولياني بتصريح إلى مجلة نيوزويك بخصوص تعامله مع إطلاق النار على أمادو ديالو.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-4157-en",
+      "pair_id": "xnli-test-4157",
+      "source_row": 4157,
+      "language": "en",
+      "premise": "Rudolph Giuliani defends  his handling of the Amadou Diallo shooting to Newsweek. [The New York Police Department] is not the KKK, he offers.",
+      "hypothesis": "Rudolph Giuliani made a statement to the Newsweek concerning his handling of the Amadou Diallo shooting.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-344-ar",
+      "pair_id": "xnli-test-344",
+      "source_row": 344,
+      "language": "ar",
+      "premise": "دقيقة واحدة هو يقرع على المكتب، القادم هو جيد، يكون ذلك على مكتبي، داه ، داه ، داه ، داه ، داه.",
+      "hypothesis": "إنّه ثابت للغاية وهادئ.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-344-en",
+      "pair_id": "xnli-test-344",
+      "source_row": 344,
+      "language": "en",
+      "premise": "One minute he's banging on the desk, the next he's OK, have it on my desk, dah, dah, dah, dah, dah.",
+      "hypothesis": "He is very consistent and calm.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4550-ar",
+      "pair_id": "xnli-test-4550",
+      "source_row": 4550,
+      "language": "ar",
+      "premise": "إذا وجدت أي أسماء غريبة مثل (ميسوري) أو أسماء مفاجئة مثل ( نبراسكا، تكساس، تينيسي...)  أكتبهم فقط. إلا في حالة كان هناك خطأ مطبعي (ميسيسيبي).",
+      "hypothesis": "سيربرايز هو اسم مدينة في نبراسكا.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-4550-en",
+      "pair_id": "xnli-test-4550",
+      "source_row": 4550,
+      "language": "en",
+      "premise": "If you find any Peculiar (Missouri) names or ones that comes as a Surprise (Nebraska), just Jot 'Em Down (Texas) Safely (Tennessee)--unless, of course, they are Errata (Mississippi).",
+      "hypothesis": "Surprise is a town in Nebraska.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-3390-ar",
+      "pair_id": "xnli-test-3390",
+      "source_row": 3390,
+      "language": "ar",
+      "premise": "الانتقال إلى سان دييجو بحلول 4 فبراير، جاء الحازمي ومايدار إلى سان دييغو من لوس أنجلوس، ربما الذي أوصلهما بالسيارة كان مهدار عبد الله.",
+      "hypothesis": "الحزمي و محضار هما أخوان.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3390-en",
+      "pair_id": "xnli-test-3390",
+      "source_row": 3390,
+      "language": "en",
+      "premise": "The Move to San Diego By February 4, Hazmi and Mihdhar had come to San Diego from Los Angeles, possibly driven by Mohdar Abdullah.",
+      "hypothesis": "Hazmi and Mihdhar are brothers.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1408-ar",
+      "pair_id": "xnli-test-1408",
+      "source_row": 1408,
+      "language": "ar",
+      "premise": "يظهر الإيمان بالمعتقدات الخاطئة أن الأطفال يتعاملون مع المعتقدات على أنها تفسيرات وليست مجرد انعكاسات للحقائق.",
+      "hypothesis": "يرى الأطفال المعتقدات على أنها سخافات ولا تستند إلى الواقع.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1408-en",
+      "pair_id": "xnli-test-1408",
+      "source_row": 1408,
+      "language": "en",
+      "premise": "Mastery of false belief shows that children regard beliefs as interpretations, not just re-ections, of reality.",
+      "hypothesis": "Children see beliefs as nonsense not grounded in reality.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-3349-ar",
+      "pair_id": "xnli-test-3349",
+      "source_row": 3349,
+      "language": "ar",
+      "premise": "وصل حزناوي (الرحلة 93) وويل الشيهري (الرحلة 11) إلى ميامي من لندن في 8 يونيو 2001 باستخدام نفس الطريق الذي اتبعه الثلاثة السابقون.",
+      "hypothesis": "هبطت كلتا الطائرتين في ميامي في 8 يونيو 2001.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-3349-en",
+      "pair_id": "xnli-test-3349",
+      "source_row": 3349,
+      "language": "en",
+      "premise": "Haznawi (Flight 93) and Wail al Shehri (Flight 11) arrived in Miami from London on June 8, 2001 using the same route as the previous three.",
+      "hypothesis": "Both flights landed in Miami on June 8, 2001.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-1802-ar",
+      "pair_id": "xnli-test-1802",
+      "source_row": 1802,
+      "language": "ar",
+      "premise": "هل تعرف يا بيتر، بأن الملك جوليان وحده قد وقف بين الأسقف وحقده لك.",
+      "hypothesis": "يكره المطران بيتر لأنه غير مستقر عاطفيا.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1802-en",
+      "pair_id": "xnli-test-1802",
+      "source_row": 1802,
+      "language": "en",
+      "premise": "You know, Peter, that it is Lord Julian alone has stood between Bishop and his hate of you.",
+      "hypothesis": "The Bishop hates Peter because he is emotionally unstable.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-535-ar",
+      "pair_id": "xnli-test-535",
+      "source_row": 535,
+      "language": "ar",
+      "premise": "حسنًا هذا شيء جيد، أنا لم أفكر في هذا، نعم",
+      "hypothesis": "هذه نقطة جيدة",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-535-en",
+      "pair_id": "xnli-test-535",
+      "source_row": 535,
+      "language": "en",
+      "premise": "well that's a good one i hadn't thought about that yeah",
+      "hypothesis": "That's a good point.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-3862-ar",
+      "pair_id": "xnli-test-3862",
+      "source_row": 3862,
+      "language": "ar",
+      "premise": "فعلا، تاريخ دعمك لمجتمع لويل نوسوبوم يشفع لك.",
+      "hypothesis": "استفادت جمعية لوويل نوسباوم  من دعمكم للعقد الماضي.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3862-en",
+      "pair_id": "xnli-test-3862",
+      "source_row": 3862,
+      "language": "en",
+      "premise": "Indeed, your history of support of the Lowell Nussbaum Society pays much more than your rent.",
+      "hypothesis": "The Lowell Nussbaum Society has benefited from your support for the past decade.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-195-ar",
+      "pair_id": "xnli-test-195",
+      "source_row": 195,
+      "language": "ar",
+      "premise": "كان هذا هو الهدف",
+      "hypothesis": "أنني لا أفهم هذه النقطة.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-195-en",
+      "pair_id": "xnli-test-195",
+      "source_row": 195,
+      "language": "en",
+      "premise": "I mean that was the whole point.",
+      "hypothesis": "I don't understand the point.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-3798-ar",
+      "pair_id": "xnli-test-3798",
+      "source_row": 3798,
+      "language": "ar",
+      "premise": "لا تتلقى مستشفياتنا التعليمية وبرامج الأبحاث أي دعم من الدولة.",
+      "hypothesis": "لا يمكن لبرنامج البحث الحصول على تمويل من الدولة لأنهم يجربون الناس.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3798-en",
+      "pair_id": "xnli-test-3798",
+      "source_row": 3798,
+      "language": "en",
+      "premise": "Our teaching hospitals and research programs receive no state support.",
+      "hypothesis": "The research program can't get funding from the state because they experiment on people.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3628-ar",
+      "pair_id": "xnli-test-3628",
+      "source_row": 3628,
+      "language": "ar",
+      "premise": "سنحقق الهدف.",
+      "hypothesis": "سنصل إلى طموحنا.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-3628-en",
+      "pair_id": "xnli-test-3628",
+      "source_row": 3628,
+      "language": "en",
+      "premise": "we will make the goal.",
+      "hypothesis": "We will reach our aspiration.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-4946-ar",
+      "pair_id": "xnli-test-4946",
+      "source_row": 4946,
+      "language": "ar",
+      "premise": ". الجري صعودًا وهبوطًا.",
+      "hypothesis": "المشي صعودا وهبوطا.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4946-en",
+      "pair_id": "xnli-test-4946",
+      "source_row": 4946,
+      "language": "en",
+      "premise": ". running up and down.",
+      "hypothesis": "Walking up and down.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-2220-ar",
+      "pair_id": "xnli-test-2220",
+      "source_row": 2220,
+      "language": "ar",
+      "premise": "بنيت في ق.م. 688-691 ، وهي مزينة بالآلاف من بلاط السيراميك الفارسي ذي اللون الأزرق والأصفر ، مع الكتب المقدسة القرآنية على الأعتاب.",
+      "hypothesis": "تحتوي الجدران على 100000 حجراً.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-2220-en",
+      "pair_id": "xnli-test-2220",
+      "source_row": 2220,
+      "language": "en",
+      "premise": "Built in a.d. 688-691, it is decorated in thousands of exquisite, predominantly blue and yellow, Persian ceramic tiles, with Koranic scriptures on the lintels.",
+      "hypothesis": "The walls have 100000 tiles on them.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-2594-ar",
+      "pair_id": "xnli-test-2594",
+      "source_row": 2594,
+      "language": "ar",
+      "premise": "تم استخدام النماذج الأولية من قبل الشركات التجارية طوال عملية تطوير المنتج وليس فقط أثناء تكامل المنتج.",
+      "hypothesis": "الشركات الصناعية تستخدم النماذج الأولية.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-2594-en",
+      "pair_id": "xnli-test-2594",
+      "source_row": 2594,
+      "language": "en",
+      "premise": "Prototypes were used by commercial companies throughout the product development process and not just during product integration.",
+      "hypothesis": "The commercial companies use prototypes.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-1938-ar",
+      "pair_id": "xnli-test-1938",
+      "source_row": 1938,
+      "language": "ar",
+      "premise": "أتساءل ، الآن ، قال في الوقت الحاضر ، إذا كان الأذى من عملك.",
+      "hypothesis": "هو لم يتسائل قط إذا كان هذا الشر من عملك .",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1938-en",
+      "pair_id": "xnli-test-1938",
+      "source_row": 1938,
+      "language": "en",
+      "premise": "I wonder, now,  he said presently,  if the mischief is of your working.",
+      "hypothesis": "He never questioned whether the mischief was your doing.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-197-ar",
+      "pair_id": "xnli-test-197",
+      "source_row": 197,
+      "language": "ar",
+      "premise": "كان هذا هو الهدف",
+      "hypothesis": "فهمت النقطة.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-197-en",
+      "pair_id": "xnli-test-197",
+      "source_row": 197,
+      "language": "en",
+      "premise": "I mean that was the whole point.",
+      "hypothesis": "I understood the point.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-3546-ar",
+      "pair_id": "xnli-test-3546",
+      "source_row": 3546,
+      "language": "ar",
+      "premise": "مدرسة التمريض تحتاج إلى مِنحك السخية للاستمرار في تميزها التعليمي.",
+      "hypothesis": "يرجى التبرع بمبلغ 100 مليون دولار إلى كلية التمريض ، وإلا ستفقد تمثالك التذكاري.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3546-en",
+      "pair_id": "xnli-test-3546",
+      "source_row": 3546,
+      "language": "en",
+      "premise": "School of Nursing needs your generous gifts to continue and uphold its educational excellence.",
+      "hypothesis": "Please donate $100 million to the School of Nursing, or you will lose your commemorative statue.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-2465-ar",
+      "pair_id": "xnli-test-2465",
+      "source_row": 2465,
+      "language": "ar",
+      "premise": "أمستردام لديها العديد من الجوانب، تقريبا بعدد المجوهرات التي تشتهر بها المدينة.",
+      "hypothesis": "أمستردام بسيطة للغاية.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-2465-en",
+      "pair_id": "xnli-test-2465",
+      "source_row": 2465,
+      "language": "en",
+      "premise": "Amsterdam has many facets, almost as many as the diamonds for which the city is famous.",
+      "hypothesis": "Amsterdam is very basic.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1179-ar",
+      "pair_id": "xnli-test-1179",
+      "source_row": 1179,
+      "language": "ar",
+      "premise": "في كثير من الأحيان ، يشار إلى هذه اللوحات الجدارية في وقت مبكر على أنها فن الشعب.",
+      "hypothesis": "وصف النقاد في هذا الوقت اللوحات الجدارية بفن الشعب.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1179-en",
+      "pair_id": "xnli-test-1179",
+      "source_row": 1179,
+      "language": "en",
+      "premise": "Often, these early murals were referred to as a people's art.",
+      "hypothesis": "Critics at the time described murals as people's art.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-183-ar",
+      "pair_id": "xnli-test-183",
+      "source_row": 183,
+      "language": "ar",
+      "premise": "تلقيت أوامر للذهاب إلى ديل ريو ، تكساس ، لذلك عندما وصلت هناك ، حسنا ، اكتشفت أنني يجب أن أذهب إلى قاعدة سلاح الجو في لافلين.",
+      "hypothesis": "لقد تم ارسالي إلى ديل ريو، تيكساس للعمل.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-183-en",
+      "pair_id": "xnli-test-183",
+      "source_row": 183,
+      "language": "en",
+      "premise": "I got orders to go to Del Rio, TX, so when I arrived out there, well, I found out I had to go to Laughlin Air Force Base.",
+      "hypothesis": "I got sent to Del Rio, Texas for work.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-1644-ar",
+      "pair_id": "xnli-test-1644",
+      "source_row": 1644,
+      "language": "ar",
+      "premise": "كنت مجرد رجل سيء الحظ ذلك الحين.",
+      "hypothesis": "كان لديك ثروة كبيرة في ذلك الوقت.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1644-en",
+      "pair_id": "xnli-test-1644",
+      "source_row": 1644,
+      "language": "en",
+      "premise": "You were just an unfortunate gentleman then.",
+      "hypothesis": "Back then you had great fortune.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-407-ar",
+      "pair_id": "xnli-test-407",
+      "source_row": 407,
+      "language": "ar",
+      "premise": "على أي حال ، جاءوا مع هذا الاختراع من منظم O2 العالي.",
+      "hypothesis": "هم بعد استطاع لم يحسب خارجا كيف أن يجعل عال o2 منظم.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-407-en",
+      "pair_id": "xnli-test-407",
+      "source_row": 407,
+      "language": "en",
+      "premise": "Anyway, they come up with this invention of the high O2 regulator.",
+      "hypothesis": "They still couldn't figure out how to make a high O2 regulator.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4327-ar",
+      "pair_id": "xnli-test-4327",
+      "source_row": 4327,
+      "language": "ar",
+      "premise": "لتُغني حظا سعيدا للتوجه إلى أولئك الذين أخاف منهم،",
+      "hypothesis": "أخشى على بعض الناس بسبب المناخ الحالي",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-4327-en",
+      "pair_id": "xnli-test-4327",
+      "source_row": 4327,
+      "language": "en",
+      "premise": "To sing good fortune to come to those I fear for,",
+      "hypothesis": "I am afraid for some people because of the current climate.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-573-ar",
+      "pair_id": "xnli-test-573",
+      "source_row": 573,
+      "language": "ar",
+      "premise": "بما لم يكونوا أكثر الناس براعة في العالم ، لكنهم كانوا أذكياء جدا وأخذوا ااهتمام الناس الذين كانوا على استعداد للدراسة",
+      "hypothesis": "ربما لم يكونوا أذكى لكنهم كانوا ودودين للغاية وكانوا مهتمين بتلك الدراسات.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-573-en",
+      "pair_id": "xnli-test-573",
+      "source_row": 573,
+      "language": "en",
+      "premise": "they probably weren't the most brilliant people in the world but they uh were very personable and took uh a interest in people who were willing to study",
+      "hypothesis": "They may not have been the smartest but they were very friendly and were interested in those that study.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-426-ar",
+      "pair_id": "xnli-test-426",
+      "source_row": 426,
+      "language": "ar",
+      "premise": "و أنا ، أنا لا أعرف الكثير من التفاصيل التى يريدها .",
+      "hypothesis": "لم أكن أعرف إذا كان يريد معلومات حول أوقات السفر.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-426-en",
+      "pair_id": "xnli-test-426",
+      "source_row": 426,
+      "language": "en",
+      "premise": "And I um, I didn't know how much detail he wanted.",
+      "hypothesis": "I didn't know if he wanted information about the travel times.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1296-ar",
+      "pair_id": "xnli-test-1296",
+      "source_row": 1296,
+      "language": "ar",
+      "premise": "هذه هي الطريقة التي نعيشها اليوم, يبدو أن جيري يقول, لم لا يستمتع بذلك؟",
+      "hypothesis": "جيري لا يهتم السعادة.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1296-en",
+      "pair_id": "xnli-test-1296",
+      "source_row": 1296,
+      "language": "en",
+      "premise": "This is the way we live today, Gehry seems to be saying, why not enjoy it?",
+      "hypothesis": "Gehry does not care about happiness.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1343-ar",
+      "pair_id": "xnli-test-1343",
+      "source_row": 1343,
+      "language": "ar",
+      "premise": "96 والآباء والمدربون الذين ينتقدون بدلاً من التشجيع ولا يجعلون اللاعبين ينسون أمر الهزيمة ما يحفز نوع من التوتر في بعض اللعبين الصغار.",
+      "hypothesis": "بعض المدربين يسبب القلق.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-1343-en",
+      "pair_id": "xnli-test-1343",
+      "source_row": 1343,
+      "language": "en",
+      "premise": "96 And parents and coaches who criticize rather than encourage and do not let players forget about defeat prompt intense anxiety in some youngsters.",
+      "hypothesis": "Some coaches cause anxiety.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-1428-ar",
+      "pair_id": "xnli-test-1428",
+      "source_row": 1428,
+      "language": "ar",
+      "premise": "تم ازدراء ثقافة البوشكو - تتميز بالبدل الطويلة وعصابات الشوارع وحياة الليل- في الولايات المتحدة من قبل كل من المجتمعات المكسيكية الأمريكية والأنجلو، وبالمثل في المكسيك من قبل وسائل الإعلام والمثقفين.",
+      "hypothesis": "في الولايات المتحدة الأمريكية يعتقد الأمريكيون المكسيكيون والأنجلو الأمريكيون أن الباتشوكو لا يستحق.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-1428-en",
+      "pair_id": "xnli-test-1428",
+      "source_row": 1428,
+      "language": "en",
+      "premise": "The pachuco was disdained in the U.S. by both the Mexican American and Anglo communities, and likewise in Mexico by the media and the intellectuals.",
+      "hypothesis": "In the United States Mexican Americans and anglo Americans thought the pachuco unworthy.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-279-ar",
+      "pair_id": "xnli-test-279",
+      "source_row": 279,
+      "language": "ar",
+      "premise": "يمكن لأختها الاستفادة من المرور اللبيض، وفي الواقع هي استفادت من المرور للبيض.",
+      "hypothesis": "كانت أختها تمتلك أرطب بشرة في الحي.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-279-en",
+      "pair_id": "xnli-test-279",
+      "source_row": 279,
+      "language": "en",
+      "premise": "Her sister could pass for white, and in fact did pass for white.",
+      "hypothesis": "Her sister had the fairest skin of anyone in the neighborhood.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3483-ar",
+      "pair_id": "xnli-test-3483",
+      "source_row": 3483,
+      "language": "ar",
+      "premise": "قد يكون خالد شيخ محمد قد أمر بن الشيبة بإرسال الأموال إلى موسوي للمساعدة في إعداد موسوي كطيار محتمل بديل للجراح.",
+      "hypothesis": "لم يتكلم خالد الشيخ محمد أبدا مع بن الشيبة.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-3483-en",
+      "pair_id": "xnli-test-3483",
+      "source_row": 3483,
+      "language": "en",
+      "premise": "KSM may have instructed Binalshibh to send money to Moussaoui in order to help prepare Moussaoui as a potential substitute pilot for Jarrah.",
+      "hypothesis": "KSM never spoke to Binalshibh.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4411-ar",
+      "pair_id": "xnli-test-4411",
+      "source_row": 4411,
+      "language": "ar",
+      "premise": "الحفاظ على الإيمان الاندماجي هم من الليبراليين السود مثل الأساتذة هنري ولويس غيتس وكورنيل ويست. وينضم إليهم عالم الاقتصاد الأسود جلين لوري، المحافظ الذي كسر صفوفه لتأييد العمل الإيجابي كسياسة ضرورية.",
+      "hypothesis": "غلين لوري هي مكنسة شارع.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4411-en",
+      "pair_id": "xnli-test-4411",
+      "source_row": 4411,
+      "language": "en",
+      "premise": "Keeping the integrationist faith are black liberals like Professors Henry Louis Gates and Cornel West. Joining them is black economist Glenn Loury, a conservative who broke ranks to endorse affirmative action as a necessary policy.",
+      "hypothesis": "Glenn Loury is a street sweeper.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-3103-ar",
+      "pair_id": "xnli-test-3103",
+      "source_row": 3103,
+      "language": "ar",
+      "premise": "آخرون مختصون فقط بحمل ركاب معينين.",
+      "hypothesis": "من الممكن حمل العديد من الركاب فى هذه الحالة .",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-3103-en",
+      "pair_id": "xnli-test-3103",
+      "source_row": 3103,
+      "language": "en",
+      "premise": "Others related only to carrying specific passengers.",
+      "hypothesis": "Multiple passengers could be carried in these cases.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-4064-ar",
+      "pair_id": "xnli-test-4064",
+      "source_row": 4064,
+      "language": "ar",
+      "premise": "أسقط لامار ألكسندر طلب رئاسته.",
+      "hypothesis": "أُجبر ألكسندر على ترك الدراسة بعد نشر صور محرجة له.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-4064-en",
+      "pair_id": "xnli-test-4064",
+      "source_row": 4064,
+      "language": "en",
+      "premise": "Lamar Alexander dropped his presidential bid.",
+      "hypothesis": "Mr Alexander was forced to drop out after embarrassing pictures of him were published.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1934-ar",
+      "pair_id": "xnli-test-1934",
+      "source_row": 1934,
+      "language": "ar",
+      "premise": "قالت: أبذل قصارى جهدي",
+      "hypothesis": "وقالت إنها لا تفعل أفضل ما لديها.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1934-en",
+      "pair_id": "xnli-test-1934",
+      "source_row": 1934,
+      "language": "en",
+      "premise": "I do my best,  said she.",
+      "hypothesis": "She said that she never does her best.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1398-ar",
+      "pair_id": "xnli-test-1398",
+      "source_row": 1398,
+      "language": "ar",
+      "premise": "بالفعل، إن بايوس جروب مشاركة في صناعتهم واختراعهم.",
+      "hypothesis": "أنفقت Bios Group الكثير من المال الخام على إنشائها.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1398-en",
+      "pair_id": "xnli-test-1398",
+      "source_row": 1398,
+      "language": "en",
+      "premise": "Indeed, Bios Group is involved in inventing and making them.",
+      "hypothesis": "Bios Group has spent a lot of raw money on their creation.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3698-ar",
+      "pair_id": "xnli-test-3698",
+      "source_row": 3698,
+      "language": "ar",
+      "premise": "بمشاركتكم ، نستطيع مساعدة لأطفال - مثل الولد الصغير الذي صورته على  هذه الصفحة - ليصبحوا مواطنين أفضل .",
+      "hypothesis": "نحن نساعد في تحسين حياة الأطفال.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-3698-en",
+      "pair_id": "xnli-test-3698",
+      "source_row": 3698,
+      "language": "en",
+      "premise": "With your involvement, we can help kids - like the little boy pictured on this page-become better citizens.",
+      "hypothesis": "We work to help improve kids' lives.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-1305-ar",
+      "pair_id": "xnli-test-1305",
+      "source_row": 1305,
+      "language": "ar",
+      "premise": "هذا هو السبب في أنه من المقلق إذا كان اللباس والديكور ليسا في وئام.",
+      "hypothesis": "ومن الجميل أن نرى أي انسجام بين اللباس والديكور.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1305-en",
+      "pair_id": "xnli-test-1305",
+      "source_row": 1305,
+      "language": "en",
+      "premise": "That is why it is disconcerting if dress and decor are not in harmony.",
+      "hypothesis": "It is beautiful to see no harmony between dress and decor.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-163-ar",
+      "pair_id": "xnli-test-163",
+      "source_row": 163,
+      "language": "ar",
+      "premise": "لذا ذهبت إلى منزلها ثم اتصلت بهذا الرقم الذي كان من المفترض أن أتصل به عندما وصلت هناك.",
+      "hypothesis": "لقد اتصلت بالرقم عند وصولي لمنزلها.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-163-en",
+      "pair_id": "xnli-test-163",
+      "source_row": 163,
+      "language": "en",
+      "premise": "So I went to her house and then I called in to this number I was supposed to call when I got there.",
+      "hypothesis": "I called the number when I arrived at her house.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-4750-ar",
+      "pair_id": "xnli-test-4750",
+      "source_row": 4750,
+      "language": "ar",
+      "premise": "المقالات الإثنى عشر المجمعة تحت العناوين الرئيسية لسياقات الاستجابة، واستجابة وتواصل المستمع، والنجاح المختلط للقراء المستجبين في التعامل مع الموضوع.",
+      "hypothesis": "هذا الكتاب يجمع أثنى عشر مقالة.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-4750-en",
+      "pair_id": "xnli-test-4750",
+      "source_row": 4750,
+      "language": "en",
+      "premise": "The twelve articles collected under the general rubrics of Contexts of responsiveness, Listener response and communication, and Responsive readers have mixed success in dealing with the subject.",
+      "hypothesis": "There are twelve articles collected together in the book.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1778-ar",
+      "pair_id": "xnli-test-1778",
+      "source_row": 1778,
+      "language": "ar",
+      "premise": "سيكون ذلك لطيف، سيكون الأمر كذلك. للحظة واحدة وقفت أمامه متنفسةُ بسرعة، وبدأ اللون بالانحسار والتدفق على وجنتيها.",
+      "hypothesis": "The lady was anxious because she was in love.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1778-en",
+      "pair_id": "xnli-test-1778",
+      "source_row": 1778,
+      "language": "en",
+      "premise": "‘Twill be a kindness, so it will.   For a moment she stood before him with quickened breathing, the colour ebbing and flowing in her cheeks.",
+      "hypothesis": "The lady was anxious because she was in love.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-4027-ar",
+      "pair_id": "xnli-test-4027",
+      "source_row": 4027,
+      "language": "ar",
+      "premise": "كتبت نانسي غريفين في هوليوود سترايك باك: مايكل آيزنر مدد غصن زيتون لصديقه السابق مايك أوفيتز ، لكن أوفيتز رفض قبول ذلك.",
+      "hypothesis": "كان مايك أوفيتز ومايكل أيزنر أفضل الأصدقاء والشركاء التجاريين طوال حياتهم.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4027-en",
+      "pair_id": "xnli-test-4027",
+      "source_row": 4027,
+      "language": "en",
+      "premise": "Nancy Griffin writes in Hollywood Strikes Back that Michael Eisner extended an olive branch to former friend Mike Ovitz, but Ovitz declined to accept it.",
+      "hypothesis": "Mike Ovitz and Michael Eisner were the best of friends and business partners for their entire lives.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-3448-ar",
+      "pair_id": "xnli-test-3448",
+      "source_row": 3448,
+      "language": "ar",
+      "premise": "لقد قيل لنا أن بيكارد واشكروفت لم يكن لديهم علاقة جيدة.",
+      "hypothesis": "تقول بعض المصادر أن آشكروفت وبيكارد لم ينجحا.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-3448-en",
+      "pair_id": "xnli-test-3448",
+      "source_row": 3448,
+      "language": "en",
+      "premise": "We have been told that Pickard and Ashcroft did not have a good relationship.",
+      "hypothesis": "Some sources say that Ashcroft and Pickard did not get along.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-490-ar",
+      "pair_id": "xnli-test-490",
+      "source_row": 490,
+      "language": "ar",
+      "premise": "المدير، كان يشبه رجلاً ذا شخصية منقسمة.",
+      "hypothesis": "مديري كان سعيداً جداً أو غاضباً جداً.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-490-en",
+      "pair_id": "xnli-test-490",
+      "source_row": 490,
+      "language": "en",
+      "premise": "Boss, he was like with split personality man.",
+      "hypothesis": "My boss was either really happy or really mad.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1221-ar",
+      "pair_id": "xnli-test-1221",
+      "source_row": 1221,
+      "language": "ar",
+      "premise": "في أواخر القرن الثامن عشر كان في الواقع وقت مبسط بشكل رائع.",
+      "hypothesis": "شخص ما يتذكر أواخر القرن الثامن عشر.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-1221-en",
+      "pair_id": "xnli-test-1221",
+      "source_row": 1221,
+      "language": "en",
+      "premise": "The late eighteenth century was indeed a marvelously simplistic time.",
+      "hypothesis": "Someone remembers late eighteenth century.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-3066-ar",
+      "pair_id": "xnli-test-3066",
+      "source_row": 3066,
+      "language": "ar",
+      "premise": "ابتعد المدير عن حزمي و مهدار بدعوى أنه كان مرتابا من الصفقة بأكملها، لكن ليس قبل أن حصلوا على كل الدعم الذي احتاجانه.",
+      "hypothesis": "اتصل المسؤول على الفور بالسلطات ورفض المساعدة في هذه القضية.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-3066-en",
+      "pair_id": "xnli-test-3066",
+      "source_row": 3066,
+      "language": "en",
+      "premise": "Claiming to have been suspicious of the entire transaction, the administrator distanced himself from Hazmi and Mihdhar, but not before they had received the assistance they needed.",
+      "hypothesis": "The administrator immediately contacted the authorities and refused to assist in this case.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-2431-ar",
+      "pair_id": "xnli-test-2431",
+      "source_row": 2431,
+      "language": "ar",
+      "premise": "كانت ساحة دام ليس لها مخرج لأول مرة في تاريخها.",
+      "hypothesis": "كانت ساحة دام دائما غير ساحلية.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-2431-en",
+      "pair_id": "xnli-test-2431",
+      "source_row": 2431,
+      "language": "en",
+      "premise": "Dam Square was landlocked for the first time in its history.",
+      "hypothesis": "Dam Square was always landlocked.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1430-ar",
+      "pair_id": "xnli-test-1430",
+      "source_row": 1430,
+      "language": "ar",
+      "premise": "تم ازدراء ثقافة البوشكو - تتميز بالبدل الطويلة وعصابات الشوارع وحياة الليل- في الولايات المتحدة من قبل كل من المجتمعات المكسيكية الأمريكية والأنجلو، وبالمثل في المكسيك من قبل وسائل الإعلام والمثقفين.",
+      "hypothesis": "كان لدى الباتشوكو العديد من التأثيرات السلبية.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1430-en",
+      "pair_id": "xnli-test-1430",
+      "source_row": 1430,
+      "language": "en",
+      "premise": "The pachuco was disdained in the U.S. by both the Mexican American and Anglo communities, and likewise in Mexico by the media and the intellectuals.",
+      "hypothesis": "The pachuco had many negative effects.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-4399-ar",
+      "pair_id": "xnli-test-4399",
+      "source_row": 4399,
+      "language": "ar",
+      "premise": "قرر(ت) كلينتون التحدث عن مجال مخالف يوم الأربعاء.",
+      "hypothesis": "تحدث كلينتون يوم الاربعاء.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-4399-en",
+      "pair_id": "xnli-test-4399",
+      "source_row": 4399,
+      "language": "en",
+      "premise": "Wednesday, Clinton chose to talk about a different industry.",
+      "hypothesis": "Clinton spoke on Wednesday.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-618-ar",
+      "pair_id": "xnli-test-618",
+      "source_row": 618,
+      "language": "ar",
+      "premise": "صحيح صحيح  لا تقترب من الياردات التسع الكاملة",
+      "hypothesis": "يمكنك فقط إخباري بنهاية القصة.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-618-en",
+      "pair_id": "xnli-test-618",
+      "source_row": 618,
+      "language": "en",
+      "premise": "right right don't go through the whole nine yards and",
+      "hypothesis": "You can just tell me the end of the story.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3950-ar",
+      "pair_id": "xnli-test-3950",
+      "source_row": 3950,
+      "language": "ar",
+      "premise": "على الرغم من أن الأرقام مثيرة للإعجاب ، إلا أن المنح الدراسية غالبًا ما تكون حاسمة في توظيف الطلاب الأوائل ذوي الاحتياجات المالية.",
+      "hypothesis": "نحن لا نقدم المنح الدراسية أو المساعدات المالية للطلاب",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-3950-en",
+      "pair_id": "xnli-test-3950",
+      "source_row": 3950,
+      "language": "en",
+      "premise": "While the numbers are impressive, scholarships often are critical in recruiting the top students with financial need.",
+      "hypothesis": "We don't give scholarships or financial aid to students.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-3990-ar",
+      "pair_id": "xnli-test-3990",
+      "source_row": 3990,
+      "language": "ar",
+      "premise": "يرجى الإعطاء الآن حتى نتمكن من الاستمرار في الرد عليك وعلى أصدقائك وجيرانك.",
+      "hypothesis": "إذا تبرعت الآن ، فسوف يساعدنا ذلك كثيرًا",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-3990-en",
+      "pair_id": "xnli-test-3990",
+      "source_row": 3990,
+      "language": "en",
+      "premise": "Please give now so we can go on giving back to you and your friends and neighbors.",
+      "hypothesis": "If you donate now it will help us a lot.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-2818-ar",
+      "pair_id": "xnli-test-2818",
+      "source_row": 2818,
+      "language": "ar",
+      "premise": "قد يؤدي الشراء المتزايد إلى الحد من المخاطر من خلال تحديد المشكلات السابقة، مما يسمح بتغيير أو تصحيح أكثر سهولة.",
+      "hypothesis": "ستزيد عمليات الشراء المتزايدة من المخاطر",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-2818-en",
+      "pair_id": "xnli-test-2818",
+      "source_row": 2818,
+      "language": "en",
+      "premise": "Incremental purchasing may limit risks by identifying problems earlier, which allows for easier change or correction.",
+      "hypothesis": "Incremental purchasing will increase risks.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-2334-ar",
+      "pair_id": "xnli-test-2334",
+      "source_row": 2334,
+      "language": "ar",
+      "premise": "الميزة الأسطورية للمبنى هي grasshopper weathervane.",
+      "hypothesis": "يتلقّى البناية ضخم حديد طقس ريشة.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-2334-en",
+      "pair_id": "xnli-test-2334",
+      "source_row": 2334,
+      "language": "en",
+      "premise": "The building's most legendary feature is the grasshopper weathervane.",
+      "hypothesis": "The building has a huge iron weathervane.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-4309-ar",
+      "pair_id": "xnli-test-4309",
+      "source_row": 4309,
+      "language": "ar",
+      "premise": "إن سؤال اليوم يذكرني بالوقت الوحيد الذي ذهبت فيه إلى مهرجان عيد الميلاد في قاعة موسيقى إذاعة المدينة، الذي يقدم فيه ، من بين أشياء أخرى ، شيئًا يسمى المهد الحي.",
+      "hypothesis": "ذهبت إلى موكب الكريستمس لرؤية المهد الحي",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-4309-en",
+      "pair_id": "xnli-test-4309",
+      "source_row": 4309,
+      "language": "en",
+      "premise": "Today's question reminds me of the one and only time I went to the Radio City Music Hall Christmas Pageant, at which, among other things, they offer something called the Living Nativity.",
+      "hypothesis": "I wente to the christmas pagent to see the living nativity.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-1709-ar",
+      "pair_id": "xnli-test-1709",
+      "source_row": 1709,
+      "language": "ar",
+      "premise": "ولكن على الرغم من أنه كان يضحك ، فقد كان يعرف كذلك أن أثناء ذهابه إلى الشاطئ في ذلك الصباح كان يحمل حياته في يديه.",
+      "hypothesis": "كان هناك أشخاص على الشاطئ أرادوا قتله.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1709-en",
+      "pair_id": "xnli-test-1709",
+      "source_row": 1709,
+      "language": "en",
+      "premise": "But laugh though he might, he knew as well as Pitt that in going ashore that morning he carried his life in his hands.",
+      "hypothesis": "There were people on shore who wanted to kill him.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-2578-ar",
+      "pair_id": "xnli-test-2578",
+      "source_row": 2578,
+      "language": "ar",
+      "premise": "حققت جهود ساوث كارولينا التعاونية نجاحًا آخر في العام التالي.",
+      "hypothesis": "عمل فريق كارولينا الجنوبية معًا.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-2578-en",
+      "pair_id": "xnli-test-2578",
+      "source_row": 2578,
+      "language": "en",
+      "premise": "South Carolina's collaborative efforts produced another success the following year.",
+      "hypothesis": "SC worked together.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-876-ar",
+      "pair_id": "xnli-test-876",
+      "source_row": 876,
+      "language": "ar",
+      "premise": "نعم أغلب الوقت عندما ترى حافلة، أنت تعلم، الحافلات التي تعمل بالديزل، تلك جزيئات كربونية، وثاني أكسيد الكربون وبخار ماء",
+      "hypothesis": "يتم تشغيل جميع الحافلات عن طريق البروبان.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-876-en",
+      "pair_id": "xnli-test-876",
+      "source_row": 876,
+      "language": "en",
+      "premise": "right well most most of the time when you see bus uh you know the buses with the diesel that's uh those are carbon particles and uh carbon dioxide and water vapor",
+      "hypothesis": "Buses are all powered by propane.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1355-ar",
+      "pair_id": "xnli-test-1355",
+      "source_row": 1355,
+      "language": "ar",
+      "premise": "يتخيلون مفهوم ثنائي للحكومة ’الفرد ضد الدولة.",
+      "hypothesis": "ديناميكية الحكومة المتخيلة كانت ديناميكية الشعب مقابل الدولة.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-1355-en",
+      "pair_id": "xnli-test-1355",
+      "source_row": 1355,
+      "language": "en",
+      "premise": "They imagine a dyadic conception of government'the individual pitted against the state.",
+      "hypothesis": "The imagined government dynamic was that of the people versus the state.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-1627-ar",
+      "pair_id": "xnli-test-1627",
+      "source_row": 1627,
+      "language": "ar",
+      "premise": "أدركت أنها ربما أثارت غضبه بنفسها.",
+      "hypothesis": "كان سعيدًا جدًا ، لذلك لم تكن قلقة من غضبه.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1627-en",
+      "pair_id": "xnli-test-1627",
+      "source_row": 1627,
+      "language": "en",
+      "premise": "She realized that perhaps she had, herself, provoked his anger.",
+      "hypothesis": "He was very happy, so she wasn't worried about his anger.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-2784-ar",
+      "pair_id": "xnli-test-2784",
+      "source_row": 2784,
+      "language": "ar",
+      "premise": "قام مورد نظام SCR الألماني بتركيب SCR على جزء كبير من السعة الألمانية في فترات انقطاع تتكون من أقل من أربعة أسابيع.",
+      "hypothesis": "يوجد نظام SCR الألماني في أوروبا منذ 20 عامًا.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-2784-en",
+      "pair_id": "xnli-test-2784",
+      "source_row": 2784,
+      "language": "en",
+      "premise": "A German SCR system supplier installed SCR on a significant portion of the German capacity within outage periods consisting of less than four weeks.",
+      "hypothesis": "A German SCR system has been in Europe for 20 years.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3905-ar",
+      "pair_id": "xnli-test-3905",
+      "source_row": 3905,
+      "language": "ar",
+      "premise": "حتى في ظل استمرار سخاء المانحين، لا تزال هناك بعض من برامج المتحف وعملياته التي لا تتلقى أي تمويل كل عام.",
+      "hypothesis": "المتحف خسر 500.000 دولار هذا العام.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3905-en",
+      "pair_id": "xnli-test-3905",
+      "source_row": 3905,
+      "language": "en",
+      "premise": "Even with the continuing generosity of donors, the Museum has programs and operations that go unfunded each year.",
+      "hypothesis": "The museum is $500,000 short this year.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-857-ar",
+      "pair_id": "xnli-test-857",
+      "source_row": 857,
+      "language": "ar",
+      "premise": "نعم أنت هناك أنت تعرف عادة هناك لدي مزرعة على بعد 100 ميل شرقا من هنا في ولاية تكساس الشرقية",
+      "hypothesis": ".لم يسبق لي أن ذهبت أبدًا إلى تكساس",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-857-en",
+      "pair_id": "xnli-test-857",
+      "source_row": 857,
+      "language": "en",
+      "premise": "yeah there you you know usually there's uh i have a a farm a hundred miles east of here in East Texas",
+      "hypothesis": "I have never been to Texas",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-2758-ar",
+      "pair_id": "xnli-test-2758",
+      "source_row": 2758,
+      "language": "ar",
+      "premise": "يوضح الشكل التالي الهياكل التنظيمية المركزية واللامركزية التقليدية ، بالمقارنة مع التركيبة المختلطة التي تستخدمها المنظمات الرائدة اليوم.",
+      "hypothesis": "تستخدم المنظمات الرائدة نموذجًا مختلطًا.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-2758-en",
+      "pair_id": "xnli-test-2758",
+      "source_row": 2758,
+      "language": "en",
+      "premise": "The following figure illustrates traditional centralized and decentralized organizational structures, in comparison with the hybrid combination used by leading organizations today.",
+      "hypothesis": "Leading organizations use a hybrid model.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-3618-ar",
+      "pair_id": "xnli-test-3618",
+      "source_row": 3618,
+      "language": "ar",
+      "premise": "جاءت 17 ٪ من ميزانية تشغيل المتحف العام الماضي من مساهمات المانحين المخلصين.",
+      "hypothesis": "أقل من ربع ميزانية تشغيل المتحف في العام الماضي جاءت من التبرعات.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-3618-en",
+      "pair_id": "xnli-test-3618",
+      "source_row": 3618,
+      "language": "en",
+      "premise": "Last year, 17% of the Museum's operating budget came from loyal donors' contributions.",
+      "hypothesis": "Less than a quarter of the Museum's operating budget last year came from donations.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-2243-ar",
+      "pair_id": "xnli-test-2243",
+      "source_row": 2243,
+      "language": "ar",
+      "premise": "أحد السجناء العائدين للجولة بصحبة مرشد من المستغرب، والبعض الآخر، من الحنين إلى الماضي قال إن الطعام كان أفضل من تناوله في العديد من فنادق سان فرانسيسكو.",
+      "hypothesis": "وقال أحد السجناء إنه سيأكل الطعام كل يوم إذا أمكنه ذلك.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-2243-en",
+      "pair_id": "xnli-test-2243",
+      "source_row": 2243,
+      "language": "en",
+      "premise": "One inmate returning for the guided tour surprisingly, some do, out of nostalgia said the food was better than he had eaten in many San Francisco hotels.",
+      "hypothesis": "One prisoner said he would eat the food every day if he could.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1517-ar",
+      "pair_id": "xnli-test-1517",
+      "source_row": 1517,
+      "language": "ar",
+      "premise": "هناك ، وعلى بعد ليس أكثر من ثلاث أميال ، كان جدار أرضي غير مستوٍ من الخضرة النضرة التي  ملأت الأفق.",
+      "hypothesis": "لم يتمكنوا من رؤية أي أرض لأميال ، فقط المحيط اللا .منتهي",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1517-en",
+      "pair_id": "xnli-test-1517",
+      "source_row": 1517,
+      "language": "en",
+      "premise": "There, not more than three miles away, was land--an uneven wall of vivid green that filled the western horizon.",
+      "hypothesis": "They could not see any land for miles, only unending ocean.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1708-ar",
+      "pair_id": "xnli-test-1708",
+      "source_row": 1708,
+      "language": "ar",
+      "premise": "ولكن على الرغم من أنه كان يضحك ، فقد كان يعرف كذلك أن أثناء ذهابه إلى الشاطئ في ذلك الصباح كان يحمل حياته في يديه.",
+      "hypothesis": "كان من الخطر عليه أن يذهب إلى الشاطئ.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-1708-en",
+      "pair_id": "xnli-test-1708",
+      "source_row": 1708,
+      "language": "en",
+      "premise": "But laugh though he might, he knew as well as Pitt that in going ashore that morning he carried his life in his hands.",
+      "hypothesis": "It was dangerous for him to go to shore.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-4576-ar",
+      "pair_id": "xnli-test-4576",
+      "source_row": 4576,
+      "language": "ar",
+      "premise": "الفانيلا , المستخلصة من بذور النباتات الاستوائية, تم استعارتها من الفانيلا الإسبانية , والتي تدل على الزهرة ، أو الثمرة، أو النكهة.",
+      "hypothesis": "تم تسمية الفانيلا سندا لكلمة هولندية.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4576-en",
+      "pair_id": "xnli-test-4576",
+      "source_row": 4576,
+      "language": "en",
+      "premise": "Vanilla , extracted from the seedpods of a tropical plant, was borrowed from Spanish vainilla , which denoted the flower, the pod, or the flavoring.",
+      "hypothesis": "Vanilla is named after a Dutch word.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-999-ar",
+      "pair_id": "xnli-test-999",
+      "source_row": 999,
+      "language": "ar",
+      "premise": "ولكن بغض النظر عن ذلك، آمل أن يكون الجو دافئًا وليس باردًا جدًا وربما يكون هناك ثلوج صغيرة في ليلة عيد الميلاد أو شيء لطيف ولكن لا يبدو هذا جيدًا",
+      "hypothesis": "أسمع أننا سنتعرض لبعض الأمطار هذا الأسبوع.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-999-en",
+      "pair_id": "xnli-test-999",
+      "source_row": 999,
+      "language": "en",
+      "premise": "but aside from that i hope it's still warm not too cold maybe maybe maybe well maybe a little snow on Christmas Eve or something would be nice but it doesn't look good",
+      "hypothesis": "I hear we are getting some rain this week.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-4971-ar",
+      "pair_id": "xnli-test-4971",
+      "source_row": 4971,
+      "language": "ar",
+      "premise": "هذا لا يعني أن التقليد الغربي يحتكر اللسانية.",
+      "hypothesis": "الطيبة ليست ملكًا خاصًا فقط بالتقاليد الغربية.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-4971-en",
+      "pair_id": "xnli-test-4971",
+      "source_row": 4971,
+      "language": "en",
+      "premise": "This is not to say that the Western tradition has a monopoly on Niceness.",
+      "hypothesis": "Niceness is not solely owned by Western tradition.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-3447-ar",
+      "pair_id": "xnli-test-3447",
+      "source_row": 3447,
+      "language": "ar",
+      "premise": "لقد قيل لنا أن بيكارد واشكروفت لم يكن لديهم علاقة جيدة.",
+      "hypothesis": "كان معروفاً أن بيكارد و أشكروفت كانوأ أصدقاء حميمين جداً.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-3447-en",
+      "pair_id": "xnli-test-3447",
+      "source_row": 3447,
+      "language": "en",
+      "premise": "We have been told that Pickard and Ashcroft did not have a good relationship.",
+      "hypothesis": "Pickard and Ashcroft were known to be very close friends.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-2275-ar",
+      "pair_id": "xnli-test-2275",
+      "source_row": 2275,
+      "language": "ar",
+      "premise": "تم استبدال قاعة مدينة الفنون الجميلة بمركز الحكومة القريب.",
+      "hypothesis": "صالة المدينة والأبنية الأخرى تم استبدالها بمركز حكومي.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-2275-en",
+      "pair_id": "xnli-test-2275",
+      "source_row": 2275,
+      "language": "en",
+      "premise": "The Beaux Arts City Hall has been replaced by nearby Government Center.",
+      "hypothesis": "The city hall, and other buildings, were replaced by a government center.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-2183-ar",
+      "pair_id": "xnli-test-2183",
+      "source_row": 2183,
+      "language": "ar",
+      "premise": "يمكنك شراء العديد من هذه لإنشاء خط خاص بك من الجملونات الضيقة.",
+      "hypothesis": "يمكنك شراء تلك القمم لسقوف القلعة.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-2183-en",
+      "pair_id": "xnli-test-2183",
+      "source_row": 2183,
+      "language": "en",
+      "premise": "You can buy several of these to make your own line of narrow gables.",
+      "hypothesis": "You can buy those peaks for the castle roofs.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3309-ar",
+      "pair_id": "xnli-test-3309",
+      "source_row": 3309,
+      "language": "ar",
+      "premise": "لم نقم بمقابلة كل شخص لديه دراية أو العثور على أي ورقة ذات صلة.",
+      "hypothesis": "تم العثور على كل قطعة من الورق ذات الصلة وقدمت.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-3309-en",
+      "pair_id": "xnli-test-3309",
+      "source_row": 3309,
+      "language": "en",
+      "premise": "We have not interviewed every knowledgeable person or found every relevant piece of paper.",
+      "hypothesis": "Every relevant piece of paper has been found and filed.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-41-ar",
+      "pair_id": "xnli-test-41",
+      "source_row": 41,
+      "language": "ar",
+      "premise": "سوف يتحدث معنا اليوم عن( اس اس) الثالثة ، )يو٢ ) كويك و بلاك بيرد الطائر الأسود)  .",
+      "hypothesis": "يتحدث عن ثلاثة أشياء.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-41-en",
+      "pair_id": "xnli-test-41",
+      "source_row": 41,
+      "language": "en",
+      "premise": "Today he is going to talk to us about the Third SS, the U2 Quick and the Blackbird.",
+      "hypothesis": "He talks about three things.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-1288-ar",
+      "pair_id": "xnli-test-1288",
+      "source_row": 1288,
+      "language": "ar",
+      "premise": "المبدأ العام للمساواة في المعاملة، كما شرحناها، يفسح المجال للجدل الذي يقضي بالحد من حرية التعبير.",
+      "hypothesis": "الناس خائفون من أن يتم فضحهم.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1288-en",
+      "pair_id": "xnli-test-1288",
+      "source_row": 1288,
+      "language": "en",
+      "premise": "The general principle of equal treatment, as we have elaborated it, lends itself to the argument for limiting freedom of speech.",
+      "hypothesis": "People are afraid of being exposed.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1614-ar",
+      "pair_id": "xnli-test-1614",
+      "source_row": 1614,
+      "language": "ar",
+      "premise": "قد تكون مصيبًا، وقد تكون مخطئًا.",
+      "hypothesis": "أنت مخطئ بالتأكيد",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1614-en",
+      "pair_id": "xnli-test-1614",
+      "source_row": 1614,
+      "language": "en",
+      "premise": "You may be right, and you may be wrong.",
+      "hypothesis": "You are definitely wrong.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4664-ar",
+      "pair_id": "xnli-test-4664",
+      "source_row": 4664,
+      "language": "ar",
+      "premise": "تتحول (اى ) الى كلا من ( دى ) أو ( تى ) فى  الغرض ( سى ) .",
+      "hypothesis": "يجب أن يكون هناك المزيد من c في الهدف من d.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-4664-en",
+      "pair_id": "xnli-test-4664",
+      "source_row": 4664,
+      "language": "en",
+      "premise": "(a) Change each d or t in the target to c.",
+      "hypothesis": "There should be more c's in the target than d's.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-4587-ar",
+      "pair_id": "xnli-test-4587",
+      "source_row": 4587,
+      "language": "ar",
+      "premise": "في مواجهة هذا الموقف وما إلى ذلك، اعترف البريطانيون باحترامهم من خلال استغلال الكلمة.",
+      "hypothesis": "ليس لدى البريطانيين احترام للغير.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4587-en",
+      "pair_id": "xnli-test-4587",
+      "source_row": 4587,
+      "language": "en",
+      "premise": "Confronted with this attitude and somewhat awed, the British acknowledged their respect by capitalizing the word.",
+      "hypothesis": "The British had no respect.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4951-ar",
+      "pair_id": "xnli-test-4951",
+      "source_row": 4951,
+      "language": "ar",
+      "premise": "لقد نشأت (جنوب لكونها نشأت من قبل الوالدين) حيث كانت محطة القطار ، أو مستودع ،  ديي-بو",
+      "hypothesis": "في الجنوب، يشار إلى محطات القطار كـدي بوت وتلفظ دي-بو.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-4951-en",
+      "pair_id": "xnli-test-4951",
+      "source_row": 4951,
+      "language": "en",
+      "premise": "I was raised (Southern for being brought up by one's parents) where the train station, or depot, was the DEE-po.",
+      "hypothesis": "In the South, train stations are referred to as the depot, and pronounced DEE-po.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-4118-ar",
+      "pair_id": "xnli-test-4118",
+      "source_row": 4118,
+      "language": "ar",
+      "premise": "عندما تعمل هذه التقنية، ستكتب قصة قوية، على الرغم من أنه لن يتم الكشف عن موضوعها حتى الفقرة الثالثة.",
+      "hypothesis": "باستخدام أسلوب كتابة القصة ، فإنك تخاطر بقراءة القراء لفائدتك أو الخلط ، لأن الموضوع لا يتم الكشف عنه حتى الفقرة الثالثة.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-4118-en",
+      "pair_id": "xnli-test-4118",
+      "source_row": 4118,
+      "language": "en",
+      "premise": "When this technique works, you get a powerful story, albeit one whose subject is not revealed until around the third paragraph.",
+      "hypothesis": "With this story writing technique, you risk your readers losing interest or being confused, because the subject isn't revealed until the third paragraph.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1640-ar",
+      "pair_id": "xnli-test-1640",
+      "source_row": 1640,
+      "language": "ar",
+      "premise": "من طرفي لم أفعل شيئًا على الإطلاق أشعر بالخجل منه، مع الأخذ في الاعتبار الاستفزاز الذي تلقيته. تعثرت نظرتها، وسقطت أمام نفسه وهو الأمر الذي كان يقصده.",
+      "hypothesis": "لم أفعل شيئًا على الإطلاق لأخجل منه لأنني استفزت بشدة.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1640-en",
+      "pair_id": "xnli-test-1640",
+      "source_row": 1640,
+      "language": "en",
+      "premise": "In my own I've done nothing at all that I am ashamed of, considering the provocation I received.   Her glance faltered, and fell away before his own that was so intent.",
+      "hypothesis": "I've done nothing at all that I am ashamed of because I was heavily provoked.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-978-ar",
+      "pair_id": "xnli-test-978",
+      "source_row": 978,
+      "language": "ar",
+      "premise": "نعم هذا هو شيء آخر لا أفهمه هو أشياء مثل بيع التكنولوجيا واه حتى الأجهزة العسكرية للحكومات الأجنبية ومن ثم إسقاط ديونهم",
+      "hypothesis": "لا أفهم كيف يستطيع شخص ما بيع التكنولوجيا والمعدات الحربية لحكومة أجنبية ومن ثم عدم الاهتمام لديونه.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-978-en",
+      "pair_id": "xnli-test-978",
+      "source_row": 978,
+      "language": "en",
+      "premise": "yeah that's another thing i don't understand is is is things like selling technology and uh even military hardware to foreign governments and then forgiving their debt",
+      "hypothesis": "It doesnt make sense to me how someone can sell technology and military hardware to a foreign government and then pay no mind to their debt.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-3591-ar",
+      "pair_id": "xnli-test-3591",
+      "source_row": 3591,
+      "language": "ar",
+      "premise": "إن علاقة غرامي مع  آي آر تي هي علاقة طويلة.",
+      "hypothesis": "بالطبع أحتقر معهد توظيف المعلم.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-3591-en",
+      "pair_id": "xnli-test-3591",
+      "source_row": 3591,
+      "language": "en",
+      "premise": "My love affair with the IRT is a long one.",
+      "hypothesis": "I absolutely despise the IRT.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4312-ar",
+      "pair_id": "xnli-test-4312",
+      "source_row": 4312,
+      "language": "ar",
+      "premise": "إن موقف إدارة كلينتون هو أن الإنترنت يجب أن تكون منطقة فدرالية معفاة من الرسوم الجمركية.",
+      "hypothesis": "إدارة كلينتون لا تدعم تخفيض الضرائب.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-4312-en",
+      "pair_id": "xnli-test-4312",
+      "source_row": 4312,
+      "language": "en",
+      "premise": "The Clinton administration's position is that the Internet should be a federal duty-free zone.",
+      "hypothesis": "The Clinton administration does not support lowering taxes.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-4288-ar",
+      "pair_id": "xnli-test-4288",
+      "source_row": 4288,
+      "language": "ar",
+      "premise": "الآن، هذه ليست القضايا التي يتجاهلها محرري برج العاج.",
+      "hypothesis": "محترفي برج العاج سيكونون مهتمين بهذه القضايا.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-4288-en",
+      "pair_id": "xnli-test-4288",
+      "source_row": 4288,
+      "language": "en",
+      "premise": "Now, these are not issues that ivory-tower libertarians would ignore.",
+      "hypothesis": "Ivory-tower libertarians would be interested in these issues.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-2631-ar",
+      "pair_id": "xnli-test-2631",
+      "source_row": 2631,
+      "language": "ar",
+      "premise": "إن التعليق المؤقت للتمثيل القانوني أثناء غياب العميل  بطلب الإستمرار هو ليس بديل عملي للإنسحاب من القضية رسميا .",
+      "hypothesis": "لا بأس أن تتوقف عن تمثيل العميل.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-2631-en",
+      "pair_id": "xnli-test-2631",
+      "source_row": 2631,
+      "language": "en",
+      "premise": "Temporarily suspending legal representation during a client's absence by seeking a continuance is not a viable alternative to formally withdrawing from the case.",
+      "hypothesis": "It's fine to just stop representing a client.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4199-ar",
+      "pair_id": "xnli-test-4199",
+      "source_row": 4199,
+      "language": "ar",
+      "premise": "ذكر سولفيان مسألة التعامل بالمثل كي ينهي النقاش",
+      "hypothesis": "يستخدم سوليفان المانترا المعاملة المتساوية بعد أن أدرك أنه يفقد الجدل.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-4199-en",
+      "pair_id": "xnli-test-4199",
+      "source_row": 4199,
+      "language": "en",
+      "premise": "Sullivan invokes the mantra of equal treatment as if it's an argument-ender.",
+      "hypothesis": "Sullivan uses the mantra of equal treatment after he realizes that he is losing the argument.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3587-ar",
+      "pair_id": "xnli-test-3587",
+      "source_row": 3587,
+      "language": "ar",
+      "premise": "اسم منظمة (إن وجد) العنوان المدينة، الرمز البريدي للدولة",
+      "hypothesis": "اكتب اسمًا للمؤسسة مع عنوان ورقم هاتف مزيفين.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-3587-en",
+      "pair_id": "xnli-test-3587",
+      "source_row": 3587,
+      "language": "en",
+      "premise": "Name organization (if applicable) Address City, State Zip",
+      "hypothesis": "Make up a name for the organization along with a fake address and phone number.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-2595-ar",
+      "pair_id": "xnli-test-2595",
+      "source_row": 2595,
+      "language": "ar",
+      "premise": "يعمل مدير قسم المعلومات بالشركة مع الرؤساء التنفيذيين أو غيرهم من مديري المعلومات في كل وحدة من وحدات الأعمال لضمان كفاءة وموثوقية وقابلة للتشغيل البيني للشركة بأكملها.",
+      "hypothesis": "يقوم رئيس قسم تكنولوجيا المعلومات بتدريب مدراء تقنية المعلومات الآخرين.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-2595-en",
+      "pair_id": "xnli-test-2595",
+      "source_row": 2595,
+      "language": "en",
+      "premise": "The corporate CIO works with CIOs or other information managers in each of the business units to ensure efficient, reliable, and interoperable technology for the entire corporation.",
+      "hypothesis": "The CIO trains other CIOs.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-3983-ar",
+      "pair_id": "xnli-test-3983",
+      "source_row": 3983,
+      "language": "ar",
+      "premise": "نتيجة لذلك ، أعرف أنك تذهب إلى أماكن  كثيرة بعيدة لتكن عطوفا وتعتني بالأخرين.",
+      "hypothesis": "وأنا أعلم أنك تنفق الكثير لإطعام الجياع من حولك.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3983-en",
+      "pair_id": "xnli-test-3983",
+      "source_row": 3983,
+      "language": "en",
+      "premise": "Consequently, I know that you go to extra lengths to be compassionate and caring to others.",
+      "hypothesis": "I know you spend a lot to fee the hungry people around you.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-2090-ar",
+      "pair_id": "xnli-test-2090",
+      "source_row": 2090,
+      "language": "ar",
+      "premise": "يقدم مسرح درة ستراتو الشعبي للرقص عروض رقص وموسيقى يونانية تقليدية في قاعة تقليدية ذات طراز فولكلوري تقليدي على تل فيلوبابوس من مايو إلى سبتمبر يومياً ما عدا أيام الاثنين.",
+      "hypothesis": "هناك سيكون رقص نشاط على فيلوبابوس تل  من شهر ماي إلى سبتمبر - أيلول.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-2090-en",
+      "pair_id": "xnli-test-2090",
+      "source_row": 2090,
+      "language": "en",
+      "premise": "Dora Stratou Folk Dance Theater presents performances of traditional Greek song, dance, and music at a traditional  folk-village -type auditorium on Philopappos Hill from May to September daily except Mondays.",
+      "hypothesis": "There will be dance activities on Philopappos Hill from May to September.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-2451-ar",
+      "pair_id": "xnli-test-2451",
+      "source_row": 2451,
+      "language": "ar",
+      "premise": "يربط الصرح ما بين كنيستين متطابقتين، فرانزيشير دوم (أو الكاتدرائية الفرنسية) بالشمال، التي شيّدت من أجل المسيحيين الفرنسيين، ودويتشر دوم (الكاتدرائية الألمانية) بالجنوب.",
+      "hypothesis": "الكنائس كلها مختلفة جدا.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-2451-en",
+      "pair_id": "xnli-test-2451",
+      "source_row": 2451,
+      "language": "en",
+      "premise": "The edifice links two identical churches, the Franzesischer Dom (or French Cathedral) to the north, built for the immigrant Huguenots, and the Deutscher Dom (German Cathedral) to the south.",
+      "hypothesis": "The churches are all very different.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-439-ar",
+      "pair_id": "xnli-test-439",
+      "source_row": 439,
+      "language": "ar",
+      "premise": "في أواخر 1962 وصلتني أوامر بالذهاب إلى واشنطن العاصمة.",
+      "hypothesis": "الجيش أرسلني إلى العاصمة على الفور.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-439-en",
+      "pair_id": "xnli-test-439",
+      "source_row": 439,
+      "language": "en",
+      "premise": "Late 1962, uh, I got orders to go to Washington, D.C.",
+      "hypothesis": "The army sent me to DC right away.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-2225-ar",
+      "pair_id": "xnli-test-2225",
+      "source_row": 2225,
+      "language": "ar",
+      "premise": "لاحظ كيف للوحة المخادعة للعين على سقف مقوس أن تحول الكنيسة الصغيرة إلى كاتدرائية قوطية نبيلة.",
+      "hypothesis": "ستحول اللوحة الكنيسة إلى فصر الحريم.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-2225-en",
+      "pair_id": "xnli-test-2225",
+      "source_row": 2225,
+      "language": "en",
+      "premise": "Notice how the trompe l'oeil painting on the low arched ceiling aspires to turn the little church into a lofty Gothic cathedral.",
+      "hypothesis": "The painting would turn the church into a harem.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-956-ar",
+      "pair_id": "xnli-test-956",
+      "source_row": 956,
+      "language": "ar",
+      "premise": "نعم حسنًا اسمها سام لأنها قصيرة مثل سامانثا والجميع يناديها",
+      "hypothesis": "تمت تسميتها سام على الرغم من أنه اسم صبي.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-956-en",
+      "pair_id": "xnli-test-956",
+      "source_row": 956,
+      "language": "en",
+      "premise": "yeah well her name's Sam because it's like short for Samantha and everybody calls her him",
+      "hypothesis": "She is named Sam even though it's a boy name.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-851-ar",
+      "pair_id": "xnli-test-851",
+      "source_row": 851,
+      "language": "ar",
+      "premise": "أوه لا، لم أخطط واحدة من قبل ولكننا لدينا واحدة، سيكون لدينا واحدة يوم الذكرى، اعتقد أنهم عقدوا واحدة خلال العامين الماضيين.",
+      "hypothesis": "توقفوا عن فعل ذلك منذ 10 أعوام.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-851-en",
+      "pair_id": "xnli-test-851",
+      "source_row": 851,
+      "language": "en",
+      "premise": "uh no i never organized one but we're we have one uh we're going to have one on Memorial Day i guess they've had one the last two years",
+      "hypothesis": "They stopped doing it 10 years ago.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-3741-ar",
+      "pair_id": "xnli-test-3741",
+      "source_row": 3741,
+      "language": "ar",
+      "premise": "لقد حان الوقت للدعوة النهائية!",
+      "hypothesis": "حان وقت المكالمة الأخيرة لأننا سنغلق في الساعة الثانية صباحًا.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3741-en",
+      "pair_id": "xnli-test-3741",
+      "source_row": 3741,
+      "language": "en",
+      "premise": "It is time for the proverbial LAST CALL!",
+      "hypothesis": "It's time for last call because we're closing at 2 a.m.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1320-ar",
+      "pair_id": "xnli-test-1320",
+      "source_row": 1320,
+      "language": "ar",
+      "premise": "وهكذا ، في حين أن هناك الكثير من البروتينات المختلفة ، إلا أن عدد الأشكال المؤثرة بشكل فعال قد لا يتجاوز مائة مليون.",
+      "hypothesis": "هناك أكثر من مليون بروتين مختلف له أشكال فعالة مختلفة.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-1320-en",
+      "pair_id": "xnli-test-1320",
+      "source_row": 1320,
+      "language": "en",
+      "premise": "Thus, while there are vastly many diVerent proteins, the number of eVectively diVerent shapes may only be on the order of a hundred million.",
+      "hypothesis": "There are more than a million different proteins that have effectively different shapes.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-3900-ar",
+      "pair_id": "xnli-test-3900",
+      "source_row": 3900,
+      "language": "ar",
+      "premise": "سيساعد كرمك IRT على مواصلة سرد أفضل القصص بأفضل طريقة ممكنة.",
+      "hypothesis": "بدون تبرعك، ستكون IRT في مأزق.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3900-en",
+      "pair_id": "xnli-test-3900",
+      "source_row": 3900,
+      "language": "en",
+      "premise": "Your generosity will help the IRT continue to tell the best stories in the finest manner possible.",
+      "hypothesis": "Without your donation, the IRT would be in trouble.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3129-ar",
+      "pair_id": "xnli-test-3129",
+      "source_row": 3129,
+      "language": "ar",
+      "premise": "هناك نزاع يتعلق باهتمام آشكروفت في إحاطة بيكارد حول وضع التهديد الإرهابي.",
+      "hypothesis": "وقال أشكروفت إن الإحاطات لم تكن تستحق وقته.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-3129-en",
+      "pair_id": "xnli-test-3129",
+      "source_row": 3129,
+      "language": "en",
+      "premise": "There is a dispute regarding Ashcroft's interest in Pickard's briefings about the terrorist threat situation.",
+      "hypothesis": "Ashcroft said the briefings weren't worth his time.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4690-ar",
+      "pair_id": "xnli-test-4690",
+      "source_row": 4690,
+      "language": "ar",
+      "premise": "إن الاستمرارية ، بعد كل شيء ، هي فضيلة ، أو هكذا يقول أولئك الذين لم يفرضوها عليهم.",
+      "hypothesis": "فقط أولئك الذين لا يملكون العفة يعتبرونها فضيلة.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-4690-en",
+      "pair_id": "xnli-test-4690",
+      "source_row": 4690,
+      "language": "en",
+      "premise": "Continence, after all, is a virtue, or so say those who do not have it imposed on them.",
+      "hypothesis": "Only those who do not have continence consider it to be a virtue.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-2069-ar",
+      "pair_id": "xnli-test-2069",
+      "source_row": 2069,
+      "language": "ar",
+      "premise": "مع دخولها إلى السوق المشتركة في عام 1981 ، تعززت الآفاق الاقتصادية لليونان.",
+      "hypothesis": "كان دخول اليونان إلى السوق المشتركة جيدًا لنظرتها الاقتصادية.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-2069-en",
+      "pair_id": "xnli-test-2069",
+      "source_row": 2069,
+      "language": "en",
+      "premise": "With its entry into the Common Market in 1981, Greece's economic prospects strengthened.",
+      "hypothesis": "Greece's entry into the Common Market was good for its economic outlook.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-3031-ar",
+      "pair_id": "xnli-test-3031",
+      "source_row": 3031,
+      "language": "ar",
+      "premise": "استلم ميحدار تأشيرة جديده الى الولايات المتحدة الامريكية وذلك بعد يومين من مقابلته مع مكتب التحقيق الفيدرالى والمخابرات الامريكية فى .  نيويورك",
+      "hypothesis": "لم يحصل ميههدار على تأشيرة ، لذلك لم يأت أبداً إلى الولايات المتحدة.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-3031-en",
+      "pair_id": "xnli-test-3031",
+      "source_row": 3031,
+      "language": "en",
+      "premise": "Mihdhar received a new U.S. visa two days after the CIA-FBI meeting in New York.",
+      "hypothesis": "Mihdhar never got a visa, so he never came to the us.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1051-ar",
+      "pair_id": "xnli-test-1051",
+      "source_row": 1051,
+      "language": "ar",
+      "premise": "الابعاد المتبقية المتصورة بانها تطغى على  مقياس طول بلانك فيما يسمى  فراغات كالابي ياو ، او بالأحرى بمقدار كومباسيتيفايد .",
+      "hypothesis": "يتم تمثيل مسافات كالابي-ياو في الأدبيات العلمية.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1051-en",
+      "pair_id": "xnli-test-1051",
+      "source_row": 1051,
+      "language": "en",
+      "premise": "The remaining dimensions are imagined as curled up on the Planck length scale in what are called  Calabi-Yau  spaces, or more generally, compactified moduli.",
+      "hypothesis": "Calabi-Yau spaces are represented in scientific literature.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3280-ar",
+      "pair_id": "xnli-test-3280",
+      "source_row": 3280,
+      "language": "ar",
+      "premise": "تم تحطيم النوافذ الممتدة من الأرض حتى السقف في الركن الشمالي الغربي من مستوى اللوبي في ويست ستريت",
+      "hypothesis": "لقد تطلب الأمر من طاقم العمل أكثر من أسبوعين لاستبدال جميع النوافذ المكسورة.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-3280-en",
+      "pair_id": "xnli-test-3280",
+      "source_row": 3280,
+      "language": "en",
+      "premise": "Floor-to-ceiling windows in the northwest corner of the West Street level of the lobby had been blown out",
+      "hypothesis": "It took work crews more than two weeks to replace all the the broken windows.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-558-ar",
+      "pair_id": "xnli-test-558",
+      "source_row": 558,
+      "language": "ar",
+      "premise": "حقا الأمر سيئ هنا، كان لدينا فقط اطلاق النار على الطريق السريع حوالي ثلاث بنايات من منزلنا",
+      "hypothesis": "كان إطلاق النار على بعد 100 ميل على الأقل من المكان الذي أعيش فيه.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-558-en",
+      "pair_id": "xnli-test-558",
+      "source_row": 558,
+      "language": "en",
+      "premise": "its really bad out here we just had a freeway shooting about three blocks from our house",
+      "hypothesis": "The shooting was at least 100 miles from where I live.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-569-ar",
+      "pair_id": "xnli-test-569",
+      "source_row": 569,
+      "language": "ar",
+      "premise": "نعم أوه أي نوع من الجِراء لديك",
+      "hypothesis": "أي نوع كلب صغير لديك؟",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-569-en",
+      "pair_id": "xnli-test-569",
+      "source_row": 569,
+      "language": "en",
+      "premise": "yes oh what sort of puppy do you have",
+      "hypothesis": "What kind of young dog do you have?",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-2336-ar",
+      "pair_id": "xnli-test-2336",
+      "source_row": 2336,
+      "language": "ar",
+      "premise": "الميزة الأسطورية للمبنى هي grasshopper weathervane.",
+      "hypothesis": "هناك دوارة على الجزء العلوي من المبنى.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-2336-en",
+      "pair_id": "xnli-test-2336",
+      "source_row": 2336,
+      "language": "en",
+      "premise": "The building's most legendary feature is the grasshopper weathervane.",
+      "hypothesis": "There is a weathervane on top of the building.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-4479-ar",
+      "pair_id": "xnli-test-4479",
+      "source_row": 4479,
+      "language": "ar",
+      "premise": "أنت تبذل الكثير من هذا.",
+      "hypothesis": "عمل الكثير من هذا سوف يجعلها بلا فائدة.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-4479-en",
+      "pair_id": "xnli-test-4479",
+      "source_row": 4479,
+      "language": "en",
+      "premise": "You are making too much of this.",
+      "hypothesis": "Making too much of this will render it useless.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-4643-ar",
+      "pair_id": "xnli-test-4643",
+      "source_row": 4643,
+      "language": "ar",
+      "premise": "المتحدثون الذين يريدون إبهار جماهيرهم يعلمون أنه عليهم استعمال حقائق و نقاط أساسية، ثم بعد ذلك يكررونه و يضفون عليها طابعا دراميا، يجملونها و يفسرونها",
+      "hypothesis": "ينبغي على المتحدثين الذين يرغبون في إثارة إعجاب جمهورهم التحدث بدقة وعدم تكرار أنفسهم.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-4643-en",
+      "pair_id": "xnli-test-4643",
+      "source_row": 4643,
+      "language": "en",
+      "premise": "Speakers who want to impress their audiences know they have to telegraph key points and facts, then announce them, then repeat, dramatize, explain, and embellish.",
+      "hypothesis": "Speakers who want to impress their audience should speak accurately and not repeat themselves.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-288-ar",
+      "pair_id": "xnli-test-288",
+      "source_row": 288,
+      "language": "ar",
+      "premise": "و هنا أفكر بأنه سيأتي إلى هناك و يكون مثل ، كما تعلمون ، فقط أخرجوها معي ، كما تعلمون ، أخبروني فقط كيف لا يمكنني القيام بذلك.",
+      "hypothesis": "كنت أعرف أنه لن يأتي إلى هنا على الإطلاق.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-288-en",
+      "pair_id": "xnli-test-288",
+      "source_row": 288,
+      "language": "en",
+      "premise": "And here I am thinking he's going come in there and be like, you know, just have it out with me, you know, just tell me off like how could I not have this done.",
+      "hypothesis": "I knew he wasn't going to come here at all.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-1504-ar",
+      "pair_id": "xnli-test-1504",
+      "source_row": 1504,
+      "language": "ar",
+      "premise": "أؤكد لكم يا سيدي ، أنني على علم تام بكل شيء.",
+      "hypothesis": "انها وفاة المحقق الذي تم إخباري عنه.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1504-en",
+      "pair_id": "xnli-test-1504",
+      "source_row": 1504,
+      "language": "en",
+      "premise": "I assure you, sir, that I was fully informed of all.",
+      "hypothesis": "It is the detective's death that I was informed about.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-595-ar",
+      "pair_id": "xnli-test-595",
+      "source_row": 595,
+      "language": "ar",
+      "premise": "أه هذا ما هو جميل حول العيش في القرية فلا داعي للقلق بشأن أي من ذلك.",
+      "hypothesis": "الشيء الرائع عن الوجود في المدينة هو أنك لا تحتاج أن تقلقل على الأشياء مثل هذه.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-595-en",
+      "pair_id": "xnli-test-595",
+      "source_row": 595,
+      "language": "en",
+      "premise": "uh that's what's nice about living more in the country you don't have to worry about any of that",
+      "hypothesis": "What is great about being in the country is you do not have to fret over things like that.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-672-ar",
+      "pair_id": "xnli-test-672",
+      "source_row": 672,
+      "language": "ar",
+      "premise": "نعم لا يبدو ذلك ممكناً أليس كذلك",
+      "hypothesis": "هناك ما من شك في رأيي أنّ سيحدث هو جدّا قريبا.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-672-en",
+      "pair_id": "xnli-test-672",
+      "source_row": 672,
+      "language": "en",
+      "premise": "yeah it just doesn't seem possible does it",
+      "hypothesis": "There is no doubt in my mind that it will happen very soon.",
+      "gold_label": "contradiction"
+    },
+    {
+      "case_id": "xnli-test-2207-ar",
+      "pair_id": "xnli-test-2207",
+      "source_row": 2207,
+      "language": "ar",
+      "premise": "المشين والمتحفظ، الشخص يتعلم، ويتعايش هنا بدون الكثير من الضجة.",
+      "hypothesis": "الناس على ما يرام.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-2207-en",
+      "pair_id": "xnli-test-2207",
+      "source_row": 2207,
+      "language": "en",
+      "premise": "The outrageous and conservative, one learns, coexist here without much fuss.",
+      "hypothesis": "People get along well.",
+      "gold_label": "entailment"
+    },
+    {
+      "case_id": "xnli-test-1003-ar",
+      "pair_id": "xnli-test-1003",
+      "source_row": 1003,
+      "language": "ar",
+      "premise": "نعبر بوابة دخولنا إلى المستقبل التكنولوجي.",
+      "hypothesis": "نحن نبني ترانزيستورات ، لذا فإن مستقبلنا ستديره منظمة العفو الدولية.",
+      "gold_label": "neutral"
+    },
+    {
+      "case_id": "xnli-test-1003-en",
+      "pair_id": "xnli-test-1003",
+      "source_row": 1003,
+      "language": "en",
+      "premise": "We gate our entry into the technological future.",
+      "hypothesis": "We build transistors, so our future will be run by AI.",
+      "gold_label": "neutral"
+    }
+  ]
+}
