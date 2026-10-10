@@ -1,0 +1,2710 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_id": "itisaq_administrative_development_v1",
+  "split": "development",
+  "created_date": "2026-10-08",
+  "scenario_count": 45,
+  "record_count": 90,
+  "languages": [
+    "ar",
+    "en"
+  ],
+  "class_labels": [
+    "conflict",
+    "no_conflict",
+    "insufficient_information"
+  ],
+  "scenario_count_per_class": 15,
+  "shuffle": {
+    "method": "Fisher-Yates with System.Random",
+    "seed": 42,
+    "ids_assigned_after_shuffle": true
+  },
+  "evaluation_contract": {
+    "task": "Compare the proposed decision with the supplied existing rule and context only.",
+    "issuer_authorization": "Issuer position permission and allowed administrative scope have been checked before semantic comparison.",
+    "insufficient_information": "A material missing fact admits both a compatible and a conflicting completion consistent with the provided text.",
+    "no_conflict": "No contradiction with the supplied rule; not final approval or proof of compliance with all external rules.",
+    "authority": "Do not assume a newer or higher-authority proposal automatically repeals the existing rule.",
+    "human_review": "A human determines the final administrative action."
+  },
+  "provenance": {
+    "synthetic": true,
+    "ai_authored": true,
+    "ai_self_reviewed": true,
+    "independent_human_review_completed": false,
+    "notes": "Newly authored development cases; abstract skills and some topics overlap prior cases and one another. Bilingual copies are paired. Do not claim statistical independence or use as an untouched final test after prompt development."
+  },
+  "scenarios": [
+    {
+      "scenario_id": "DEV-0001",
+      "family_id": "DEVF-025",
+      "authoring_id": "S025",
+      "domain": "information_systems",
+      "topic": "temporary cache versus persistent production writes",
+      "label": "no_conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0001-ar",
+            "language": "ar",
+            "context": "العملية المقترحة تعرض معاينة وتكتب في ذاكرة مؤقتة داخل جهاز الاختبار فقط. لا تغير قاعدة الإنتاج أو أي تخزين دائم.",
+            "existing_decision": "يحظر تغيير البيانات الدائمة في الإنتاج أثناء التجميد. المعاينات التي تستخدم الذاكرة المؤقتة فقط مسموحة.",
+            "new_decision": "تنفذ المعاينة الموصوفة أثناء التجميد."
+          },
+          "answer": {
+            "case_id": "DEV-0001-ar",
+            "scenario_id": "DEV-0001",
+            "family_id": "DEVF-025",
+            "authoring_id": "S025",
+            "language": "ar",
+            "label": "no_conflict",
+            "reason": "العملية معاينة مؤقتة مستثناة صراحة، وليست تغييرًا دائمًا في الإنتاج.",
+            "evidence": {
+              "context_quote": "العملية المقترحة تعرض معاينة وتكتب في ذاكرة مؤقتة داخل جهاز الاختبار فقط. لا تغير قاعدة الإنتاج أو أي تخزين دائم.",
+              "existing_decision_quote": "يحظر تغيير البيانات الدائمة في الإنتاج أثناء التجميد. المعاينات التي تستخدم الذاكرة المؤقتة فقط مسموحة.",
+              "new_decision_quote": "تنفذ المعاينة الموصوفة أثناء التجميد."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0001-en",
+            "language": "en",
+            "context": "The proposed operation displays a preview and writes only to temporary memory on the test device. It does not change the production database or any persistent storage.",
+            "existing_decision": "Changes to persistent production data are prohibited during the freeze. Previews using only temporary memory are allowed.",
+            "new_decision": "Run the described preview during the freeze."
+          },
+          "answer": {
+            "case_id": "DEV-0001-en",
+            "scenario_id": "DEV-0001",
+            "family_id": "DEVF-025",
+            "authoring_id": "S025",
+            "language": "en",
+            "label": "no_conflict",
+            "reason": "The operation is an explicitly permitted temporary preview, not a persistent production change.",
+            "evidence": {
+              "context_quote": "The proposed operation displays a preview and writes only to temporary memory on the test device. It does not change the production database or any persistent storage.",
+              "existing_decision_quote": "Changes to persistent production data are prohibited during the freeze. Previews using only temporary memory are allowed.",
+              "new_decision_quote": "Run the described preview during the freeze."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0002",
+      "family_id": "DEVF-021",
+      "authoring_id": "S021",
+      "domain": "service_quality",
+      "topic": "preferred target versus mandatory deadline",
+      "label": "no_conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0002-ar",
+            "language": "ar",
+            "context": "أُرسل الرد بعد عشر ساعات بالضبط من استلام الطلب، ولا توجد مهلة خاصة بهذا الطلب.",
+            "existing_decision": "الرد خلال ثماني ساعات هدف مفضل غير ملزم؛ الحد الإلزامي هو اثنتا عشرة ساعة.",
+            "new_decision": "يسجل الرد على أنه استوفى الحد الإلزامي رغم عدم تحقيق الهدف المفضل."
+          },
+          "answer": {
+            "case_id": "DEV-0002-ar",
+            "scenario_id": "DEV-0002",
+            "family_id": "DEVF-021",
+            "authoring_id": "S021",
+            "language": "ar",
+            "label": "no_conflict",
+            "reason": "عشر ساعات تتجاوز الهدف المفضل فقط، ولا تتجاوز الحد الإلزامي.",
+            "evidence": {
+              "context_quote": "أُرسل الرد بعد عشر ساعات بالضبط من استلام الطلب، ولا توجد مهلة خاصة بهذا الطلب.",
+              "existing_decision_quote": "الرد خلال ثماني ساعات هدف مفضل غير ملزم؛ الحد الإلزامي هو اثنتا عشرة ساعة.",
+              "new_decision_quote": "يسجل الرد على أنه استوفى الحد الإلزامي رغم عدم تحقيق الهدف المفضل."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0002-en",
+            "language": "en",
+            "context": "The response was sent exactly ten hours after receipt of the request, with no special deadline for this request.",
+            "existing_decision": "Responding within eight hours is a preferred, nonmandatory target; the mandatory limit is twelve hours.",
+            "new_decision": "Record that the response met the mandatory limit despite missing the preferred target."
+          },
+          "answer": {
+            "case_id": "DEV-0002-en",
+            "scenario_id": "DEV-0002",
+            "family_id": "DEVF-021",
+            "authoring_id": "S021",
+            "language": "en",
+            "label": "no_conflict",
+            "reason": "Ten hours exceeds only the preferred target, not the mandatory limit.",
+            "evidence": {
+              "context_quote": "The response was sent exactly ten hours after receipt of the request, with no special deadline for this request.",
+              "existing_decision_quote": "Responding within eight hours is a preferred, nonmandatory target; the mandatory limit is twelve hours.",
+              "new_decision_quote": "Record that the response met the mandatory limit despite missing the preferred target."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0003",
+      "family_id": "DEVF-034",
+      "authoring_id": "S034",
+      "domain": "committee_decisions",
+      "topic": "specialist vote identity missing",
+      "label": "insufficient_information",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0003-ar",
+            "language": "ar",
+            "context": "اللجنة خمسة أعضاء أحدهم مسؤول السلامة. وافق أربعة ورفض واحد، لكن السجل لا يربط الأصوات بأسماء الأعضاء أو أدوارهم.",
+            "existing_decision": "اعتماد الخطة يتطلب ثلاثة أصوات موافقة على الأقل، منها موافقة مسؤول السلامة تحديدًا.",
+            "new_decision": "تعتمد الخطة بناءً على التصويت المسجل."
+          },
+          "answer": {
+            "case_id": "DEV-0003-ar",
+            "scenario_id": "DEV-0003",
+            "family_id": "DEVF-034",
+            "authoring_id": "S034",
+            "language": "ar",
+            "label": "insufficient_information",
+            "reason": "العدد كافٍ، لكن لا يعرف هل مسؤول السلامة ضمن الموافقين.",
+            "evidence": {
+              "context_quote": "اللجنة خمسة أعضاء أحدهم مسؤول السلامة. وافق أربعة ورفض واحد، لكن السجل لا يربط الأصوات بأسماء الأعضاء أو أدوارهم.",
+              "existing_decision_quote": "اعتماد الخطة يتطلب ثلاثة أصوات موافقة على الأقل، منها موافقة مسؤول السلامة تحديدًا.",
+              "new_decision_quote": "تعتمد الخطة بناءً على التصويت المسجل."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "افتراضيًا: مسؤول السلامة من الأربعة الموافقين.",
+            "hypothetical_conflicting_completion": "افتراضيًا: مسؤول السلامة هو العضو الوحيد الرافض."
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0003-en",
+            "language": "en",
+            "context": "The committee has five members, including the safety officer. Four voted yes and one voted no, but the record does not link votes to members or roles.",
+            "existing_decision": "Plan approval requires at least three yes votes, including a yes vote specifically from the safety officer.",
+            "new_decision": "Approve the plan based on the recorded vote."
+          },
+          "answer": {
+            "case_id": "DEV-0003-en",
+            "scenario_id": "DEV-0003",
+            "family_id": "DEVF-034",
+            "authoring_id": "S034",
+            "language": "en",
+            "label": "insufficient_information",
+            "reason": "The count is sufficient, but it is unknown whether the safety officer voted yes.",
+            "evidence": {
+              "context_quote": "The committee has five members, including the safety officer. Four voted yes and one voted no, but the record does not link votes to members or roles.",
+              "existing_decision_quote": "Plan approval requires at least three yes votes, including a yes vote specifically from the safety officer.",
+              "new_decision_quote": "Approve the plan based on the recorded vote."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "Hypothetically: the safety officer is among the four yes voters.",
+            "hypothetical_conflicting_completion": "Hypothetically: the safety officer is the sole no voter."
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0004",
+      "family_id": "DEVF-002",
+      "authoring_id": "S002",
+      "domain": "analytics",
+      "topic": "small-cell disclosure restriction",
+      "label": "conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0004-ar",
+            "language": "ar",
+            "context": "جدول نتائج الاستبيان سيُنشر خارج المنظمة. إحدى الخلايا تلخص إجابات ثلاثة أشخاص. لا ترد أسماء المشاركين، وهوية كاتب التقرير غير مذكورة.",
+            "existing_decision": "عند النشر الخارجي يجب حجب قيمة أي خلية تضم أقل من خمسة مشاركين، حتى لو حذفت الأسماء.",
+            "new_decision": "تُنشر قيمة الخلية الخاصة بالمشاركين الثلاثة كما هي لأن الجدول لا يحتوي أسماء."
+          },
+          "answer": {
+            "case_id": "DEV-0004-ar",
+            "scenario_id": "DEV-0004",
+            "family_id": "DEVF-002",
+            "authoring_id": "S002",
+            "language": "ar",
+            "label": "conflict",
+            "reason": "عدد المشاركين ثلاثة وأقل من خمسة؛ حذف الأسماء لا يستثني الخلية من الحجب.",
+            "evidence": {
+              "context_quote": "جدول نتائج الاستبيان سيُنشر خارج المنظمة. إحدى الخلايا تلخص إجابات ثلاثة أشخاص. لا ترد أسماء المشاركين، وهوية كاتب التقرير غير مذكورة.",
+              "existing_decision_quote": "عند النشر الخارجي يجب حجب قيمة أي خلية تضم أقل من خمسة مشاركين، حتى لو حذفت الأسماء.",
+              "new_decision_quote": "تُنشر قيمة الخلية الخاصة بالمشاركين الثلاثة كما هي لأن الجدول لا يحتوي أسماء."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0004-en",
+            "language": "en",
+            "context": "A survey-results table will be published outside the organization. One cell summarizes three people's responses. Participant names are absent, and the report writer's identity is not stated.",
+            "existing_decision": "For external publication, the value of any cell containing fewer than five participants must be suppressed, even if names are removed.",
+            "new_decision": "Publish the three-participant cell's value unchanged because the table contains no names."
+          },
+          "answer": {
+            "case_id": "DEV-0004-en",
+            "scenario_id": "DEV-0004",
+            "family_id": "DEVF-002",
+            "authoring_id": "S002",
+            "language": "en",
+            "label": "conflict",
+            "reason": "Three participants is fewer than five; removing names does not exempt the cell from suppression.",
+            "evidence": {
+              "context_quote": "A survey-results table will be published outside the organization. One cell summarizes three people's responses. Participant names are absent, and the report writer's identity is not stated.",
+              "existing_decision_quote": "For external publication, the value of any cell containing fewer than five participants must be suppressed, even if names are removed.",
+              "new_decision_quote": "Publish the three-participant cell's value unchanged because the table contains no names."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0005",
+      "family_id": "DEVF-037",
+      "authoring_id": "S037",
+      "domain": "service_queues",
+      "topic": "duplicate request identity versus document numbers",
+      "label": "insufficient_information",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0005-ar",
+            "language": "ar",
+            "context": "وردت استمارتان بأرقام مستندات مختلفة لنفس العميل والخدمة. حقل معرف طلب الخدمة الأصلي غير موجود في النسختين.",
+            "existing_decision": "لكل طلب خدمة أصلي رسم واحد فقط؛ إعادة إرسال الاستمارة لا تنشئ رسمًا جديدًا. طلبان أصليان منفصلان يستحقان رسمين.",
+            "new_decision": "يفرض رسمان، واحد لكل استمارة."
+          },
+          "answer": {
+            "case_id": "DEV-0005-ar",
+            "scenario_id": "DEV-0005",
+            "family_id": "DEVF-037",
+            "authoring_id": "S037",
+            "language": "ar",
+            "label": "insufficient_information",
+            "reason": "اختلاف رقم المستند لا يثبت اختلاف طلب الخدمة الأصلي.",
+            "evidence": {
+              "context_quote": "وردت استمارتان بأرقام مستندات مختلفة لنفس العميل والخدمة. حقل معرف طلب الخدمة الأصلي غير موجود في النسختين.",
+              "existing_decision_quote": "لكل طلب خدمة أصلي رسم واحد فقط؛ إعادة إرسال الاستمارة لا تنشئ رسمًا جديدًا. طلبان أصليان منفصلان يستحقان رسمين.",
+              "new_decision_quote": "يفرض رسمان، واحد لكل استمارة."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "افتراضيًا: الاستمارتان تخصان طلبي خدمة أصليين منفصلين.",
+            "hypothetical_conflicting_completion": "افتراضيًا: الثانية إعادة إرسال للطلب الأصلي نفسه."
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0005-en",
+            "language": "en",
+            "context": "Two forms with different document numbers were received for the same customer and service. Neither copy contains the original service-request identifier.",
+            "existing_decision": "Each original service request incurs one fee only; resubmitting its form creates no new fee. Two separate original requests incur two fees.",
+            "new_decision": "Charge two fees, one for each form."
+          },
+          "answer": {
+            "case_id": "DEV-0005-en",
+            "scenario_id": "DEV-0005",
+            "family_id": "DEVF-037",
+            "authoring_id": "S037",
+            "language": "en",
+            "label": "insufficient_information",
+            "reason": "Different document numbers do not establish different original service requests.",
+            "evidence": {
+              "context_quote": "Two forms with different document numbers were received for the same customer and service. Neither copy contains the original service-request identifier.",
+              "existing_decision_quote": "Each original service request incurs one fee only; resubmitting its form creates no new fee. Two separate original requests incur two fees.",
+              "new_decision_quote": "Charge two fees, one for each form."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "Hypothetically: the forms represent two separate original service requests.",
+            "hypothetical_conflicting_completion": "Hypothetically: the second form resubmits the same original request."
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0006",
+      "family_id": "DEVF-005",
+      "authoring_id": "S005",
+      "domain": "contracts",
+      "topic": "marginal price bands",
+      "label": "conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0006-ar",
+            "language": "ar",
+            "context": "الطلب 15 وحدة مقبولة بالكامل، ولا ضرائب أو خصومات إضافية. أول 10 وحدات سعر كل منها 100، والوحدات الزائدة سعر كل منها 80.",
+            "existing_decision": "يجب دفع قيمة الطلب وفق التسعير الشرائحي؛ سعر الشريحة الثانية يطبق على الوحدات الزائدة فقط.",
+            "new_decision": "تُسدد قيمة الطلب كاملة بمبلغ 1200، باستخدام سعر 80 لكل الوحدات الخمس عشرة."
+          },
+          "answer": {
+            "case_id": "DEV-0006-ar",
+            "scenario_id": "DEV-0006",
+            "family_id": "DEVF-005",
+            "authoring_id": "S005",
+            "language": "ar",
+            "label": "conflict",
+            "reason": "القيمة الواجبة 10×100 + 5×80 = 1400، وليس 1200.",
+            "evidence": {
+              "context_quote": "الطلب 15 وحدة مقبولة بالكامل، ولا ضرائب أو خصومات إضافية. أول 10 وحدات سعر كل منها 100، والوحدات الزائدة سعر كل منها 80.",
+              "existing_decision_quote": "يجب دفع قيمة الطلب وفق التسعير الشرائحي؛ سعر الشريحة الثانية يطبق على الوحدات الزائدة فقط.",
+              "new_decision_quote": "تُسدد قيمة الطلب كاملة بمبلغ 1200، باستخدام سعر 80 لكل الوحدات الخمس عشرة."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0006-en",
+            "language": "en",
+            "context": "The order contains 15 fully accepted units, with no taxes or additional discounts. Each of the first 10 units costs 100; each additional unit costs 80.",
+            "existing_decision": "The order must be paid according to marginal tier pricing; the second-tier price applies only to additional units.",
+            "new_decision": "Settle the entire order for 1200 by applying the price of 80 to all fifteen units."
+          },
+          "answer": {
+            "case_id": "DEV-0006-en",
+            "scenario_id": "DEV-0006",
+            "family_id": "DEVF-005",
+            "authoring_id": "S005",
+            "language": "en",
+            "label": "conflict",
+            "reason": "The payable amount is 10×100 + 5×80 = 1400, not 1200.",
+            "evidence": {
+              "context_quote": "The order contains 15 fully accepted units, with no taxes or additional discounts. Each of the first 10 units costs 100; each additional unit costs 80.",
+              "existing_decision_quote": "The order must be paid according to marginal tier pricing; the second-tier price applies only to additional units.",
+              "new_decision_quote": "Settle the entire order for 1200 by applying the price of 80 to all fifteen units."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0007",
+      "family_id": "DEVF-027",
+      "authoring_id": "S027",
+      "domain": "communications",
+      "topic": "rolling window with excluded left boundary",
+      "label": "no_conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0007-ar",
+            "language": "ar",
+            "context": "أرسلت تنبيهات عند 10:00 و10:10 و10:20 و10:30 و10:40 اليوم، ولا تنبيهات أخرى. المقترح إرسال تنبيه عند 11:00 بالضبط.",
+            "existing_decision": "يسمح بخمسة تنبيهات كحد أقصى في نافذة الستين دقيقة، شاملة التنبيه الجديد. النافذة تستبعد ما أرسل قبل ستين دقيقة بالضبط وتشمل الوقت الحالي.",
+            "new_decision": "يرسل التنبيه الجديد عند 11:00."
+          },
+          "answer": {
+            "case_id": "DEV-0007-ar",
+            "scenario_id": "DEV-0007",
+            "family_id": "DEVF-027",
+            "authoring_id": "S027",
+            "language": "ar",
+            "label": "no_conflict",
+            "reason": "تنبيه 10:00 مستبعد؛ الأربعة اللاحقة مع الجديد تساوي خمسة ضمن الحد.",
+            "evidence": {
+              "context_quote": "أرسلت تنبيهات عند 10:00 و10:10 و10:20 و10:30 و10:40 اليوم، ولا تنبيهات أخرى. المقترح إرسال تنبيه عند 11:00 بالضبط.",
+              "existing_decision_quote": "يسمح بخمسة تنبيهات كحد أقصى في نافذة الستين دقيقة، شاملة التنبيه الجديد. النافذة تستبعد ما أرسل قبل ستين دقيقة بالضبط وتشمل الوقت الحالي.",
+              "new_decision_quote": "يرسل التنبيه الجديد عند 11:00."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0007-en",
+            "language": "en",
+            "context": "Alerts were sent today at 10:00, 10:10, 10:20, 10:30 and 10:40, with no others. One alert is proposed at exactly 11:00.",
+            "existing_decision": "At most five alerts are allowed in the sixty-minute window, including the new alert. The window excludes an alert sent exactly sixty minutes earlier and includes the current time.",
+            "new_decision": "Send the new alert at 11:00."
+          },
+          "answer": {
+            "case_id": "DEV-0007-en",
+            "scenario_id": "DEV-0007",
+            "family_id": "DEVF-027",
+            "authoring_id": "S027",
+            "language": "en",
+            "label": "no_conflict",
+            "reason": "The 10:00 alert is excluded; the four later alerts plus the new one total five, within the limit.",
+            "evidence": {
+              "context_quote": "Alerts were sent today at 10:00, 10:10, 10:20, 10:30 and 10:40, with no others. One alert is proposed at exactly 11:00.",
+              "existing_decision_quote": "At most five alerts are allowed in the sixty-minute window, including the new alert. The window excludes an alert sent exactly sixty minutes earlier and includes the current time.",
+              "new_decision_quote": "Send the new alert at 11:00."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0008",
+      "family_id": "DEVF-045",
+      "authoring_id": "S045",
+      "domain": "logistics",
+      "topic": "sensor uncertainty interval relative to acceptance band",
+      "label": "insufficient_information",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0008-ar",
+            "language": "ar",
+            "context": "قراءة حساس الشحنة 5 درجات مئوية. شهادة معايرته موجودة لكن قيمة هامش الخطأ غير مذكورة في البيانات المتاحة.",
+            "existing_decision": "لقبول الشحنة يجب أن يقع كامل مجال القراءة زائدًا وناقصًا هامش الخطأ المعتمد ضمن المجال من 2 إلى 8 درجات، شاملًا الطرفين.",
+            "new_decision": "تقبل الشحنة من حيث شرط درجة الحرارة."
+          },
+          "answer": {
+            "case_id": "DEV-0008-ar",
+            "scenario_id": "DEV-0008",
+            "family_id": "DEVF-045",
+            "authoring_id": "S045",
+            "language": "ar",
+            "label": "insufficient_information",
+            "reason": "القراءة المركزية وحدها لا تكفي؛ الهامش قد يبقي كامل المجال داخل الحدود أو يجعله يتجاوزها.",
+            "evidence": {
+              "context_quote": "قراءة حساس الشحنة 5 درجات مئوية. شهادة معايرته موجودة لكن قيمة هامش الخطأ غير مذكورة في البيانات المتاحة.",
+              "existing_decision_quote": "لقبول الشحنة يجب أن يقع كامل مجال القراءة زائدًا وناقصًا هامش الخطأ المعتمد ضمن المجال من 2 إلى 8 درجات، شاملًا الطرفين.",
+              "new_decision_quote": "تقبل الشحنة من حيث شرط درجة الحرارة."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "افتراضيًا: الهامش درجة واحدة، فيكون المجال من 4 إلى 6.",
+            "hypothetical_conflicting_completion": "افتراضيًا: الهامش أربع درجات، فيكون المجال من 1 إلى 9."
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0008-en",
+            "language": "en",
+            "context": "The shipment sensor reads 5 degrees Celsius. Its calibration certificate exists, but the error-margin value is absent from the available data.",
+            "existing_decision": "For acceptance, the entire interval formed by the reading plus or minus the certified error margin must lie within 2 to 8 degrees, inclusive.",
+            "new_decision": "Accept the shipment as meeting the temperature condition."
+          },
+          "answer": {
+            "case_id": "DEV-0008-en",
+            "scenario_id": "DEV-0008",
+            "family_id": "DEVF-045",
+            "authoring_id": "S045",
+            "language": "en",
+            "label": "insufficient_information",
+            "reason": "The central reading alone is insufficient; the margin could keep the entire interval inside the bounds or extend it outside them.",
+            "evidence": {
+              "context_quote": "The shipment sensor reads 5 degrees Celsius. Its calibration certificate exists, but the error-margin value is absent from the available data.",
+              "existing_decision_quote": "For acceptance, the entire interval formed by the reading plus or minus the certified error margin must lie within 2 to 8 degrees, inclusive.",
+              "new_decision_quote": "Accept the shipment as meeting the temperature condition."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "Hypothetically: the margin is one degree, giving an interval from 4 to 6.",
+            "hypothetical_conflicting_completion": "Hypothetically: the margin is four degrees, giving an interval from 1 to 9."
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0009",
+      "family_id": "DEVF-014",
+      "authoring_id": "S014",
+      "domain": "data_linkage",
+      "topic": "separately permitted tables cannot be joined",
+      "label": "conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0009-ar",
+            "language": "ar",
+            "context": "يسمح للفريق بقراءة جدول الموظفين وجدول الاستبيان كلًا على حدة. يحتوي كلاهما رمز الربط J.",
+            "existing_decision": "يحظر ربط سجلات الاستبيان بسجلات الموظفين باستخدام J، حتى لمن يسمح له بقراءة الجدولين منفصلين.",
+            "new_decision": "يُنشأ جدول موحد بربط الجدولين على J للاستفادة من صلاحية قراءة كل منهما."
+          },
+          "answer": {
+            "case_id": "DEV-0009-ar",
+            "scenario_id": "DEV-0009",
+            "family_id": "DEVF-014",
+            "authoring_id": "S014",
+            "language": "ar",
+            "label": "conflict",
+            "reason": "القراءة المنفصلة مسموحة لكن عملية الربط نفسها ممنوعة صراحة.",
+            "evidence": {
+              "context_quote": "يسمح للفريق بقراءة جدول الموظفين وجدول الاستبيان كلًا على حدة. يحتوي كلاهما رمز الربط J.",
+              "existing_decision_quote": "يحظر ربط سجلات الاستبيان بسجلات الموظفين باستخدام J، حتى لمن يسمح له بقراءة الجدولين منفصلين.",
+              "new_decision_quote": "يُنشأ جدول موحد بربط الجدولين على J للاستفادة من صلاحية قراءة كل منهما."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0009-en",
+            "language": "en",
+            "context": "The team may read the employee table and survey table separately. Both contain join key J.",
+            "existing_decision": "Joining survey records to employee records using J is prohibited, even for someone allowed to read the tables separately.",
+            "new_decision": "Create a combined table by joining the two tables on J, relying on permission to read each one."
+          },
+          "answer": {
+            "case_id": "DEV-0009-en",
+            "scenario_id": "DEV-0009",
+            "family_id": "DEVF-014",
+            "authoring_id": "S014",
+            "language": "en",
+            "label": "conflict",
+            "reason": "Separate reading is allowed, but the join operation itself is explicitly prohibited.",
+            "evidence": {
+              "context_quote": "The team may read the employee table and survey table separately. Both contain join key J.",
+              "existing_decision_quote": "Joining survey records to employee records using J is prohibited, even for someone allowed to read the tables separately.",
+              "new_decision_quote": "Create a combined table by joining the two tables on J, relying on permission to read each one."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0010",
+      "family_id": "DEVF-043",
+      "authoring_id": "S043",
+      "domain": "records",
+      "topic": "translation attestation depends on controlling version",
+      "label": "insufficient_information",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0010-ar",
+            "language": "ar",
+            "context": "للنموذج نسخة عربية وإنجليزية، ولا تحدد الحزمة أيهما النسخة الملزمة وأيهما ترجمة مساعدة. النسخة الإنجليزية لم تخضع لاعتماد ترجمة.",
+            "existing_decision": "الترجمة المساعدة تتطلب اعتماد ترجمة قبل التوزيع. النسخة الملزمة الأصلية لا تتطلب اعتماد ترجمة.",
+            "new_decision": "توزع النسخة الإنجليزية الآن دون اعتماد ترجمة."
+          },
+          "answer": {
+            "case_id": "DEV-0010-ar",
+            "scenario_id": "DEV-0010",
+            "family_id": "DEVF-043",
+            "authoring_id": "S043",
+            "language": "ar",
+            "label": "insufficient_information",
+            "reason": "لا يعرف هل الإنجليزية هي الأصل المستثنى أم ترجمة يلزم اعتمادها.",
+            "evidence": {
+              "context_quote": "للنموذج نسخة عربية وإنجليزية، ولا تحدد الحزمة أيهما النسخة الملزمة وأيهما ترجمة مساعدة. النسخة الإنجليزية لم تخضع لاعتماد ترجمة.",
+              "existing_decision_quote": "الترجمة المساعدة تتطلب اعتماد ترجمة قبل التوزيع. النسخة الملزمة الأصلية لا تتطلب اعتماد ترجمة.",
+              "new_decision_quote": "توزع النسخة الإنجليزية الآن دون اعتماد ترجمة."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "افتراضيًا: الإنجليزية هي النسخة الأصلية الملزمة.",
+            "hypothetical_conflicting_completion": "افتراضيًا: الإنجليزية ترجمة مساعدة للأصل العربي."
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0010-en",
+            "language": "en",
+            "context": "The form has Arabic and English versions, but the package does not identify which is controlling and which is a supporting translation. The English version has no translation certification.",
+            "existing_decision": "A supporting translation requires translation certification before distribution. The original controlling version does not require translation certification.",
+            "new_decision": "Distribute the English version now without translation certification."
+          },
+          "answer": {
+            "case_id": "DEV-0010-en",
+            "scenario_id": "DEV-0010",
+            "family_id": "DEVF-043",
+            "authoring_id": "S043",
+            "language": "en",
+            "label": "insufficient_information",
+            "reason": "It is unknown whether English is the exempt original or a translation requiring certification.",
+            "evidence": {
+              "context_quote": "The form has Arabic and English versions, but the package does not identify which is controlling and which is a supporting translation. The English version has no translation certification.",
+              "existing_decision_quote": "A supporting translation requires translation certification before distribution. The original controlling version does not require translation certification.",
+              "new_decision_quote": "Distribute the English version now without translation certification."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "Hypothetically: English is the original controlling version.",
+            "hypothetical_conflicting_completion": "Hypothetically: English is a supporting translation of the Arabic original."
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0011",
+      "family_id": "DEVF-024",
+      "authoring_id": "S024",
+      "domain": "data_governance",
+      "topic": "revocation and previously produced aggregates",
+      "label": "no_conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0011-ar",
+            "language": "ar",
+            "context": "سحب مشارك موافقته اليوم. أنتجت قبل السحب إحصاءات مجمعة لا يمكن إرجاعها إلى أفراد، ولا تتضمن بياناته الخام.",
+            "existing_decision": "بعد السحب يجب وقف أي استخدام جديد للبيانات الخام، ويجوز الاحتفاظ بالإحصاءات المجمعة غير القابلة للإرجاع إلى أفراد إذا أنتجت قبل السحب.",
+            "new_decision": "يوقف استخدام البيانات الخام مستقبلًا، ويحتفظ بالإحصاءات المجمعة السابقة فقط."
+          },
+          "answer": {
+            "case_id": "DEV-0011-ar",
+            "scenario_id": "DEV-0011",
+            "family_id": "DEVF-024",
+            "authoring_id": "S024",
+            "language": "ar",
+            "label": "no_conflict",
+            "reason": "المقترح يوقف الاستخدام المطلوب إيقافه ويقتصر احتفاظه على الاستثناء المسموح صراحة.",
+            "evidence": {
+              "context_quote": "سحب مشارك موافقته اليوم. أنتجت قبل السحب إحصاءات مجمعة لا يمكن إرجاعها إلى أفراد، ولا تتضمن بياناته الخام.",
+              "existing_decision_quote": "بعد السحب يجب وقف أي استخدام جديد للبيانات الخام، ويجوز الاحتفاظ بالإحصاءات المجمعة غير القابلة للإرجاع إلى أفراد إذا أنتجت قبل السحب.",
+              "new_decision_quote": "يوقف استخدام البيانات الخام مستقبلًا، ويحتفظ بالإحصاءات المجمعة السابقة فقط."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0011-en",
+            "language": "en",
+            "context": "A participant withdrew consent today. Irreversible aggregate statistics were produced before withdrawal and contain no raw individual data.",
+            "existing_decision": "After withdrawal, all new use of raw data must stop; irreversible aggregate statistics produced before withdrawal may be retained.",
+            "new_decision": "Stop future use of raw data and retain only the earlier aggregate statistics."
+          },
+          "answer": {
+            "case_id": "DEV-0011-en",
+            "scenario_id": "DEV-0011",
+            "family_id": "DEVF-024",
+            "authoring_id": "S024",
+            "language": "en",
+            "label": "no_conflict",
+            "reason": "The proposal stops the required use and limits retention to the explicitly allowed exception.",
+            "evidence": {
+              "context_quote": "A participant withdrew consent today. Irreversible aggregate statistics were produced before withdrawal and contain no raw individual data.",
+              "existing_decision_quote": "After withdrawal, all new use of raw data must stop; irreversible aggregate statistics produced before withdrawal may be retained.",
+              "new_decision_quote": "Stop future use of raw data and retain only the earlier aggregate statistics."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0012",
+      "family_id": "DEVF-019",
+      "authoring_id": "S019",
+      "domain": "release_management",
+      "topic": "alternative validation routes",
+      "label": "no_conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0012-ar",
+            "language": "ar",
+            "context": "حزمة التحديث اجتازت فحص التوقيع الآلي بنجاح. لم تجر مراجعة يدوية.",
+            "existing_decision": "يكفي لاعتماد سلامة الحزمة أحد مسارين: نجاح فحص التوقيع الآلي أو توقيع المراجع اليدوي. لا يلزم الجمع بينهما.",
+            "new_decision": "تُعد الحزمة مستوفية لفحص السلامة اعتمادًا على نجاح الفحص الآلي وحده."
+          },
+          "answer": {
+            "case_id": "DEV-0012-ar",
+            "scenario_id": "DEV-0012",
+            "family_id": "DEVF-019",
+            "authoring_id": "S019",
+            "language": "ar",
+            "label": "no_conflict",
+            "reason": "تحقق أحد المسارين الكافيين؛ غياب المسار الآخر لا ينقض الاستيفاء.",
+            "evidence": {
+              "context_quote": "حزمة التحديث اجتازت فحص التوقيع الآلي بنجاح. لم تجر مراجعة يدوية.",
+              "existing_decision_quote": "يكفي لاعتماد سلامة الحزمة أحد مسارين: نجاح فحص التوقيع الآلي أو توقيع المراجع اليدوي. لا يلزم الجمع بينهما.",
+              "new_decision_quote": "تُعد الحزمة مستوفية لفحص السلامة اعتمادًا على نجاح الفحص الآلي وحده."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0012-en",
+            "language": "en",
+            "context": "The update package passed automated signature validation. No manual review was performed.",
+            "existing_decision": "Either route suffices to validate the package: successful automated signature validation or a manual reviewer's sign-off. Both are not required.",
+            "new_decision": "Treat the package as satisfying the integrity check based on successful automated validation alone."
+          },
+          "answer": {
+            "case_id": "DEV-0012-en",
+            "scenario_id": "DEV-0012",
+            "family_id": "DEVF-019",
+            "authoring_id": "S019",
+            "language": "en",
+            "label": "no_conflict",
+            "reason": "One sufficient route is satisfied; absence of the other does not invalidate compliance.",
+            "evidence": {
+              "context_quote": "The update package passed automated signature validation. No manual review was performed.",
+              "existing_decision_quote": "Either route suffices to validate the package: successful automated signature validation or a manual reviewer's sign-off. Both are not required.",
+              "new_decision_quote": "Treat the package as satisfying the integrity check based on successful automated validation alone."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0013",
+      "family_id": "DEVF-033",
+      "authoring_id": "S033",
+      "domain": "contracts",
+      "topic": "asset ownership determines redistribution condition",
+      "label": "insufficient_information",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0013-ar",
+            "language": "ar",
+            "context": "يراد نشر الرسم K ضمن دليل عام. الملف لا يحدد هل الرسم مملوك للمنظمة أم مرخص من طرف خارجي. لم يطلب إذن خارجي للنشر.",
+            "existing_decision": "يجوز نشر الرسوم المملوكة للمنظمة مباشرة. الرسوم المرخصة من طرف خارجي تتطلب إذنًا مكتوبًا منه قبل النشر.",
+            "new_decision": "ينشر الرسم K الآن دون الحصول على إذن خارجي."
+          },
+          "answer": {
+            "case_id": "DEV-0013-ar",
+            "scenario_id": "DEV-0013",
+            "family_id": "DEVF-033",
+            "authoring_id": "S033",
+            "language": "ar",
+            "label": "insufficient_information",
+            "reason": "مصدر حقوق الرسم يحدد الحاجة إلى الإذن، وهو غير معلوم.",
+            "evidence": {
+              "context_quote": "يراد نشر الرسم K ضمن دليل عام. الملف لا يحدد هل الرسم مملوك للمنظمة أم مرخص من طرف خارجي. لم يطلب إذن خارجي للنشر.",
+              "existing_decision_quote": "يجوز نشر الرسوم المملوكة للمنظمة مباشرة. الرسوم المرخصة من طرف خارجي تتطلب إذنًا مكتوبًا منه قبل النشر.",
+              "new_decision_quote": "ينشر الرسم K الآن دون الحصول على إذن خارجي."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "افتراضيًا: المنظمة تملك الرسم، فلا يلزم الإذن الخارجي.",
+            "hypothetical_conflicting_completion": "افتراضيًا: الرسم مرخص خارجيًا، فيلزم الإذن الغائب."
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0013-en",
+            "language": "en",
+            "context": "Illustration K is to be published in a public guide. The file does not establish whether the organization owns it or licenses it from an external party. No external publication permission was requested.",
+            "existing_decision": "Organization-owned illustrations may be published directly. Externally licensed illustrations require written permission from the licensor before publication.",
+            "new_decision": "Publish illustration K now without obtaining external permission."
+          },
+          "answer": {
+            "case_id": "DEV-0013-en",
+            "scenario_id": "DEV-0013",
+            "family_id": "DEVF-033",
+            "authoring_id": "S033",
+            "language": "en",
+            "label": "insufficient_information",
+            "reason": "Ownership determines whether permission is required, and it is unknown.",
+            "evidence": {
+              "context_quote": "Illustration K is to be published in a public guide. The file does not establish whether the organization owns it or licenses it from an external party. No external publication permission was requested.",
+              "existing_decision_quote": "Organization-owned illustrations may be published directly. Externally licensed illustrations require written permission from the licensor before publication.",
+              "new_decision_quote": "Publish illustration K now without obtaining external permission."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "Hypothetically: the organization owns the illustration, so no external permission is needed.",
+            "hypothetical_conflicting_completion": "Hypothetically: the illustration is externally licensed, so the missing permission is required."
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0014",
+      "family_id": "DEVF-030",
+      "authoring_id": "S030",
+      "domain": "records",
+      "topic": "normalization of record identifiers",
+      "label": "no_conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0014-ar",
+            "language": "ar",
+            "context": "السجل يحمل المعرف AB-120، والمعاملة تشير إلى ab120. لا اختلاف آخر بين المعرفين.",
+            "existing_decision": "عند مطابقة المعرفات، تهمل حالة الأحرف والشرطات فقط.",
+            "new_decision": "تربط المعاملة بالسجل باعتبار المعرفين متطابقين."
+          },
+          "answer": {
+            "case_id": "DEV-0014-ar",
+            "scenario_id": "DEV-0014",
+            "family_id": "DEVF-030",
+            "authoring_id": "S030",
+            "language": "ar",
+            "label": "no_conflict",
+            "reason": "بعد التطبيع المحدد يصبح المعرفان AB120، فلا يوجد اختلاف مؤثر.",
+            "evidence": {
+              "context_quote": "السجل يحمل المعرف AB-120، والمعاملة تشير إلى ab120. لا اختلاف آخر بين المعرفين.",
+              "existing_decision_quote": "عند مطابقة المعرفات، تهمل حالة الأحرف والشرطات فقط.",
+              "new_decision_quote": "تربط المعاملة بالسجل باعتبار المعرفين متطابقين."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0014-en",
+            "language": "en",
+            "context": "The record identifier is AB-120 and the transaction refers to ab120. There is no other difference between the identifiers.",
+            "existing_decision": "When matching identifiers, ignore letter case and hyphens only.",
+            "new_decision": "Link the transaction to the record, treating the identifiers as matching."
+          },
+          "answer": {
+            "case_id": "DEV-0014-en",
+            "scenario_id": "DEV-0014",
+            "family_id": "DEVF-030",
+            "authoring_id": "S030",
+            "language": "en",
+            "label": "no_conflict",
+            "reason": "After the specified normalization, both identifiers become AB120, with no material difference.",
+            "evidence": {
+              "context_quote": "The record identifier is AB-120 and the transaction refers to ab120. There is no other difference between the identifiers.",
+              "existing_decision_quote": "When matching identifiers, ignore letter case and hyphens only.",
+              "new_decision_quote": "Link the transaction to the record, treating the identifiers as matching."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0015",
+      "family_id": "DEVF-038",
+      "authoring_id": "S038",
+      "domain": "communications",
+      "topic": "receipt indicator versus explicit acceptance",
+      "label": "insufficient_information",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0015-ar",
+            "language": "ar",
+            "context": "تعرض لوحة المتابعة حالة «تم التأكيد» للرسالة المرسلة إلى الشريك. لا توضح اللوحة هل المقصود إيصال وصول آلي أم قبول صريح من الشريك، ولا يوجد سجل آخر للتأكيد.",
+            "existing_decision": "تبدأ الخدمة بعد قبول صريح من الشريك؛ إيصال الوصول الآلي وحده لا يكفي.",
+            "new_decision": "تبدأ الخدمة اعتمادًا على حالة «تم التأكيد» وحدها."
+          },
+          "answer": {
+            "case_id": "DEV-0015-ar",
+            "scenario_id": "DEV-0015",
+            "family_id": "DEVF-038",
+            "authoring_id": "S038",
+            "language": "ar",
+            "label": "insufficient_information",
+            "reason": "معنى الحالة غير محدد، وقد تمثل قبولًا كافيًا أو مجرد وصول غير كافٍ.",
+            "evidence": {
+              "context_quote": "تعرض لوحة المتابعة حالة «تم التأكيد» للرسالة المرسلة إلى الشريك. لا توضح اللوحة هل المقصود إيصال وصول آلي أم قبول صريح من الشريك، ولا يوجد سجل آخر للتأكيد.",
+              "existing_decision_quote": "تبدأ الخدمة بعد قبول صريح من الشريك؛ إيصال الوصول الآلي وحده لا يكفي.",
+              "new_decision_quote": "تبدأ الخدمة اعتمادًا على حالة «تم التأكيد» وحدها."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "افتراضيًا: الحالة تسجل قبولًا صريحًا أرسله الشريك.",
+            "hypothetical_conflicting_completion": "افتراضيًا: الحالة ناتجة فقط عن إيصال وصول آلي دون قبول."
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0015-en",
+            "language": "en",
+            "context": "The dashboard shows 'confirmed' for the message sent to the partner. It does not indicate whether this means an automated delivery receipt or explicit acceptance from the partner, and there is no other confirmation record.",
+            "existing_decision": "The service starts after explicit acceptance from the partner; an automated delivery receipt alone is insufficient.",
+            "new_decision": "Start the service based solely on the 'confirmed' status."
+          },
+          "answer": {
+            "case_id": "DEV-0015-en",
+            "scenario_id": "DEV-0015",
+            "family_id": "DEVF-038",
+            "authoring_id": "S038",
+            "language": "en",
+            "label": "insufficient_information",
+            "reason": "The status meaning is unspecified; it could represent sufficient acceptance or insufficient delivery confirmation.",
+            "evidence": {
+              "context_quote": "The dashboard shows 'confirmed' for the message sent to the partner. It does not indicate whether this means an automated delivery receipt or explicit acceptance from the partner, and there is no other confirmation record.",
+              "existing_decision_quote": "The service starts after explicit acceptance from the partner; an automated delivery receipt alone is insufficient.",
+              "new_decision_quote": "Start the service based solely on the 'confirmed' status."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "Hypothetically: the status records explicit acceptance sent by the partner.",
+            "hypothetical_conflicting_completion": "Hypothetically: the status comes only from an automated receipt, with no acceptance."
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0016",
+      "family_id": "DEVF-015",
+      "authoring_id": "S015",
+      "domain": "employee_participation",
+      "topic": "voluntary participation with no penalty",
+      "label": "conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0016-ar",
+            "language": "ar",
+            "context": "الاستبيان اختياري لجميع الموظفين. الموظفة N مستحقة للمكافأة وفق جميع شروطها الأخرى وقررت عدم المشاركة في الاستبيان.",
+            "existing_decision": "يجوز رفض المشاركة دون أي أثر على المكافأة؛ لا يجوز حرمان الموظف منها بسبب عدم المشاركة.",
+            "new_decision": "تُحجب مكافأة N بسبب عدم مشاركتها في الاستبيان وحده."
+          },
+          "answer": {
+            "case_id": "DEV-0016-ar",
+            "scenario_id": "DEV-0016",
+            "family_id": "DEVF-015",
+            "authoring_id": "S015",
+            "language": "ar",
+            "label": "conflict",
+            "reason": "الحرمان سببه عدم المشاركة، وهو الأثر الذي تمنعه القاعدة صراحة.",
+            "evidence": {
+              "context_quote": "الاستبيان اختياري لجميع الموظفين. الموظفة N مستحقة للمكافأة وفق جميع شروطها الأخرى وقررت عدم المشاركة في الاستبيان.",
+              "existing_decision_quote": "يجوز رفض المشاركة دون أي أثر على المكافأة؛ لا يجوز حرمان الموظف منها بسبب عدم المشاركة.",
+              "new_decision_quote": "تُحجب مكافأة N بسبب عدم مشاركتها في الاستبيان وحده."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0016-en",
+            "language": "en",
+            "context": "The survey is voluntary for all employees. Employee N meets every other bonus condition and chose not to participate in the survey.",
+            "existing_decision": "Employees may decline participation without any effect on the bonus; the bonus must not be withheld because of nonparticipation.",
+            "new_decision": "Withhold N's bonus solely because she did not participate in the survey."
+          },
+          "answer": {
+            "case_id": "DEV-0016-en",
+            "scenario_id": "DEV-0016",
+            "family_id": "DEVF-015",
+            "authoring_id": "S015",
+            "language": "en",
+            "label": "conflict",
+            "reason": "The bonus is withheld because of nonparticipation, precisely the consequence prohibited by the rule.",
+            "evidence": {
+              "context_quote": "The survey is voluntary for all employees. Employee N meets every other bonus condition and chose not to participate in the survey.",
+              "existing_decision_quote": "Employees may decline participation without any effect on the bonus; the bonus must not be withheld because of nonparticipation.",
+              "new_decision_quote": "Withhold N's bonus solely because she did not participate in the survey."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0017",
+      "family_id": "DEVF-023",
+      "authoring_id": "S023",
+      "domain": "finance",
+      "topic": "internal transfer preserves aggregate allocation",
+      "label": "no_conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0017-ar",
+            "language": "ar",
+            "context": "خصصت 7000 وحدة للمسار A و3000 للمسار B. النقل بينهما مسموح، ولا توجد حدود منفصلة لكل مسار.",
+            "existing_decision": "يجب ألا يتجاوز مجموع تخصيصات المسارين 10000 وحدة.",
+            "new_decision": "تنقل 500 وحدة من A إلى B، لتصبح التخصيصات 6500 و3500 على الترتيب."
+          },
+          "answer": {
+            "case_id": "DEV-0017-ar",
+            "scenario_id": "DEV-0017",
+            "family_id": "DEVF-023",
+            "authoring_id": "S023",
+            "language": "ar",
+            "label": "no_conflict",
+            "reason": "المجموع يبقى 10000؛ النقل لا ينشئ زيادة في التخصيص الكلي.",
+            "evidence": {
+              "context_quote": "خصصت 7000 وحدة للمسار A و3000 للمسار B. النقل بينهما مسموح، ولا توجد حدود منفصلة لكل مسار.",
+              "existing_decision_quote": "يجب ألا يتجاوز مجموع تخصيصات المسارين 10000 وحدة.",
+              "new_decision_quote": "تنقل 500 وحدة من A إلى B، لتصبح التخصيصات 6500 و3500 على الترتيب."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0017-en",
+            "language": "en",
+            "context": "Track A has 7000 units allocated and track B has 3000. Transfers between them are allowed, with no separate track limits.",
+            "existing_decision": "The combined allocation to the two tracks must not exceed 10000 units.",
+            "new_decision": "Transfer 500 units from A to B, making allocations 6500 and 3500 respectively."
+          },
+          "answer": {
+            "case_id": "DEV-0017-en",
+            "scenario_id": "DEV-0017",
+            "family_id": "DEVF-023",
+            "authoring_id": "S023",
+            "language": "en",
+            "label": "no_conflict",
+            "reason": "The total remains 10000; the transfer does not increase the combined allocation.",
+            "evidence": {
+              "context_quote": "Track A has 7000 units allocated and track B has 3000. Transfers between them are allowed, with no separate track limits.",
+              "existing_decision_quote": "The combined allocation to the two tracks must not exceed 10000 units.",
+              "new_decision_quote": "Transfer 500 units from A to B, making allocations 6500 and 3500 respectively."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0018",
+      "family_id": "DEVF-013",
+      "authoring_id": "S013",
+      "domain": "contract_changes",
+      "topic": "amendment permission restricted to named fields",
+      "label": "conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0018-ar",
+            "language": "ar",
+            "context": "أُقر تعديل عنوان تسليم الطلب فقط. بند السعر ينص على 70 وحدة للقطعة، ولا يوجد تعديل سعر معتمد.",
+            "existing_decision": "يبقى كل بند غير مذكور في التعديل على حاله؛ موافقة تعديل العنوان لا تغير سعر القطعة.",
+            "new_decision": "يُطبق سعر 75 للوحدة ضمن تنفيذ تعديل العنوان نفسه."
+          },
+          "answer": {
+            "case_id": "DEV-0018-ar",
+            "scenario_id": "DEV-0018",
+            "family_id": "DEVF-013",
+            "authoring_id": "S013",
+            "language": "ar",
+            "label": "conflict",
+            "reason": "التعديل المعتمد خاص بالعنوان؛ تغيير 70 إلى 75 يناقض بقاء بند السعر.",
+            "evidence": {
+              "context_quote": "أُقر تعديل عنوان تسليم الطلب فقط. بند السعر ينص على 70 وحدة للقطعة، ولا يوجد تعديل سعر معتمد.",
+              "existing_decision_quote": "يبقى كل بند غير مذكور في التعديل على حاله؛ موافقة تعديل العنوان لا تغير سعر القطعة.",
+              "new_decision_quote": "يُطبق سعر 75 للوحدة ضمن تنفيذ تعديل العنوان نفسه."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0018-en",
+            "language": "en",
+            "context": "Only an amendment to the order's delivery address was approved. The price clause states 70 units per item, and no price amendment was approved.",
+            "existing_decision": "Every clause not named in the amendment remains unchanged; approval of an address amendment does not change the unit price.",
+            "new_decision": "Apply a unit price of 75 as part of implementing the address amendment."
+          },
+          "answer": {
+            "case_id": "DEV-0018-en",
+            "scenario_id": "DEV-0018",
+            "family_id": "DEVF-013",
+            "authoring_id": "S013",
+            "language": "en",
+            "label": "conflict",
+            "reason": "The approved amendment concerns the address; changing 70 to 75 contradicts the unchanged price clause.",
+            "evidence": {
+              "context_quote": "Only an amendment to the order's delivery address was approved. The price clause states 70 units per item, and no price amendment was approved.",
+              "existing_decision_quote": "Every clause not named in the amendment remains unchanged; approval of an address amendment does not change the unit price.",
+              "new_decision_quote": "Apply a unit price of 75 as part of implementing the address amendment."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0019",
+      "family_id": "DEVF-036",
+      "authoring_id": "S036",
+      "domain": "contract_changes",
+      "topic": "signature validity does not establish signer's role",
+      "label": "insufficient_information",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0019-ar",
+            "language": "ar",
+            "context": "نموذج القبول يحمل توقيعًا رقميًا صحيحًا للشخص Z. لدى العميل ومقاول التنفيذ موظفون مخولون بالتوقيع، لكن السجل لا يبين لأي طرف ينتمي Z.",
+            "existing_decision": "لا تغلق مرحلة التسليم إلا بتوقيع قبول من ممثل العميل؛ توقيع مقاول التنفيذ وحده لا يكفي.",
+            "new_decision": "تغلق المرحلة اعتمادًا على توقيع Z وحده."
+          },
+          "answer": {
+            "case_id": "DEV-0019-ar",
+            "scenario_id": "DEV-0019",
+            "family_id": "DEVF-036",
+            "authoring_id": "S036",
+            "language": "ar",
+            "label": "insufficient_information",
+            "reason": "صحة التوقيع لا تحدد هل صدر عن ممثل العميل المطلوب.",
+            "evidence": {
+              "context_quote": "نموذج القبول يحمل توقيعًا رقميًا صحيحًا للشخص Z. لدى العميل ومقاول التنفيذ موظفون مخولون بالتوقيع، لكن السجل لا يبين لأي طرف ينتمي Z.",
+              "existing_decision_quote": "لا تغلق مرحلة التسليم إلا بتوقيع قبول من ممثل العميل؛ توقيع مقاول التنفيذ وحده لا يكفي.",
+              "new_decision_quote": "تغلق المرحلة اعتمادًا على توقيع Z وحده."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "افتراضيًا: Z ممثل العميل المخول.",
+            "hypothetical_conflicting_completion": "افتراضيًا: Z ممثل مقاول التنفيذ وحده."
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0019-en",
+            "language": "en",
+            "context": "The acceptance form carries a valid digital signature from Z. Both the customer and implementation contractor have authorized signatories, but the record does not identify which party Z belongs to.",
+            "existing_decision": "The delivery stage may close only with acceptance signed by the customer's representative; the implementation contractor's signature alone is insufficient.",
+            "new_decision": "Close the stage based solely on Z's signature."
+          },
+          "answer": {
+            "case_id": "DEV-0019-en",
+            "scenario_id": "DEV-0019",
+            "family_id": "DEVF-036",
+            "authoring_id": "S036",
+            "language": "en",
+            "label": "insufficient_information",
+            "reason": "Signature validity does not establish whether it came from the required customer representative.",
+            "evidence": {
+              "context_quote": "The acceptance form carries a valid digital signature from Z. Both the customer and implementation contractor have authorized signatories, but the record does not identify which party Z belongs to.",
+              "existing_decision_quote": "The delivery stage may close only with acceptance signed by the customer's representative; the implementation contractor's signature alone is insufficient.",
+              "new_decision_quote": "Close the stage based solely on Z's signature."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "Hypothetically: Z is the customer's authorized representative.",
+            "hypothetical_conflicting_completion": "Hypothetically: Z represents only the implementation contractor."
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0020",
+      "family_id": "DEVF-032",
+      "authoring_id": "S032",
+      "domain": "employee_participation",
+      "topic": "contract category not established by job title",
+      "label": "insufficient_information",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0020-ar",
+            "language": "ar",
+            "context": "تعمل R منسقة للمشروع. لا يحدد الملف إن كانت موظفة دائمة أو متعاقدة مستقلة.",
+            "existing_decision": "الاشتراك في برنامج الادخار إلزامي للموظفين الدائمين، واختياري للمتعاقدين المستقلين.",
+            "new_decision": "تسمح المنظمة لـR باختيار عدم الاشتراك."
+          },
+          "answer": {
+            "case_id": "DEV-0020-ar",
+            "scenario_id": "DEV-0020",
+            "family_id": "DEVF-032",
+            "authoring_id": "S032",
+            "language": "ar",
+            "label": "insufficient_information",
+            "reason": "المسمى الوظيفي لا يحدد فئة العقد التي يتوقف عليها الإلزام.",
+            "evidence": {
+              "context_quote": "تعمل R منسقة للمشروع. لا يحدد الملف إن كانت موظفة دائمة أو متعاقدة مستقلة.",
+              "existing_decision_quote": "الاشتراك في برنامج الادخار إلزامي للموظفين الدائمين، واختياري للمتعاقدين المستقلين.",
+              "new_decision_quote": "تسمح المنظمة لـR باختيار عدم الاشتراك."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "افتراضيًا: R متعاقدة مستقلة، فيجوز لها عدم الاشتراك.",
+            "hypothetical_conflicting_completion": "افتراضيًا: R موظفة دائمة، فيلزم اشتراكها."
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0020-en",
+            "language": "en",
+            "context": "R works as a project coordinator. The file does not establish whether she is a permanent employee or an independent contractor.",
+            "existing_decision": "Enrollment in the savings program is mandatory for permanent employees and optional for independent contractors.",
+            "new_decision": "Allow R to choose not to enroll."
+          },
+          "answer": {
+            "case_id": "DEV-0020-en",
+            "scenario_id": "DEV-0020",
+            "family_id": "DEVF-032",
+            "authoring_id": "S032",
+            "language": "en",
+            "label": "insufficient_information",
+            "reason": "The job title does not establish the contract category that determines whether enrollment is mandatory.",
+            "evidence": {
+              "context_quote": "R works as a project coordinator. The file does not establish whether she is a permanent employee or an independent contractor.",
+              "existing_decision_quote": "Enrollment in the savings program is mandatory for permanent employees and optional for independent contractors.",
+              "new_decision_quote": "Allow R to choose not to enroll."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "Hypothetically: R is an independent contractor, so opting out is allowed.",
+            "hypothetical_conflicting_completion": "Hypothetically: R is a permanent employee, so enrollment is required."
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0021",
+      "family_id": "DEVF-018",
+      "authoring_id": "S018",
+      "domain": "service_capacity",
+      "topic": "concurrent seats rather than registered accounts",
+      "label": "no_conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0021-ar",
+            "language": "ar",
+            "context": "يوجد 18 حسابًا مسجلًا، وثلاث جلسات نشطة. سيبدأ مستخدم رابع جلسة واحدة؛ لا جلسات أخرى ستبدأ خلال المراجعة. أسماء المستخدمين غير مذكورة.",
+            "existing_decision": "الحد هو خمس جلسات متزامنة، وليس خمسة حسابات مسجلة.",
+            "new_decision": "تُفتح جلسة المستخدم الرابع مع إبقاء الحسابات المسجلة كما هي."
+          },
+          "answer": {
+            "case_id": "DEV-0021-ar",
+            "scenario_id": "DEV-0021",
+            "family_id": "DEVF-018",
+            "authoring_id": "S018",
+            "language": "ar",
+            "label": "no_conflict",
+            "reason": "تصبح الجلسات المتزامنة أربعًا، دون الحد؛ عدد الحسابات والأسماء لا يغيران ذلك.",
+            "evidence": {
+              "context_quote": "يوجد 18 حسابًا مسجلًا، وثلاث جلسات نشطة. سيبدأ مستخدم رابع جلسة واحدة؛ لا جلسات أخرى ستبدأ خلال المراجعة. أسماء المستخدمين غير مذكورة.",
+              "existing_decision_quote": "الحد هو خمس جلسات متزامنة، وليس خمسة حسابات مسجلة.",
+              "new_decision_quote": "تُفتح جلسة المستخدم الرابع مع إبقاء الحسابات المسجلة كما هي."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0021-en",
+            "language": "en",
+            "context": "There are 18 registered accounts and three active sessions. A fourth user will start one session; no other sessions will start during the review. User names are not stated.",
+            "existing_decision": "The limit is five concurrent sessions, not five registered accounts.",
+            "new_decision": "Open the fourth user's session while leaving registered accounts unchanged."
+          },
+          "answer": {
+            "case_id": "DEV-0021-en",
+            "scenario_id": "DEV-0021",
+            "family_id": "DEVF-018",
+            "authoring_id": "S018",
+            "language": "en",
+            "label": "no_conflict",
+            "reason": "Concurrent sessions become four, below the limit; account count and names do not change that.",
+            "evidence": {
+              "context_quote": "There are 18 registered accounts and three active sessions. A fourth user will start one session; no other sessions will start during the review. User names are not stated.",
+              "existing_decision_quote": "The limit is five concurrent sessions, not five registered accounts.",
+              "new_decision_quote": "Open the fourth user's session while leaving registered accounts unchanged."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0022",
+      "family_id": "DEVF-026",
+      "authoring_id": "S026",
+      "domain": "workplace_safety",
+      "topic": "conditional exposure assessment",
+      "label": "no_conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0022-ar",
+            "language": "ar",
+            "context": "الزيارة محصورة في مكتب منفصل ولا تتضمن أي تعرض لمواد كيميائية. عمر الزائر غير مذكور.",
+            "existing_decision": "يجب إجراء تقييم التعرض الكيميائي قبل الزيارات التي تتضمن تعرضًا كيميائيًا فقط؛ لا يلزم هذا التقييم لزيارة مكتبية دون تعرض.",
+            "new_decision": "تتم الزيارة المكتبية الموصوفة دون تقييم تعرض كيميائي."
+          },
+          "answer": {
+            "case_id": "DEV-0022-ar",
+            "scenario_id": "DEV-0022",
+            "family_id": "DEVF-026",
+            "authoring_id": "S026",
+            "language": "ar",
+            "label": "no_conflict",
+            "reason": "شرط التعرض غير متحقق، والعمر غير مؤثر وفق القاعدة المقدمة.",
+            "evidence": {
+              "context_quote": "الزيارة محصورة في مكتب منفصل ولا تتضمن أي تعرض لمواد كيميائية. عمر الزائر غير مذكور.",
+              "existing_decision_quote": "يجب إجراء تقييم التعرض الكيميائي قبل الزيارات التي تتضمن تعرضًا كيميائيًا فقط؛ لا يلزم هذا التقييم لزيارة مكتبية دون تعرض.",
+              "new_decision_quote": "تتم الزيارة المكتبية الموصوفة دون تقييم تعرض كيميائي."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0022-en",
+            "language": "en",
+            "context": "The visit is confined to a separate office and involves no chemical exposure. The visitor's age is not stated.",
+            "existing_decision": "A chemical-exposure assessment is required only before visits involving chemical exposure; it is not required for an office visit without exposure.",
+            "new_decision": "Proceed with the described office visit without a chemical-exposure assessment."
+          },
+          "answer": {
+            "case_id": "DEV-0022-en",
+            "scenario_id": "DEV-0022",
+            "family_id": "DEVF-026",
+            "authoring_id": "S026",
+            "language": "en",
+            "label": "no_conflict",
+            "reason": "The exposure condition is absent, and age is irrelevant under the supplied rule.",
+            "evidence": {
+              "context_quote": "The visit is confined to a separate office and involves no chemical exposure. The visitor's age is not stated.",
+              "existing_decision_quote": "A chemical-exposure assessment is required only before visits involving chemical exposure; it is not required for an office visit without exposure.",
+              "new_decision_quote": "Proceed with the described office visit without a chemical-exposure assessment."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0023",
+      "family_id": "DEVF-003",
+      "authoring_id": "S003",
+      "domain": "subscriptions",
+      "topic": "silence is not renewal acceptance",
+      "label": "conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0023-ar",
+            "language": "ar",
+            "context": "أُرسل إلى العميل إشعار التجديد ولم يرد عليه خلال المهلة. لم يقدم أي قبول مكتوب آخر.",
+            "existing_decision": "لا يجدد الاشتراك إلا بقبول مكتوب من العميل؛ عدم الرد لا يعد قبولًا.",
+            "new_decision": "يُجدد الاشتراك تلقائيًا لأن العميل لم يعترض خلال المهلة."
+          },
+          "answer": {
+            "case_id": "DEV-0023-ar",
+            "scenario_id": "DEV-0023",
+            "family_id": "DEVF-003",
+            "authoring_id": "S003",
+            "language": "ar",
+            "label": "conflict",
+            "reason": "عدم الاعتراض هو عدم الرد نفسه، والقبول المكتوب منفي صراحة في السياق.",
+            "evidence": {
+              "context_quote": "أُرسل إلى العميل إشعار التجديد ولم يرد عليه خلال المهلة. لم يقدم أي قبول مكتوب آخر.",
+              "existing_decision_quote": "لا يجدد الاشتراك إلا بقبول مكتوب من العميل؛ عدم الرد لا يعد قبولًا.",
+              "new_decision_quote": "يُجدد الاشتراك تلقائيًا لأن العميل لم يعترض خلال المهلة."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0023-en",
+            "language": "en",
+            "context": "The customer was sent a renewal notice and did not respond within the deadline. They provided no other written acceptance.",
+            "existing_decision": "A subscription may be renewed only with the customer's written acceptance; silence does not count as acceptance.",
+            "new_decision": "Renew the subscription automatically because the customer did not object within the deadline."
+          },
+          "answer": {
+            "case_id": "DEV-0023-en",
+            "scenario_id": "DEV-0023",
+            "family_id": "DEVF-003",
+            "authoring_id": "S003",
+            "language": "en",
+            "label": "conflict",
+            "reason": "Lack of objection is silence, and written acceptance is explicitly absent in the context.",
+            "evidence": {
+              "context_quote": "The customer was sent a renewal notice and did not respond within the deadline. They provided no other written acceptance.",
+              "existing_decision_quote": "A subscription may be renewed only with the customer's written acceptance; silence does not count as acceptance.",
+              "new_decision_quote": "Renew the subscription automatically because the customer did not object within the deadline."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0024",
+      "family_id": "DEVF-004",
+      "authoring_id": "S004",
+      "domain": "data_governance",
+      "topic": "purpose limitation despite access authorization",
+      "label": "conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0024-ar",
+            "language": "ar",
+            "context": "الفريق مخول بقراءة النسخة الاحتياطية. المشروع المقترح دراسة تسويقية وليس استعادة لخدمة متوقفة.",
+            "existing_decision": "يقتصر استخدام بيانات هذه النسخة الاحتياطية على استعادة الخدمة؛ صلاحية القراءة لا تمنح حق استعمالها لأغراض أخرى.",
+            "new_decision": "تُستخدم بيانات النسخة لتقسيم العملاء إلى شرائح تسويقية اعتمادًا على صلاحية الفريق في قراءتها."
+          },
+          "answer": {
+            "case_id": "DEV-0024-ar",
+            "scenario_id": "DEV-0024",
+            "family_id": "DEVF-004",
+            "authoring_id": "S004",
+            "language": "ar",
+            "label": "conflict",
+            "reason": "الغرض التسويقي خارج غرض الاستعادة المسموح، حتى مع تحقق صلاحية القراءة.",
+            "evidence": {
+              "context_quote": "الفريق مخول بقراءة النسخة الاحتياطية. المشروع المقترح دراسة تسويقية وليس استعادة لخدمة متوقفة.",
+              "existing_decision_quote": "يقتصر استخدام بيانات هذه النسخة الاحتياطية على استعادة الخدمة؛ صلاحية القراءة لا تمنح حق استعمالها لأغراض أخرى.",
+              "new_decision_quote": "تُستخدم بيانات النسخة لتقسيم العملاء إلى شرائح تسويقية اعتمادًا على صلاحية الفريق في قراءتها."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0024-en",
+            "language": "en",
+            "context": "The team is authorized to read the backup. The proposed project is a marketing study, not recovery of a failed service.",
+            "existing_decision": "Use of this backup's data is restricted to service recovery; read access does not authorize use for other purposes.",
+            "new_decision": "Use the backup data to segment customers for marketing based on the team's read access."
+          },
+          "answer": {
+            "case_id": "DEV-0024-en",
+            "scenario_id": "DEV-0024",
+            "family_id": "DEVF-004",
+            "authoring_id": "S004",
+            "language": "en",
+            "label": "conflict",
+            "reason": "Marketing is outside the permitted recovery purpose, even though read access is authorized.",
+            "evidence": {
+              "context_quote": "The team is authorized to read the backup. The proposed project is a marketing study, not recovery of a failed service.",
+              "existing_decision_quote": "Use of this backup's data is restricted to service recovery; read access does not authorize use for other purposes.",
+              "new_decision_quote": "Use the backup data to segment customers for marketing based on the team's read access."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0025",
+      "family_id": "DEVF-010",
+      "authoring_id": "S010",
+      "domain": "service_quality",
+      "topic": "per-branch threshold cannot be replaced by average",
+      "label": "conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0025-ar",
+            "language": "ar",
+            "context": "تساوت أوزان الفرعين في التقرير: إتاحة الفرع East تساوي 98% وإتاحة West تساوي 100% للفترة نفسها.",
+            "existing_decision": "لا يجوز إعلان استيفاء معيار الإتاحة إلا إذا بلغ كل فرع 99% على الأقل؛ متوسط الفروع لا يحل محل الشرط الفردي.",
+            "new_decision": "يُعلن استيفاء الفرعين للمعيار لأن متوسطهما 99%."
+          },
+          "answer": {
+            "case_id": "DEV-0025-ar",
+            "scenario_id": "DEV-0025",
+            "family_id": "DEVF-010",
+            "authoring_id": "S010",
+            "language": "ar",
+            "label": "conflict",
+            "reason": "East أقل من 99%؛ المتوسط لا يحقق شرط كل فرع.",
+            "evidence": {
+              "context_quote": "تساوت أوزان الفرعين في التقرير: إتاحة الفرع East تساوي 98% وإتاحة West تساوي 100% للفترة نفسها.",
+              "existing_decision_quote": "لا يجوز إعلان استيفاء معيار الإتاحة إلا إذا بلغ كل فرع 99% على الأقل؛ متوسط الفروع لا يحل محل الشرط الفردي.",
+              "new_decision_quote": "يُعلن استيفاء الفرعين للمعيار لأن متوسطهما 99%."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0025-en",
+            "language": "en",
+            "context": "The report weights the branches equally: East had 98% availability and West had 100% for the same period.",
+            "existing_decision": "Compliance with the availability standard may be declared only if every branch reaches at least 99%; a branch average does not replace the individual requirement.",
+            "new_decision": "Declare both branches compliant because their average is 99%."
+          },
+          "answer": {
+            "case_id": "DEV-0025-en",
+            "scenario_id": "DEV-0025",
+            "family_id": "DEVF-010",
+            "authoring_id": "S010",
+            "language": "en",
+            "label": "conflict",
+            "reason": "East is below 99%; the average does not satisfy the per-branch requirement.",
+            "evidence": {
+              "context_quote": "The report weights the branches equally: East had 98% availability and West had 100% for the same period.",
+              "existing_decision_quote": "Compliance with the availability standard may be declared only if every branch reaches at least 99%; a branch average does not replace the individual requirement.",
+              "new_decision_quote": "Declare both branches compliant because their average is 99%."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0026",
+      "family_id": "DEVF-039",
+      "authoring_id": "S039",
+      "domain": "billing",
+      "topic": "mandatory versus optional cost breakdown",
+      "label": "insufficient_information",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0026-ar",
+            "language": "ar",
+            "context": "سعر الحزمة الإجمالي 1200 وحدة ويجمع مكونات أساسية وإضافات اختيارية. لا يوجد تفصيل يحدد تكلفة كل نوع.",
+            "existing_decision": "يجب ألا تتجاوز تكلفة المكونات الأساسية 1000 وحدة؛ تستبعد الإضافات الاختيارية من هذا الحد.",
+            "new_decision": "تصنف الحزمة على أنها مستوفية لحد تكلفة المكونات الأساسية."
+          },
+          "answer": {
+            "case_id": "DEV-0026-ar",
+            "scenario_id": "DEV-0026",
+            "family_id": "DEVF-039",
+            "authoring_id": "S039",
+            "language": "ar",
+            "label": "insufficient_information",
+            "reason": "إجمالي الحزمة لا يكشف تكلفة الجزء الخاضع للحد.",
+            "evidence": {
+              "context_quote": "سعر الحزمة الإجمالي 1200 وحدة ويجمع مكونات أساسية وإضافات اختيارية. لا يوجد تفصيل يحدد تكلفة كل نوع.",
+              "existing_decision_quote": "يجب ألا تتجاوز تكلفة المكونات الأساسية 1000 وحدة؛ تستبعد الإضافات الاختيارية من هذا الحد.",
+              "new_decision_quote": "تصنف الحزمة على أنها مستوفية لحد تكلفة المكونات الأساسية."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "افتراضيًا: الأساسية 900 والاختيارية 300.",
+            "hypothetical_conflicting_completion": "افتراضيًا: الأساسية 1100 والاختيارية 100."
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0026-en",
+            "language": "en",
+            "context": "The package totals 1200 units and includes essential components and optional add-ons. No breakdown identifies the cost of each type.",
+            "existing_decision": "Essential components must cost at most 1000 units; optional add-ons are excluded from this limit.",
+            "new_decision": "Classify the package as meeting the essential-component cost limit."
+          },
+          "answer": {
+            "case_id": "DEV-0026-en",
+            "scenario_id": "DEV-0026",
+            "family_id": "DEVF-039",
+            "authoring_id": "S039",
+            "language": "en",
+            "label": "insufficient_information",
+            "reason": "The package total does not reveal the cost of the portion subject to the limit.",
+            "evidence": {
+              "context_quote": "The package totals 1200 units and includes essential components and optional add-ons. No breakdown identifies the cost of each type.",
+              "existing_decision_quote": "Essential components must cost at most 1000 units; optional add-ons are excluded from this limit.",
+              "new_decision_quote": "Classify the package as meeting the essential-component cost limit."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "Hypothetically: essential components cost 900 and optional add-ons cost 300.",
+            "hypothetical_conflicting_completion": "Hypothetically: essential components cost 1100 and optional add-ons cost 100."
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0027",
+      "family_id": "DEVF-042",
+      "authoring_id": "S042",
+      "domain": "information_systems",
+      "topic": "execution mode distinguishes preview from modification",
+      "label": "insufficient_information",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0027-ar",
+            "language": "ar",
+            "context": "سيشغّل المسؤول أمرًا اسمه apply. يمكن للأمر العمل في وضع المعاينة دون تعديل أو وضع التنفيذ الفعلي، ولم تحدد إعدادات هذه العملية. لن تؤخذ نسخة استرجاع قبل التشغيل.",
+            "existing_decision": "تلزم نسخة استرجاع قبل التنفيذ الذي يعدل بيانات الإنتاج. المعاينة التي لا تعدل شيئًا لا تتطلبها.",
+            "new_decision": "يشغل الأمر بالإعدادات غير المبينة دون نسخة استرجاع."
+          },
+          "answer": {
+            "case_id": "DEV-0027-ar",
+            "scenario_id": "DEV-0027",
+            "family_id": "DEVF-042",
+            "authoring_id": "S042",
+            "language": "ar",
+            "label": "insufficient_information",
+            "reason": "اسم الأمر لا يكشف وضع التنفيذ الذي يحدد الحاجة إلى النسخة.",
+            "evidence": {
+              "context_quote": "سيشغّل المسؤول أمرًا اسمه apply. يمكن للأمر العمل في وضع المعاينة دون تعديل أو وضع التنفيذ الفعلي، ولم تحدد إعدادات هذه العملية. لن تؤخذ نسخة استرجاع قبل التشغيل.",
+              "existing_decision_quote": "تلزم نسخة استرجاع قبل التنفيذ الذي يعدل بيانات الإنتاج. المعاينة التي لا تعدل شيئًا لا تتطلبها.",
+              "new_decision_quote": "يشغل الأمر بالإعدادات غير المبينة دون نسخة استرجاع."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "افتراضيًا: الإعدادات تختار معاينة بلا أي تعديل.",
+            "hypothetical_conflicting_completion": "افتراضيًا: الإعدادات تختار تعديل بيانات الإنتاج فعليًا."
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0027-en",
+            "language": "en",
+            "context": "The administrator will run a command named apply. It can run in preview mode without changes or in actual execution mode, and this operation's settings are unspecified. No recovery snapshot will be taken before running it.",
+            "existing_decision": "A recovery snapshot is required before execution that modifies production data. A preview that changes nothing does not require one.",
+            "new_decision": "Run the command with the unspecified settings without a recovery snapshot."
+          },
+          "answer": {
+            "case_id": "DEV-0027-en",
+            "scenario_id": "DEV-0027",
+            "family_id": "DEVF-042",
+            "authoring_id": "S042",
+            "language": "en",
+            "label": "insufficient_information",
+            "reason": "The command name does not reveal the execution mode that determines whether a snapshot is required.",
+            "evidence": {
+              "context_quote": "The administrator will run a command named apply. It can run in preview mode without changes or in actual execution mode, and this operation's settings are unspecified. No recovery snapshot will be taken before running it.",
+              "existing_decision_quote": "A recovery snapshot is required before execution that modifies production data. A preview that changes nothing does not require one.",
+              "new_decision_quote": "Run the command with the unspecified settings without a recovery snapshot."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "Hypothetically: the settings select a preview with no changes.",
+            "hypothetical_conflicting_completion": "Hypothetically: the settings select actual modification of production data."
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0028",
+      "family_id": "DEVF-001",
+      "authoring_id": "S001",
+      "domain": "billing",
+      "topic": "round after summing line values",
+      "label": "conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0028-ar",
+            "language": "ar",
+            "context": "فاتورة خدمة فيها بندان، قيمة كل منهما 0.335 وحدة. التقريب إلى منزلتين يكون برفع النصف، ولا رسوم أخرى.",
+            "existing_decision": "يجب جمع قيم البنود الدقيقة أولًا ثم تقريب المجموع مرة واحدة لتحديد المبلغ الواجب دفعه.",
+            "new_decision": "يُدفع 0.68 وحدة، بعد تقريب كل بند إلى 0.34 ثم جمعهما."
+          },
+          "answer": {
+            "case_id": "DEV-0028-ar",
+            "scenario_id": "DEV-0028",
+            "family_id": "DEVF-001",
+            "authoring_id": "S001",
+            "language": "ar",
+            "label": "conflict",
+            "reason": "المجموع الدقيق 0.670 ويقرب إلى 0.67؛ طريقة الحساب والمبلغ المقترحان يخالفان القاعدة.",
+            "evidence": {
+              "context_quote": "فاتورة خدمة فيها بندان، قيمة كل منهما 0.335 وحدة. التقريب إلى منزلتين يكون برفع النصف، ولا رسوم أخرى.",
+              "existing_decision_quote": "يجب جمع قيم البنود الدقيقة أولًا ثم تقريب المجموع مرة واحدة لتحديد المبلغ الواجب دفعه.",
+              "new_decision_quote": "يُدفع 0.68 وحدة، بعد تقريب كل بند إلى 0.34 ثم جمعهما."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0028-en",
+            "language": "en",
+            "context": "A service invoice has two lines, each worth 0.335 units. Rounding to two decimal places uses round-half-up, with no other charges.",
+            "existing_decision": "Exact line values must first be added, then the total rounded once to determine the amount payable.",
+            "new_decision": "Pay 0.68 units by rounding each line to 0.34 and then adding them."
+          },
+          "answer": {
+            "case_id": "DEV-0028-en",
+            "scenario_id": "DEV-0028",
+            "family_id": "DEVF-001",
+            "authoring_id": "S001",
+            "language": "en",
+            "label": "conflict",
+            "reason": "The exact total is 0.670, which rounds to 0.67; the proposed method and amount violate the rule.",
+            "evidence": {
+              "context_quote": "A service invoice has two lines, each worth 0.335 units. Rounding to two decimal places uses round-half-up, with no other charges.",
+              "existing_decision_quote": "Exact line values must first be added, then the total rounded once to determine the amount payable.",
+              "new_decision_quote": "Pay 0.68 units by rounding each line to 0.34 and then adding them."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0029",
+      "family_id": "DEVF-016",
+      "authoring_id": "S016",
+      "domain": "operations",
+      "topic": "continuous service during staged migration",
+      "label": "no_conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0029-ar",
+            "language": "ar",
+            "context": "الخدمة لها نقطتا اتصال A وB تعملان الآن. يمكن لكل واحدة تشغيل الخدمة وحدها.",
+            "existing_decision": "يجب أن تبقى نقطة اتصال واحدة على الأقل عاملة طوال الترحيل.",
+            "new_decision": "توقف A بينما تستمر B. بعد التأكد من عودة A للعمل، توقف B مع استمرار A."
+          },
+          "answer": {
+            "case_id": "DEV-0029-ar",
+            "scenario_id": "DEV-0029",
+            "family_id": "DEVF-016",
+            "authoring_id": "S016",
+            "language": "ar",
+            "label": "no_conflict",
+            "reason": "في كل مرحلة توجد نقطة عاملة؛ لا تتطلب القاعدة استمرار النقطتين معًا.",
+            "evidence": {
+              "context_quote": "الخدمة لها نقطتا اتصال A وB تعملان الآن. يمكن لكل واحدة تشغيل الخدمة وحدها.",
+              "existing_decision_quote": "يجب أن تبقى نقطة اتصال واحدة على الأقل عاملة طوال الترحيل.",
+              "new_decision_quote": "توقف A بينما تستمر B. بعد التأكد من عودة A للعمل، توقف B مع استمرار A."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0029-en",
+            "language": "en",
+            "context": "The service has two endpoints, A and B, both currently working. Either endpoint can serve the service alone.",
+            "existing_decision": "At least one endpoint must remain operational throughout migration.",
+            "new_decision": "Stop A while B continues serving. After confirming A is operational again, stop B while A continues serving."
+          },
+          "answer": {
+            "case_id": "DEV-0029-en",
+            "scenario_id": "DEV-0029",
+            "family_id": "DEVF-016",
+            "authoring_id": "S016",
+            "language": "en",
+            "label": "no_conflict",
+            "reason": "An endpoint remains operational at every stage; the rule does not require both simultaneously.",
+            "evidence": {
+              "context_quote": "The service has two endpoints, A and B, both currently working. Either endpoint can serve the service alone.",
+              "existing_decision_quote": "At least one endpoint must remain operational throughout migration.",
+              "new_decision_quote": "Stop A while B continues serving. After confirming A is operational again, stop B while A continues serving."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0030",
+      "family_id": "DEVF-008",
+      "authoring_id": "S008",
+      "domain": "operations",
+      "topic": "rolling interval does not reset at midnight",
+      "label": "conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0030-ar",
+            "language": "ar",
+            "context": "نُفذ آخر تغيير إعدادات الساعة 23:30 يوم الاثنين. التغيير التالي لنفس المورد مقترح الساعة 00:30 يوم الثلاثاء، بالتوقيت نفسه.",
+            "existing_decision": "يجب الفصل بين تغييرين متتاليين للمورد بـ24 ساعة كاملة على الأقل؛ بداية يوم تقويمي جديد لا تعيد حساب المهلة.",
+            "new_decision": "يُنفذ التغيير التالي في موعده المقترح لأن التاريخ أصبح يوم الثلاثاء."
+          },
+          "answer": {
+            "case_id": "DEV-0030-ar",
+            "scenario_id": "DEV-0030",
+            "family_id": "DEVF-008",
+            "authoring_id": "S008",
+            "language": "ar",
+            "label": "conflict",
+            "reason": "مرّت ساعة واحدة فقط بين التغييرين، لا 24 ساعة.",
+            "evidence": {
+              "context_quote": "نُفذ آخر تغيير إعدادات الساعة 23:30 يوم الاثنين. التغيير التالي لنفس المورد مقترح الساعة 00:30 يوم الثلاثاء، بالتوقيت نفسه.",
+              "existing_decision_quote": "يجب الفصل بين تغييرين متتاليين للمورد بـ24 ساعة كاملة على الأقل؛ بداية يوم تقويمي جديد لا تعيد حساب المهلة.",
+              "new_decision_quote": "يُنفذ التغيير التالي في موعده المقترح لأن التاريخ أصبح يوم الثلاثاء."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0030-en",
+            "language": "en",
+            "context": "The last configuration change occurred at 23:30 on Monday. The next change to the same resource is proposed for 00:30 on Tuesday, in the same time zone.",
+            "existing_decision": "Consecutive changes to the resource must be separated by at least 24 full hours; a new calendar day does not reset the interval.",
+            "new_decision": "Execute the next change at the proposed time because the date has become Tuesday."
+          },
+          "answer": {
+            "case_id": "DEV-0030-en",
+            "scenario_id": "DEV-0030",
+            "family_id": "DEVF-008",
+            "authoring_id": "S008",
+            "language": "en",
+            "label": "conflict",
+            "reason": "Only one hour has elapsed between the changes, not 24 hours.",
+            "evidence": {
+              "context_quote": "The last configuration change occurred at 23:30 on Monday. The next change to the same resource is proposed for 00:30 on Tuesday, in the same time zone.",
+              "existing_decision_quote": "Consecutive changes to the resource must be separated by at least 24 full hours; a new calendar day does not reset the interval.",
+              "new_decision_quote": "Execute the next change at the proposed time because the date has become Tuesday."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0031",
+      "family_id": "DEVF-012",
+      "authoring_id": "S012",
+      "domain": "expense_adjustments",
+      "topic": "supplier credit reduces reimbursable amount",
+      "label": "conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0031-ar",
+            "language": "ar",
+            "context": "دفع الموظف 400 وحدة لمورد، ثم أعاد المورد له 50 وحدة عن العملية نفسها قبل التعويض. لا مصروفات أخرى ضمن الطلب.",
+            "existing_decision": "يعوض الموظف عن صافي ما تحمله فقط بعد طرح أي مبالغ أعادها المورد عن العملية.",
+            "new_decision": "يُعوض الموظف بـ400 وحدة لأن هذا هو مبلغ الدفع الأصلي."
+          },
+          "answer": {
+            "case_id": "DEV-0031-ar",
+            "scenario_id": "DEV-0031",
+            "family_id": "DEVF-012",
+            "authoring_id": "S012",
+            "language": "ar",
+            "label": "conflict",
+            "reason": "صافي ما تحمله 400 - 50 = 350؛ تعويض 400 يتجاوز الصافي.",
+            "evidence": {
+              "context_quote": "دفع الموظف 400 وحدة لمورد، ثم أعاد المورد له 50 وحدة عن العملية نفسها قبل التعويض. لا مصروفات أخرى ضمن الطلب.",
+              "existing_decision_quote": "يعوض الموظف عن صافي ما تحمله فقط بعد طرح أي مبالغ أعادها المورد عن العملية.",
+              "new_decision_quote": "يُعوض الموظف بـ400 وحدة لأن هذا هو مبلغ الدفع الأصلي."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0031-en",
+            "language": "en",
+            "context": "An employee paid a supplier 400 units, then received a 50-unit refund for the same transaction before reimbursement. The claim contains no other expenses.",
+            "existing_decision": "The employee must be reimbursed only for the net amount borne after deducting any supplier refunds for that transaction.",
+            "new_decision": "Reimburse the employee 400 units because that was the original payment amount."
+          },
+          "answer": {
+            "case_id": "DEV-0031-en",
+            "scenario_id": "DEV-0031",
+            "family_id": "DEVF-012",
+            "authoring_id": "S012",
+            "language": "en",
+            "label": "conflict",
+            "reason": "The net amount borne is 400 - 50 = 350; reimbursing 400 exceeds it.",
+            "evidence": {
+              "context_quote": "An employee paid a supplier 400 units, then received a 50-unit refund for the same transaction before reimbursement. The claim contains no other expenses.",
+              "existing_decision_quote": "The employee must be reimbursed only for the net amount borne after deducting any supplier refunds for that transaction.",
+              "new_decision_quote": "Reimburse the employee 400 units because that was the original payment amount."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0032",
+      "family_id": "DEVF-040",
+      "authoring_id": "S040",
+      "domain": "subscriptions",
+      "topic": "billing period of quoted rate missing",
+      "label": "insufficient_information",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0032-ar",
+            "language": "ar",
+            "context": "عرض المورد يذكر سعرًا قدره 200 وحدة للاشتراك دون تحديد هل هو شهري أو سنوي. المقترح التزام لمدة سنة كاملة، ولا رسوم أخرى.",
+            "existing_decision": "يجب ألا يزيد الالتزام المالي للسنة الكاملة على 1000 وحدة.",
+            "new_decision": "يعتمد الاشتراك السنوي بالسعر المذكور باعتباره ضمن الحد."
+          },
+          "answer": {
+            "case_id": "DEV-0032-ar",
+            "scenario_id": "DEV-0032",
+            "family_id": "DEVF-040",
+            "authoring_id": "S040",
+            "language": "ar",
+            "label": "insufficient_information",
+            "reason": "200 سنويًا ضمن الحد، بينما 200 شهريًا تعني 2400 للسنة؛ فترة التسعير غير معلومة.",
+            "evidence": {
+              "context_quote": "عرض المورد يذكر سعرًا قدره 200 وحدة للاشتراك دون تحديد هل هو شهري أو سنوي. المقترح التزام لمدة سنة كاملة، ولا رسوم أخرى.",
+              "existing_decision_quote": "يجب ألا يزيد الالتزام المالي للسنة الكاملة على 1000 وحدة.",
+              "new_decision_quote": "يعتمد الاشتراك السنوي بالسعر المذكور باعتباره ضمن الحد."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "افتراضيًا: السعر 200 للسنة كاملة.",
+            "hypothetical_conflicting_completion": "افتراضيًا: السعر 200 لكل شهر من الأشهر الاثني عشر."
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0032-en",
+            "language": "en",
+            "context": "The supplier quote states a subscription price of 200 units without specifying whether it is monthly or annual. A full-year commitment is proposed, with no other charges.",
+            "existing_decision": "The financial commitment for the full year must not exceed 1000 units.",
+            "new_decision": "Approve the year-long subscription at the quoted rate as being within the limit."
+          },
+          "answer": {
+            "case_id": "DEV-0032-en",
+            "scenario_id": "DEV-0032",
+            "family_id": "DEVF-040",
+            "authoring_id": "S040",
+            "language": "en",
+            "label": "insufficient_information",
+            "reason": "200 annually is within the limit, whereas 200 monthly means 2400 for the year; the billing period is unknown.",
+            "evidence": {
+              "context_quote": "The supplier quote states a subscription price of 200 units without specifying whether it is monthly or annual. A full-year commitment is proposed, with no other charges.",
+              "existing_decision_quote": "The financial commitment for the full year must not exceed 1000 units.",
+              "new_decision_quote": "Approve the year-long subscription at the quoted rate as being within the limit."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "Hypothetically: the price is 200 for the entire year.",
+            "hypothetical_conflicting_completion": "Hypothetically: the price is 200 for each of the twelve months."
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0033",
+      "family_id": "DEVF-017",
+      "authoring_id": "S017",
+      "domain": "billing",
+      "topic": "excluded amounts in percentage fee base",
+      "label": "no_conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0033-ar",
+            "language": "ar",
+            "context": "إجمالي الفاتورة 1200 وحدة، منها منحة معفاة مقدارها 200. لا استثناءات أو رسوم أخرى.",
+            "existing_decision": "تحسب رسوم الخدمة بنسبة 5% من مبلغ الفاتورة بعد استبعاد المنحة.",
+            "new_decision": "تُحدد رسوم الخدمة بـ50 وحدة."
+          },
+          "answer": {
+            "case_id": "DEV-0033-ar",
+            "scenario_id": "DEV-0033",
+            "family_id": "DEVF-017",
+            "authoring_id": "S017",
+            "language": "ar",
+            "label": "no_conflict",
+            "reason": "الوعاء 1200 - 200 = 1000، ورسومه 5% تساوي 50.",
+            "evidence": {
+              "context_quote": "إجمالي الفاتورة 1200 وحدة، منها منحة معفاة مقدارها 200. لا استثناءات أو رسوم أخرى.",
+              "existing_decision_quote": "تحسب رسوم الخدمة بنسبة 5% من مبلغ الفاتورة بعد استبعاد المنحة.",
+              "new_decision_quote": "تُحدد رسوم الخدمة بـ50 وحدة."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0033-en",
+            "language": "en",
+            "context": "The invoice total is 1200 units, including an exempt grant of 200. There are no other exceptions or charges.",
+            "existing_decision": "The service fee is calculated at 5% of the invoice amount after excluding the grant.",
+            "new_decision": "Set the service fee at 50 units."
+          },
+          "answer": {
+            "case_id": "DEV-0033-en",
+            "scenario_id": "DEV-0033",
+            "family_id": "DEVF-017",
+            "authoring_id": "S017",
+            "language": "en",
+            "label": "no_conflict",
+            "reason": "The base is 1200 - 200 = 1000, and 5% of it is 50.",
+            "evidence": {
+              "context_quote": "The invoice total is 1200 units, including an exempt grant of 200. There are no other exceptions or charges.",
+              "existing_decision_quote": "The service fee is calculated at 5% of the invoice amount after excluding the grant.",
+              "new_decision_quote": "Set the service fee at 50 units."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0034",
+      "family_id": "DEVF-035",
+      "authoring_id": "S035",
+      "domain": "finance",
+      "topic": "settlement date selects exchange rate",
+      "label": "insufficient_information",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0034-ar",
+            "language": "ar",
+            "context": "المبلغ 100 وحدة أجنبية. السعر الداخلي المعتمد 3 وحدات محلية لكل أجنبية يوم الاثنين، و4 يوم الثلاثاء. التسوية في أحد اليومين، ولا يحدد السجل أيهما. لا رسوم أخرى.",
+            "existing_decision": "يسجل المبلغ المحلي باستخدام السعر المعتمد في يوم التسوية الفعلي.",
+            "new_decision": "يسجل المبلغ بـ300 وحدة محلية."
+          },
+          "answer": {
+            "case_id": "DEV-0034-ar",
+            "scenario_id": "DEV-0034",
+            "family_id": "DEVF-035",
+            "authoring_id": "S035",
+            "language": "ar",
+            "label": "insufficient_information",
+            "reason": "300 صحيح بسعر الاثنين، لكنه يختلف عن 400 اللازمة إن كانت التسوية الثلاثاء.",
+            "evidence": {
+              "context_quote": "المبلغ 100 وحدة أجنبية. السعر الداخلي المعتمد 3 وحدات محلية لكل أجنبية يوم الاثنين، و4 يوم الثلاثاء. التسوية في أحد اليومين، ولا يحدد السجل أيهما. لا رسوم أخرى.",
+              "existing_decision_quote": "يسجل المبلغ المحلي باستخدام السعر المعتمد في يوم التسوية الفعلي.",
+              "new_decision_quote": "يسجل المبلغ بـ300 وحدة محلية."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "افتراضيًا: تمت التسوية يوم الاثنين.",
+            "hypothetical_conflicting_completion": "افتراضيًا: تمت التسوية يوم الثلاثاء."
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0034-en",
+            "language": "en",
+            "context": "The amount is 100 foreign units. The approved internal rate is 3 local units per foreign unit on Monday and 4 on Tuesday. Settlement occurred on one of those days, but the record does not identify which. There are no other charges.",
+            "existing_decision": "Record the local amount using the approved rate on the actual settlement day.",
+            "new_decision": "Record the amount as 300 local units."
+          },
+          "answer": {
+            "case_id": "DEV-0034-en",
+            "scenario_id": "DEV-0034",
+            "family_id": "DEVF-035",
+            "authoring_id": "S035",
+            "language": "en",
+            "label": "insufficient_information",
+            "reason": "300 is correct at Monday's rate, but differs from the required 400 if settlement was on Tuesday.",
+            "evidence": {
+              "context_quote": "The amount is 100 foreign units. The approved internal rate is 3 local units per foreign unit on Monday and 4 on Tuesday. Settlement occurred on one of those days, but the record does not identify which. There are no other charges.",
+              "existing_decision_quote": "Record the local amount using the approved rate on the actual settlement day.",
+              "new_decision_quote": "Record the amount as 300 local units."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "Hypothetically: settlement occurred on Monday.",
+            "hypothetical_conflicting_completion": "Hypothetically: settlement occurred on Tuesday."
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0035",
+      "family_id": "DEVF-009",
+      "authoring_id": "S009",
+      "domain": "service_queues",
+      "topic": "chronological order across time zones",
+      "label": "conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0035-ar",
+            "language": "ar",
+            "context": "الطلبان متساويان في الأولوية وجاهزان. وصل R الساعة 09:00 UTC، ووصل S الساعة 11:30 بتوقيت UTC+03. فرق التوقيت ثابت ولا تغيير صيفي.",
+            "existing_decision": "يجب معالجة الأسبق وصولًا أولًا عند تساوي الأولوية، بعد تحويل الطوابع الزمنية إلى توقيت موحد.",
+            "new_decision": "يُعالج R قبل S لأن 09:00 أسبق من 11:30 عند قراءة الساعتين كما هما."
+          },
+          "answer": {
+            "case_id": "DEV-0035-ar",
+            "scenario_id": "DEV-0035",
+            "family_id": "DEVF-009",
+            "authoring_id": "S009",
+            "language": "ar",
+            "label": "conflict",
+            "reason": "وصول S يساوي 08:30 UTC، فيسبق R الذي وصل 09:00 UTC.",
+            "evidence": {
+              "context_quote": "الطلبان متساويان في الأولوية وجاهزان. وصل R الساعة 09:00 UTC، ووصل S الساعة 11:30 بتوقيت UTC+03. فرق التوقيت ثابت ولا تغيير صيفي.",
+              "existing_decision_quote": "يجب معالجة الأسبق وصولًا أولًا عند تساوي الأولوية، بعد تحويل الطوابع الزمنية إلى توقيت موحد.",
+              "new_decision_quote": "يُعالج R قبل S لأن 09:00 أسبق من 11:30 عند قراءة الساعتين كما هما."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0035-en",
+            "language": "en",
+            "context": "Both requests have equal priority and are ready. R arrived at 09:00 UTC; S arrived at 11:30 in UTC+03. The offset is fixed, with no daylight-saving change.",
+            "existing_decision": "For equal-priority requests, the earlier arrival must be processed first after converting timestamps to a common time zone.",
+            "new_decision": "Process R before S because 09:00 appears earlier than 11:30 when the clock readings are compared directly."
+          },
+          "answer": {
+            "case_id": "DEV-0035-en",
+            "scenario_id": "DEV-0035",
+            "family_id": "DEVF-009",
+            "authoring_id": "S009",
+            "language": "en",
+            "label": "conflict",
+            "reason": "S arrived at 08:30 UTC, before R's arrival at 09:00 UTC.",
+            "evidence": {
+              "context_quote": "Both requests have equal priority and are ready. R arrived at 09:00 UTC; S arrived at 11:30 in UTC+03. The offset is fixed, with no daylight-saving change.",
+              "existing_decision_quote": "For equal-priority requests, the earlier arrival must be processed first after converting timestamps to a common time zone.",
+              "new_decision_quote": "Process R before S because 09:00 appears earlier than 11:30 when the clock readings are compared directly."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0036",
+      "family_id": "DEVF-028",
+      "authoring_id": "S028",
+      "domain": "committee_decisions",
+      "topic": "weighted voting rather than head count",
+      "label": "no_conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0036-ar",
+            "language": "ar",
+            "context": "وزن صوت الرئيس نقطتان، وصوت كل عضو آخر نقطة واحدة. وافق الرئيس وعضوان آخران، ولا يوجد شرط نصاب إضافي.",
+            "existing_decision": "يمر المقترح عند جمع أربع نقاط موافقة على الأقل.",
+            "new_decision": "يسجل المقترح على أنه اجتاز التصويت."
+          },
+          "answer": {
+            "case_id": "DEV-0036-ar",
+            "scenario_id": "DEV-0036",
+            "family_id": "DEVF-028",
+            "authoring_id": "S028",
+            "language": "ar",
+            "label": "no_conflict",
+            "reason": "نقاط الموافقة 2 + 1 + 1 = 4؛ عدد الأشخاص الثلاثة ليس معيار القاعدة.",
+            "evidence": {
+              "context_quote": "وزن صوت الرئيس نقطتان، وصوت كل عضو آخر نقطة واحدة. وافق الرئيس وعضوان آخران، ولا يوجد شرط نصاب إضافي.",
+              "existing_decision_quote": "يمر المقترح عند جمع أربع نقاط موافقة على الأقل.",
+              "new_decision_quote": "يسجل المقترح على أنه اجتاز التصويت."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0036-en",
+            "language": "en",
+            "context": "The chair's vote has weight two; each other member's vote has weight one. The chair and two other members voted yes, with no additional quorum requirement.",
+            "existing_decision": "A proposal passes with at least four approval points.",
+            "new_decision": "Record the proposal as having passed the vote."
+          },
+          "answer": {
+            "case_id": "DEV-0036-en",
+            "scenario_id": "DEV-0036",
+            "family_id": "DEVF-028",
+            "authoring_id": "S028",
+            "language": "en",
+            "label": "no_conflict",
+            "reason": "Approval points are 2 + 1 + 1 = 4; the three-person head count is not the rule's criterion.",
+            "evidence": {
+              "context_quote": "The chair's vote has weight two; each other member's vote has weight one. The chair and two other members voted yes, with no additional quorum requirement.",
+              "existing_decision_quote": "A proposal passes with at least four approval points.",
+              "new_decision_quote": "Record the proposal as having passed the vote."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0037",
+      "family_id": "DEVF-041",
+      "authoring_id": "S041",
+      "domain": "training",
+      "topic": "training credit depends on participation role",
+      "label": "insufficient_information",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0037-ar",
+            "language": "ar",
+            "context": "يظهر اسم الموظف M في سجل ورشة مدتها أربع ساعات. يضم السجل أسماء المدربين والمتدربين دون تحديد دور M، وقد حضر المدة كاملة.",
+            "existing_decision": "تحتسب ساعات التطوير الشخصي للمشاركة كمتدرب فقط؛ تقديم الورشة كمدرب لا يضاف إلى هذا الرصيد.",
+            "new_decision": "تضاف أربع ساعات إلى رصيد التطوير الشخصي لـM عن هذه الورشة."
+          },
+          "answer": {
+            "case_id": "DEV-0037-ar",
+            "scenario_id": "DEV-0037",
+            "family_id": "DEVF-041",
+            "authoring_id": "S041",
+            "language": "ar",
+            "label": "insufficient_information",
+            "reason": "مدة الحضور معلومة لكن الدور الذي يحدد احتساب الساعات غير معلوم.",
+            "evidence": {
+              "context_quote": "يظهر اسم الموظف M في سجل ورشة مدتها أربع ساعات. يضم السجل أسماء المدربين والمتدربين دون تحديد دور M، وقد حضر المدة كاملة.",
+              "existing_decision_quote": "تحتسب ساعات التطوير الشخصي للمشاركة كمتدرب فقط؛ تقديم الورشة كمدرب لا يضاف إلى هذا الرصيد.",
+              "new_decision_quote": "تضاف أربع ساعات إلى رصيد التطوير الشخصي لـM عن هذه الورشة."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "افتراضيًا: M شارك كمتدرب فقط.",
+            "hypothetical_conflicting_completion": "افتراضيًا: M قدم الورشة كمدرب فقط."
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0037-en",
+            "language": "en",
+            "context": "Employee M appears in the register for a four-hour workshop. The register lists trainers and trainees without identifying M's role, and M attended the full duration.",
+            "existing_decision": "Personal-development hours count only for participation as a trainee; delivering the workshop as a trainer does not add to this balance.",
+            "new_decision": "Add four personal-development hours to M's balance for this workshop."
+          },
+          "answer": {
+            "case_id": "DEV-0037-en",
+            "scenario_id": "DEV-0037",
+            "family_id": "DEVF-041",
+            "authoring_id": "S041",
+            "language": "en",
+            "label": "insufficient_information",
+            "reason": "Attendance duration is known, but the role determining whether the hours count is unknown.",
+            "evidence": {
+              "context_quote": "Employee M appears in the register for a four-hour workshop. The register lists trainers and trainees without identifying M's role, and M attended the full duration.",
+              "existing_decision_quote": "Personal-development hours count only for participation as a trainee; delivering the workshop as a trainer does not add to this balance.",
+              "new_decision_quote": "Add four personal-development hours to M's balance for this workshop."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "Hypothetically: M participated only as a trainee.",
+            "hypothetical_conflicting_completion": "Hypothetically: M delivered the workshop only as a trainer."
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0038",
+      "family_id": "DEVF-020",
+      "authoring_id": "S020",
+      "domain": "service_queues",
+      "topic": "deadline comparison across time zones",
+      "label": "no_conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0038-ar",
+            "language": "ar",
+            "context": "آخر وقت لاستلام الطلب هو 15:00 بتوقيت UTC اليوم. استلم النظام الطلب اليوم في 17:30 بتوقيت UTC+03:00.",
+            "existing_decision": "تقبل الطلبات المستلمة عند الموعد النهائي أو قبله بعد توحيد المنطقة الزمنية.",
+            "new_decision": "يصنف الطلب على أنه وصل ضمن المهلة."
+          },
+          "answer": {
+            "case_id": "DEV-0038-ar",
+            "scenario_id": "DEV-0038",
+            "family_id": "DEVF-020",
+            "authoring_id": "S020",
+            "language": "ar",
+            "label": "no_conflict",
+            "reason": "17:30 في UTC+03:00 تساوي 14:30 UTC، قبل 15:00.",
+            "evidence": {
+              "context_quote": "آخر وقت لاستلام الطلب هو 15:00 بتوقيت UTC اليوم. استلم النظام الطلب اليوم في 17:30 بتوقيت UTC+03:00.",
+              "existing_decision_quote": "تقبل الطلبات المستلمة عند الموعد النهائي أو قبله بعد توحيد المنطقة الزمنية.",
+              "new_decision_quote": "يصنف الطلب على أنه وصل ضمن المهلة."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0038-en",
+            "language": "en",
+            "context": "The submission deadline is 15:00 UTC today. The system received the submission today at 17:30 UTC+03:00.",
+            "existing_decision": "Submissions received at or before the deadline are accepted after converting times to the same time zone.",
+            "new_decision": "Classify the submission as received within the deadline."
+          },
+          "answer": {
+            "case_id": "DEV-0038-en",
+            "scenario_id": "DEV-0038",
+            "family_id": "DEVF-020",
+            "authoring_id": "S020",
+            "language": "en",
+            "label": "no_conflict",
+            "reason": "17:30 UTC+03:00 equals 14:30 UTC, before 15:00.",
+            "evidence": {
+              "context_quote": "The submission deadline is 15:00 UTC today. The system received the submission today at 17:30 UTC+03:00.",
+              "existing_decision_quote": "Submissions received at or before the deadline are accepted after converting times to the same time zone.",
+              "new_decision_quote": "Classify the submission as received within the deadline."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0039",
+      "family_id": "DEVF-029",
+      "authoring_id": "S029",
+      "domain": "logistics",
+      "topic": "gross weight including packaging",
+      "label": "no_conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0039-ar",
+            "language": "ar",
+            "context": "وزن البضاعة 460 كيلوجرامًا، ووزن جميع مواد تغليفها 30 كيلوجرامًا. لا توجد أي حمولة أخرى.",
+            "existing_decision": "يجب ألا يزيد الوزن الإجمالي، شاملًا التغليف، على 500 كيلوجرام.",
+            "new_decision": "تعتمد الشحنة الموصوفة من حيث حد الوزن."
+          },
+          "answer": {
+            "case_id": "DEV-0039-ar",
+            "scenario_id": "DEV-0039",
+            "family_id": "DEVF-029",
+            "authoring_id": "S029",
+            "language": "ar",
+            "label": "no_conflict",
+            "reason": "الوزن الإجمالي 490، وهو أقل من 500.",
+            "evidence": {
+              "context_quote": "وزن البضاعة 460 كيلوجرامًا، ووزن جميع مواد تغليفها 30 كيلوجرامًا. لا توجد أي حمولة أخرى.",
+              "existing_decision_quote": "يجب ألا يزيد الوزن الإجمالي، شاملًا التغليف، على 500 كيلوجرام.",
+              "new_decision_quote": "تعتمد الشحنة الموصوفة من حيث حد الوزن."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0039-en",
+            "language": "en",
+            "context": "The goods weigh 460 kilograms and all their packaging weighs 30 kilograms. There is no other load.",
+            "existing_decision": "Gross weight, including packaging, must not exceed 500 kilograms.",
+            "new_decision": "Accept the described shipment as meeting the weight limit."
+          },
+          "answer": {
+            "case_id": "DEV-0039-en",
+            "scenario_id": "DEV-0039",
+            "family_id": "DEVF-029",
+            "authoring_id": "S029",
+            "language": "en",
+            "label": "no_conflict",
+            "reason": "Gross weight is 490, below 500.",
+            "evidence": {
+              "context_quote": "The goods weigh 460 kilograms and all their packaging weighs 30 kilograms. There is no other load.",
+              "existing_decision_quote": "Gross weight, including packaging, must not exceed 500 kilograms.",
+              "new_decision_quote": "Accept the described shipment as meeting the weight limit."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0040",
+      "family_id": "DEVF-011",
+      "authoring_id": "S011",
+      "domain": "delegation",
+      "topic": "revocation propagates to derivative credentials",
+      "label": "conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0040-ar",
+            "language": "ar",
+            "context": "التفويض D ألغي اليوم. الرمز T مشتق من D، وتاريخ انتهاء T المطبوع بعد أسبوع.",
+            "existing_decision": "إلغاء التفويض يبطل فورًا جميع الرموز المشتقة منه، حتى لو لم يحل تاريخ انتهاء الرمز.",
+            "new_decision": "يستمر قبول T حتى تاريخ انتهائه المطبوع رغم إلغاء D."
+          },
+          "answer": {
+            "case_id": "DEV-0040-ar",
+            "scenario_id": "DEV-0040",
+            "family_id": "DEVF-011",
+            "authoring_id": "S011",
+            "language": "ar",
+            "label": "conflict",
+            "reason": "إلغاء D يبطل T فورًا وفق النص، فلا يبقى صالحًا إلى موعده المطبوع.",
+            "evidence": {
+              "context_quote": "التفويض D ألغي اليوم. الرمز T مشتق من D، وتاريخ انتهاء T المطبوع بعد أسبوع.",
+              "existing_decision_quote": "إلغاء التفويض يبطل فورًا جميع الرموز المشتقة منه، حتى لو لم يحل تاريخ انتهاء الرمز.",
+              "new_decision_quote": "يستمر قبول T حتى تاريخ انتهائه المطبوع رغم إلغاء D."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0040-en",
+            "language": "en",
+            "context": "Delegation D was revoked today. Token T derives from D, and T's printed expiry date is one week later.",
+            "existing_decision": "Revoking a delegation immediately invalidates all tokens derived from it, even if a token's expiry date has not been reached.",
+            "new_decision": "Continue accepting T until its printed expiry date despite D's revocation."
+          },
+          "answer": {
+            "case_id": "DEV-0040-en",
+            "scenario_id": "DEV-0040",
+            "family_id": "DEVF-011",
+            "authoring_id": "S011",
+            "language": "en",
+            "label": "conflict",
+            "reason": "D's revocation immediately invalidates T under the rule; it does not remain valid until the printed date.",
+            "evidence": {
+              "context_quote": "Delegation D was revoked today. Token T derives from D, and T's printed expiry date is one week later.",
+              "existing_decision_quote": "Revoking a delegation immediately invalidates all tokens derived from it, even if a token's expiry date has not been reached.",
+              "new_decision_quote": "Continue accepting T until its printed expiry date despite D's revocation."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0041",
+      "family_id": "DEVF-044",
+      "authoring_id": "S044",
+      "domain": "analytics",
+      "topic": "suppression count uses unique people rather than rows",
+      "label": "insufficient_information",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0041-ar",
+            "language": "ar",
+            "context": "جدول عينة يحتوي ستة صفوف. يمكن أن يحتوي عدة صفوف للشخص نفسه، ومعرفات الأشخاص غير متاحة في النسخة المقدمة.",
+            "existing_decision": "لا يجوز نشر متوسط العينة إلا إذا كان مبنيًا على خمسة أشخاص مختلفين على الأقل؛ عدد الصفوف ليس معيارًا بديلًا.",
+            "new_decision": "ينشر متوسط العينة ذات الصفوف الستة."
+          },
+          "answer": {
+            "case_id": "DEV-0041-ar",
+            "scenario_id": "DEV-0041",
+            "family_id": "DEVF-044",
+            "authoring_id": "S044",
+            "language": "ar",
+            "label": "insufficient_information",
+            "reason": "ستة صفوف قد تمثل ستة أشخاص أو أقل من خمسة؛ عدد الأشخاص المختلفين غير معلوم.",
+            "evidence": {
+              "context_quote": "جدول عينة يحتوي ستة صفوف. يمكن أن يحتوي عدة صفوف للشخص نفسه، ومعرفات الأشخاص غير متاحة في النسخة المقدمة.",
+              "existing_decision_quote": "لا يجوز نشر متوسط العينة إلا إذا كان مبنيًا على خمسة أشخاص مختلفين على الأقل؛ عدد الصفوف ليس معيارًا بديلًا.",
+              "new_decision_quote": "ينشر متوسط العينة ذات الصفوف الستة."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "افتراضيًا: كل صف لشخص مختلف، فيكون العدد ستة.",
+            "hypothetical_conflicting_completion": "افتراضيًا: الصفوف الستة تخص ثلاثة أشخاص فقط."
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0041-en",
+            "language": "en",
+            "context": "A sample table contains six rows. Multiple rows may belong to the same person, and person identifiers are unavailable in the supplied copy.",
+            "existing_decision": "The sample mean may be published only if based on at least five distinct people; row count is not a substitute.",
+            "new_decision": "Publish the mean of the six-row sample."
+          },
+          "answer": {
+            "case_id": "DEV-0041-en",
+            "scenario_id": "DEV-0041",
+            "family_id": "DEVF-044",
+            "authoring_id": "S044",
+            "language": "en",
+            "label": "insufficient_information",
+            "reason": "Six rows could represent six people or fewer than five; the distinct-person count is unknown.",
+            "evidence": {
+              "context_quote": "A sample table contains six rows. Multiple rows may belong to the same person, and person identifiers are unavailable in the supplied copy.",
+              "existing_decision_quote": "The sample mean may be published only if based on at least five distinct people; row count is not a substitute.",
+              "new_decision_quote": "Publish the mean of the six-row sample."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "Hypothetically: each row belongs to a different person, giving six people.",
+            "hypothetical_conflicting_completion": "Hypothetically: the six rows belong to only three people."
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0042",
+      "family_id": "DEVF-022",
+      "authoring_id": "S022",
+      "domain": "subscriptions",
+      "topic": "pilot-only obligation",
+      "label": "no_conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0042-ar",
+            "language": "ar",
+            "context": "العميل P ليس ضمن برنامج التجربة. العرض الجديد خاص بـP وحده ولا يغير عروض عملاء التجربة.",
+            "existing_decision": "لعملاء برنامج التجربة فقط، يجب تضمين جلسة تهيئة مجانية؛ لا تفرض هذه القاعدة الجلسة على بقية العملاء.",
+            "new_decision": "يقدم العرض إلى P دون جلسة تهيئة مجانية."
+          },
+          "answer": {
+            "case_id": "DEV-0042-ar",
+            "scenario_id": "DEV-0042",
+            "family_id": "DEVF-022",
+            "authoring_id": "S022",
+            "language": "ar",
+            "label": "no_conflict",
+            "reason": "P خارج التغطية الفعلية للالتزام؛ لا يوجد تعارض مع القاعدة المقدمة.",
+            "evidence": {
+              "context_quote": "العميل P ليس ضمن برنامج التجربة. العرض الجديد خاص بـP وحده ولا يغير عروض عملاء التجربة.",
+              "existing_decision_quote": "لعملاء برنامج التجربة فقط، يجب تضمين جلسة تهيئة مجانية؛ لا تفرض هذه القاعدة الجلسة على بقية العملاء.",
+              "new_decision_quote": "يقدم العرض إلى P دون جلسة تهيئة مجانية."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0042-en",
+            "language": "en",
+            "context": "Customer P is not in the pilot program. The new offer is only for P and does not change pilot customers' offers.",
+            "existing_decision": "For pilot-program customers only, a free onboarding session must be included; this rule does not require the session for other customers.",
+            "new_decision": "Offer P a package without a free onboarding session."
+          },
+          "answer": {
+            "case_id": "DEV-0042-en",
+            "scenario_id": "DEV-0042",
+            "family_id": "DEVF-022",
+            "authoring_id": "S022",
+            "language": "en",
+            "label": "no_conflict",
+            "reason": "P is outside the obligation's actual coverage; there is no conflict with the supplied rule.",
+            "evidence": {
+              "context_quote": "Customer P is not in the pilot program. The new offer is only for P and does not change pilot customers' offers.",
+              "existing_decision_quote": "For pilot-program customers only, a free onboarding session must be included; this rule does not require the session for other customers.",
+              "new_decision_quote": "Offer P a package without a free onboarding session."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0043",
+      "family_id": "DEVF-006",
+      "authoring_id": "S006",
+      "domain": "audit_trails",
+      "topic": "correction by append rather than replacement",
+      "label": "conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0043-ar",
+            "language": "ar",
+            "context": "القيد L في سجل التدقيق به خطأ إملائي. صاحب القيد معروف، لكن لون شاشة العرض غير محدد.",
+            "existing_decision": "تصحح أخطاء سجل التدقيق بإضافة قيد تصحيح مرتبط بالأصل؛ يمنع تعديل القيد الأصلي أو استبداله، مهما صغر الخطأ.",
+            "new_decision": "يستبدل نص L بالنص المصحح في المكان نفسه دون إبقاء النص السابق."
+          },
+          "answer": {
+            "case_id": "DEV-0043-ar",
+            "scenario_id": "DEV-0043",
+            "family_id": "DEVF-006",
+            "authoring_id": "S006",
+            "language": "ar",
+            "label": "conflict",
+            "reason": "الاستبدال ممنوع صراحة، ولا يستثني الخطأ الإملائي الصغير.",
+            "evidence": {
+              "context_quote": "القيد L في سجل التدقيق به خطأ إملائي. صاحب القيد معروف، لكن لون شاشة العرض غير محدد.",
+              "existing_decision_quote": "تصحح أخطاء سجل التدقيق بإضافة قيد تصحيح مرتبط بالأصل؛ يمنع تعديل القيد الأصلي أو استبداله، مهما صغر الخطأ.",
+              "new_decision_quote": "يستبدل نص L بالنص المصحح في المكان نفسه دون إبقاء النص السابق."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0043-en",
+            "language": "en",
+            "context": "Entry L in the audit log has a spelling error. The entry's author is known, but the display screen's color is unspecified.",
+            "existing_decision": "Audit-log errors must be corrected by appending a correction linked to the original; modifying or replacing the original entry is prohibited, however small the error.",
+            "new_decision": "Replace L's text with the corrected text in the same location without retaining the previous text."
+          },
+          "answer": {
+            "case_id": "DEV-0043-en",
+            "scenario_id": "DEV-0043",
+            "family_id": "DEVF-006",
+            "authoring_id": "S006",
+            "language": "en",
+            "label": "conflict",
+            "reason": "Replacement is explicitly prohibited, with no exception for a small spelling error.",
+            "evidence": {
+              "context_quote": "Entry L in the audit log has a spelling error. The entry's author is known, but the display screen's color is unspecified.",
+              "existing_decision_quote": "Audit-log errors must be corrected by appending a correction linked to the original; modifying or replacing the original entry is prohibited, however small the error.",
+              "new_decision_quote": "Replace L's text with the corrected text in the same location without retaining the previous text."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0044",
+      "family_id": "DEVF-007",
+      "authoring_id": "S007",
+      "domain": "release_management",
+      "topic": "exception names a service rather than its owner",
+      "label": "conflict",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0044-ar",
+            "language": "ar",
+            "context": "الخدمتان Search وPay يملكهما الفريق نفسه، لكنهما خدمتان مستقلتان. الاستثناء الموثق يسمي Search فقط، وفترة تجميد التغييرات ما زالت سارية.",
+            "existing_decision": "يمنع تغيير أي خدمة خلال التجميد، إلا الخدمة المذكورة بالاسم في الاستثناء. لا يمتد الاستثناء إلى بقية خدمات الفريق.",
+            "new_decision": "تُحدث Pay أثناء التجميد باستخدام الاستثناء الخاص بـSearch لأن المالك واحد."
+          },
+          "answer": {
+            "case_id": "DEV-0044-ar",
+            "scenario_id": "DEV-0044",
+            "family_id": "DEVF-007",
+            "authoring_id": "S007",
+            "language": "ar",
+            "label": "conflict",
+            "reason": "الاستثناء خاص بخدمة Search، والقرار يستهدف Pay.",
+            "evidence": {
+              "context_quote": "الخدمتان Search وPay يملكهما الفريق نفسه، لكنهما خدمتان مستقلتان. الاستثناء الموثق يسمي Search فقط، وفترة تجميد التغييرات ما زالت سارية.",
+              "existing_decision_quote": "يمنع تغيير أي خدمة خلال التجميد، إلا الخدمة المذكورة بالاسم في الاستثناء. لا يمتد الاستثناء إلى بقية خدمات الفريق.",
+              "new_decision_quote": "تُحدث Pay أثناء التجميد باستخدام الاستثناء الخاص بـSearch لأن المالك واحد."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0044-en",
+            "language": "en",
+            "context": "Search and Pay are owned by the same team but are separate services. The documented exception names only Search, and the change-freeze period is still active.",
+            "existing_decision": "Changes to any service are prohibited during the freeze except for the service named in the exception. The exception does not extend to the team's other services.",
+            "new_decision": "Update Pay during the freeze using Search's exception because the owner is the same."
+          },
+          "answer": {
+            "case_id": "DEV-0044-en",
+            "scenario_id": "DEV-0044",
+            "family_id": "DEVF-007",
+            "authoring_id": "S007",
+            "language": "en",
+            "label": "conflict",
+            "reason": "The exception is specific to Search, while the proposal targets Pay.",
+            "evidence": {
+              "context_quote": "Search and Pay are owned by the same team but are separate services. The documented exception names only Search, and the change-freeze period is still active.",
+              "existing_decision_quote": "Changes to any service are prohibited during the freeze except for the service named in the exception. The exception does not extend to the team's other services.",
+              "new_decision_quote": "Update Pay during the freeze using Search's exception because the owner is the same."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending"
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "DEV-0045",
+      "family_id": "DEVF-031",
+      "authoring_id": "S031",
+      "domain": "service_quality",
+      "topic": "active service time with unknown pause duration",
+      "label": "insufficient_information",
+      "languages": {
+        "ar": {
+          "input": {
+            "case_id": "DEV-0045-ar",
+            "language": "ar",
+            "context": "فتح الطلب عند 09:00 وأغلق عند 14:00 في اليوم نفسه. توقف العمل فترة واحدة لانتظار العميل، لكن مدة التوقف غير مذكورة.",
+            "existing_decision": "الحد الأقصى ثلاث ساعات عمل فعلي؛ تخصم مدة انتظار العميل بالكامل من الزمن المنقضي.",
+            "new_decision": "يسجل الطلب على أنه استوفى حد الثلاث ساعات."
+          },
+          "answer": {
+            "case_id": "DEV-0045-ar",
+            "scenario_id": "DEV-0045",
+            "family_id": "DEVF-031",
+            "authoring_id": "S031",
+            "language": "ar",
+            "label": "insufficient_information",
+            "reason": "الزمن المنقضي خمس ساعات، ولا يعرف هل التوقف ساعتان على الأقل ليصبح العمل الفعلي ثلاث ساعات أو أقل.",
+            "evidence": {
+              "context_quote": "فتح الطلب عند 09:00 وأغلق عند 14:00 في اليوم نفسه. توقف العمل فترة واحدة لانتظار العميل، لكن مدة التوقف غير مذكورة.",
+              "existing_decision_quote": "الحد الأقصى ثلاث ساعات عمل فعلي؛ تخصم مدة انتظار العميل بالكامل من الزمن المنقضي.",
+              "new_decision_quote": "يسجل الطلب على أنه استوفى حد الثلاث ساعات."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "افتراضيًا: استمر التوقف ساعتين؛ العمل الفعلي ثلاث ساعات.",
+            "hypothetical_conflicting_completion": "افتراضيًا: استمر التوقف ساعة واحدة؛ العمل الفعلي أربع ساعات."
+          }
+        },
+        "en": {
+          "input": {
+            "case_id": "DEV-0045-en",
+            "language": "en",
+            "context": "The request opened at 09:00 and closed at 14:00 the same day. Work paused once while waiting for the customer, but the pause duration is not stated.",
+            "existing_decision": "The maximum is three active working hours; all customer-waiting time is subtracted from elapsed time.",
+            "new_decision": "Record the request as meeting the three-hour limit."
+          },
+          "answer": {
+            "case_id": "DEV-0045-en",
+            "scenario_id": "DEV-0045",
+            "family_id": "DEVF-031",
+            "authoring_id": "S031",
+            "language": "en",
+            "label": "insufficient_information",
+            "reason": "Elapsed time is five hours; it is unknown whether the pause was at least two hours, making active time at most three hours.",
+            "evidence": {
+              "context_quote": "The request opened at 09:00 and closed at 14:00 the same day. Work paused once while waiting for the customer, but the pause duration is not stated.",
+              "existing_decision_quote": "The maximum is three active working hours; all customer-waiting time is subtracted from elapsed time.",
+              "new_decision_quote": "Record the request as meeting the three-hour limit."
+            },
+            "review_status": "ai_authored_and_self_reviewed_independent_human_review_pending",
+            "hypothetical_compatible_completion": "Hypothetically: the pause lasted two hours, leaving three active hours.",
+            "hypothetical_conflicting_completion": "Hypothetically: the pause lasted one hour, leaving four active hours."
+          }
+        }
+      }
+    }
+  ]
+}

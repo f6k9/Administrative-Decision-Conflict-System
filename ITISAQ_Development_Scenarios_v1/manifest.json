@@ -1,0 +1,43 @@
+{
+  "dataset_id": "itisaq_administrative_development_v1",
+  "split": "development",
+  "algorithm": "SHA-256",
+  "manifest_excludes_itself": true,
+  "files": [
+    {
+      "file": "answer_key.json",
+      "bytes": 88532,
+      "sha256": "99620879dda04e7880c082d8da5dfc849a59fe9cc0f75570204103a1683b6340"
+    },
+    {
+      "file": "authoring_cases.json",
+      "bytes": 57749,
+      "sha256": "4ed1ed85e6b253b2fcc31fa6951463f70819f62108156273e77e6694092a54ff"
+    },
+    {
+      "file": "development_scenarios_bilingual.json",
+      "bytes": 170122,
+      "sha256": "9b9de4d15ecfee94f1dffb2766faeae5ca0a722a05319238b5b6a3bc7c73b576"
+    },
+    {
+      "file": "model_inputs.jsonl",
+      "bytes": 43350,
+      "sha256": "c8b865948d57210e3cb2fe36f65f137300967cfd6cd8b050e2aad71045eb814d"
+    },
+    {
+      "file": "README_AR.md",
+      "bytes": 8642,
+      "sha256": "e8bd1bb354638fd377a31023a14c7f6dc647514155c330376314b62892e1b62b"
+    },
+    {
+      "file": "REVIEW_REPORT.json",
+      "bytes": 5294,
+      "sha256": "790ad3132837cd693a8517f09081cf90102cea987aab5ce21e88ca15575de988"
+    },
+    {
+      "file": "SCENARIOS_REVIEW.md",
+      "bytes": 64567,
+      "sha256": "67878bf134b4f48d12666146ab90f8f97feb1883efaa08f5f656c7584f664908"
+    }
+  ]
+}

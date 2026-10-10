@@ -1,0 +1,109 @@
+{
+  "dataset_id": "itisaq_administrative_development_v1",
+  "split": "development",
+  "review_date": "2026-10-08",
+  "reviewer_type": "AI author self-review; no independent reviewer",
+  "independent_human_review_completed": false,
+  "semantic_review": {
+    "authoring_cases_reviewed": 45,
+    "checks_performed": [
+      "Read the Arabic and English facts, existing rule, proposal and rationale; check that each language expresses the same decision problem.",
+      "For every insufficient_information case, specify both a hypothetical compatible completion and a hypothetical conflicting completion consistent with the given facts.",
+      "Check that incomplete but irrelevant metadata in selected conflict/no_conflict cases does not change the outcome.",
+      "Check numerical reasoning, time-zone conversions, boundaries, exceptions, actual coverage and the difference between mandatory requirements and preferred targets.",
+      "Review the previous dataset's 100 authoring-family topics while authoring to avoid copying their complete situations with only different numbers. Abstract reasoning patterns still overlap.",
+      "Distinguish issuer authorization (assumed prechecked) from the content of an operational proposal that may conflict with the supplied rule."
+    ],
+    "corrections_during_review": [
+      {
+        "authoring_id": "S003",
+        "issue": "The initial Arabic wording could mean the customer sent the renewal notice, while English said it was sent to the customer.",
+        "resolution": "Changed Arabic to explicitly state that the notice was sent to the customer; no label change."
+      }
+    ],
+    "retained_limitations": [
+      "All labels are AI-proposed. Self-review is not independent ground-truth validation.",
+      "Some scenarios explicitly identify missing information and some rules are instructional. Performance can reflect these writing patterns rather than real-world document understanding.",
+      "One authoring ID per scenario is an organizational convention, not evidence of 45 independent semantic families. Topics such as time zones, data suppression and preview execution recur.",
+      "This development set is intentionally balanced and small; its class frequencies need not match an actual organization.",
+      "Paired translations are correlated. Ninety records must not be described as ninety independent scenarios.",
+      "No claims about real organizational legality, full-system authorization, retrieval quality, OCR or deployment reliability follow from this dataset.",
+      "An unchanged source-code hash verifies no evaluator edit, not compatibility with this dataset. The current loader still requires adaptation."
+    ]
+  },
+  "automated_checks": {
+    "status": "passed",
+    "scenario_count": 45,
+    "input_record_count": 90,
+    "answer_count": 90,
+    "prior_input_records_checked": 600,
+    "balance": [
+      {
+        "group": "ar, conflict",
+        "count": 15
+      },
+      {
+        "group": "ar, insufficient_information",
+        "count": 15
+      },
+      {
+        "group": "ar, no_conflict",
+        "count": 15
+      },
+      {
+        "group": "en, conflict",
+        "count": 15
+      },
+      {
+        "group": "en, insufficient_information",
+        "count": 15
+      },
+      {
+        "group": "en, no_conflict",
+        "count": 15
+      }
+    ],
+    "unique_case_ids": 90,
+    "unique_scenario_ids": 45,
+    "input_allowed_fields": [
+      "case_id",
+      "context",
+      "existing_decision",
+      "language",
+      "new_decision"
+    ],
+    "input_answer_primary_source_alignment": "passed",
+    "evidence_exact_quote_alignment": "passed",
+    "insufficient_information_records_with_two_hypothetical_completions": 30,
+    "duplicate_normalized_full_inputs_within_new": 0,
+    "duplicate_normalized_full_inputs_against_prior": 0,
+    "duplicate_check_limitation": "Whitespace/case-normalized full-text comparison only; not a semantic novelty test.",
+    "arabic_english_digit_sequence_mismatches": 0,
+    "digit_check_limitation": "Digit sequences only; written-out numbers and semantics were reviewed manually by the AI author.",
+    "arithmetic_spot_checks": {
+      "S001_round_total": true,
+      "S005_marginal_tiers": true,
+      "S008_elapsed_hours": true,
+      "S009_earlier_arrival": true,
+      "S012_net_refund": true,
+      "S017_fee_base": true,
+      "S020_deadline": true,
+      "S023_aggregate": true,
+      "S027_rolling_window": true,
+      "S028_weighted_votes": true,
+      "S029_gross_weight": true,
+      "S031_pause_completions": true,
+      "S035_rate_completions": true,
+      "S039_cost_completions": true,
+      "S040_annualization": true,
+      "S045_uncertainty_bounds": true
+    },
+    "arithmetic_check_limitation": "Independent spot calculations, not an automated proof of labels or natural-language interpretation.",
+    "evaluator_hashes_unchanged": {
+      "evaluate_admin.py": "71a3b89ad562cf04bb97f0b0702fee9131be67df055f981e60ed636185be4faf",
+      "evaluate.py": "add54fcc1c7bb739cd0c331a3e4efdc87b0f173e752d5a411e75d1757fc39f86"
+    },
+    "models_run_this_step": false,
+    "current_evaluator_compatible_without_change": false
+  }
+}
