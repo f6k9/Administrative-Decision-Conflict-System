@@ -1,0 +1,42 @@
+{
+  "dataset_version": "1.0-draft",
+  "algorithm": "SHA-256",
+  "note": "Freeze and share this same version for every candidate. Manifest excludes itself. Answers are proposed and pending human validation.",
+  "files": [
+    {
+      "file": "administrative_scenarios_bilingual.json",
+      "bytes": 779643,
+      "sha256": "3b6d0a494d252cd4b1a9b0cc840b24829c9c47640474879b13f048e077513aa1"
+    },
+    {
+      "file": "answer_key.json",
+      "bytes": 535353,
+      "sha256": "fb6d970d84c1d74100cdd0260a3a4cc54cf8e50306e0e4afce98badc46827807"
+    },
+    {
+      "file": "model_inputs.jsonl",
+      "bytes": 232618,
+      "sha256": "281cbfeab83791237895019c49f827b22fa13121fa826031966e3f3665c374f3"
+    },
+    {
+      "file": "README_AR.md",
+      "bytes": 10907,
+      "sha256": "3f76b9b517b627fb1c302d2f5069223fd90f459101aa7e7dd24209c1034533a9"
+    },
+    {
+      "file": "REVIEW_REPORT.json",
+      "bytes": 8059,
+      "sha256": "0d2ec77d035c9167f26d77dde0df50aa427854eb5cb6d3993bd96b42652c1725"
+    },
+    {
+      "file": "SCENARIOS_REVIEW.md",
+      "bytes": 372906,
+      "sha256": "130acb1f7ab4507b5f82910160921be9b5fdbaaccc277091de8df0b4b7f2c90d"
+    },
+    {
+      "file": "source_families.json",
+      "bytes": 144405,
+      "sha256": "f218437d3a45286afdf709e0911e5c466f0ab888a6b0627ed9554db2fe00a97b"
+    }
+  ]
+}

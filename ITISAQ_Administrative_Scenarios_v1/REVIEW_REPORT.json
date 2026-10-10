@@ -1,0 +1,273 @@
+{
+  "dataset_version": "1.0-draft",
+  "review_date": "2026-10-08",
+  "status": "technical_checks_passed_human_validation_pending",
+  "checks": [
+    {
+      "name": "counts",
+      "passed": true,
+      "details": "100 families, 300 bilingual scenarios, 600 input records, 600 answer records"
+    },
+    {
+      "name": "unique_ids",
+      "passed": true,
+      "details": "All scenario and language-record IDs are unique within their files"
+    },
+    {
+      "name": "answer_and_input_alignment",
+      "passed": true,
+      "details": "Every input has one matching answer and a matching primary-scenario translation"
+    },
+    {
+      "name": "input_field_allowlist",
+      "passed": true,
+      "details": "Only case_id, language, context, existing_decision, new_decision; no answer, rationale, family, or topic fields"
+    },
+    {
+      "name": "nonempty_bilingual_texts",
+      "passed": true,
+      "details": "All required text fields present; Arabic script and English alphabet sanity checks passed"
+    },
+    {
+      "name": "exact_evidence_quotes",
+      "passed": true,
+      "details": "1800 source passages checked in each of the two answer-bearing exports; these are full passages, not minimal spans"
+    },
+    {
+      "name": "no_duplicate_full_inputs",
+      "passed": true,
+      "details": "No repeated full context/rule/proposal tuple within a language; deliberate shared-family overlap remains"
+    },
+    {
+      "name": "scenario_label_balance",
+      "passed": true,
+      "details": [
+        {
+          "label": "conflict",
+          "count": 100
+        },
+        {
+          "label": "insufficient_information",
+          "count": 100
+        },
+        {
+          "label": "no_conflict",
+          "count": 100
+        }
+      ]
+    },
+    {
+      "name": "language_label_balance",
+      "passed": true,
+      "details": [
+        {
+          "language_label": "ar, conflict",
+          "count": 100
+        },
+        {
+          "language_label": "ar, insufficient_information",
+          "count": 100
+        },
+        {
+          "language_label": "ar, no_conflict",
+          "count": 100
+        },
+        {
+          "language_label": "en, conflict",
+          "count": 100
+        },
+        {
+          "language_label": "en, insufficient_information",
+          "count": 100
+        },
+        {
+          "language_label": "en, no_conflict",
+          "count": 100
+        }
+      ]
+    },
+    {
+      "name": "domain_balance",
+      "passed": true,
+      "details": [
+        {
+          "domain": "attendance",
+          "count": 15
+        },
+        {
+          "domain": "communications",
+          "count": 15
+        },
+        {
+          "domain": "customer_service",
+          "count": 15
+        },
+        {
+          "domain": "expenses",
+          "count": 15
+        },
+        {
+          "domain": "facilities",
+          "count": 15
+        },
+        {
+          "domain": "finance",
+          "count": 15
+        },
+        {
+          "domain": "information_security",
+          "count": 15
+        },
+        {
+          "domain": "inventory",
+          "count": 15
+        },
+        {
+          "domain": "it_access",
+          "count": 15
+        },
+        {
+          "domain": "leave",
+          "count": 15
+        },
+        {
+          "domain": "logistics",
+          "count": 15
+        },
+        {
+          "domain": "meetings",
+          "count": 15
+        },
+        {
+          "domain": "payroll",
+          "count": 15
+        },
+        {
+          "domain": "procurement",
+          "count": 15
+        },
+        {
+          "domain": "projects",
+          "count": 15
+        },
+        {
+          "domain": "quality",
+          "count": 15
+        },
+        {
+          "domain": "records",
+          "count": 15
+        },
+        {
+          "domain": "recruitment",
+          "count": 15
+        },
+        {
+          "domain": "training",
+          "count": 15
+        },
+        {
+          "domain": "travel",
+          "count": 15
+        }
+      ]
+    },
+    {
+      "name": "contrast_families",
+      "passed": true,
+      "details": "Each of 100 dependent families has one scenario per label"
+    },
+    {
+      "name": "all_exports_match_authoring_source",
+      "passed": true,
+      "details": "Every bilingual scenario was matched to its authoring family and variant"
+    },
+    {
+      "name": "readable_review_count",
+      "passed": true,
+      "details": "300 review entries with Arabic and English texts and reasons"
+    },
+    {
+      "name": "numeric_token_audit",
+      "passed": true,
+      "details": "Four inspected notation differences only: Arabic first vs English 1 (April/July), Arabic 12 vs English twelve. No unresolved digit-token discrepancy. This is not a proof of translation equivalence."
+    },
+    {
+      "name": "existing_evaluator_unchanged",
+      "passed": true,
+      "details": "ADD54FCC1C7BB739CD0C331A3E4EFDC87B0F173E752D5A411E75D1757FC39F86"
+    }
+  ],
+  "numeric_flags_reviewed": [
+    {
+      "family": "F038",
+      "field": "rule",
+      "ar_digit_tokens": "1|2",
+      "en_digit_tokens": "1|2|1"
+    },
+    {
+      "family": "F074",
+      "field": "C proposal",
+      "ar_digit_tokens": "12",
+      "en_digit_tokens": ""
+    },
+    {
+      "family": "F074",
+      "field": "U proposal",
+      "ar_digit_tokens": "12",
+      "en_digit_tokens": ""
+    },
+    {
+      "family": "F086",
+      "field": "context",
+      "ar_digit_tokens": "300|400",
+      "en_digit_tokens": "300|400|1"
+    }
+  ],
+  "semantic_review": {
+    "reviewer_type": "Authoring AI self-review, not independent review",
+    "scope": "All 100 families and 300 proposed answers reviewed for conditional applicability, actual coverage, dates, boundaries, arithmetic, and intended Arabic/English equivalence.",
+    "corrections": [
+      {
+        "family": "F001",
+        "change": "Removed alternative from unspecified site X to avoid implying it cannot be the office."
+      },
+      {
+        "family": "F052",
+        "change": "Unknown-time notice scenario moved to two calendar days before the meeting so the 48-hour condition can be met or missed."
+      },
+      {
+        "family": "F058",
+        "change": "Annual training threshold made explicitly at least 20 hours."
+      },
+      {
+        "family": "F064",
+        "change": "Explicitly prohibited unapproved channels; retained distinction between preference and mandatory rule."
+      },
+      {
+        "family": "F078",
+        "change": "Clarified that both stock batches are available and valid at the relevant issue times."
+      },
+      {
+        "family": "F097",
+        "change": "Missing-information variant now omits start-day number rather than using an incoherent before/after-day-end distinction."
+      },
+      {
+        "family": "F100",
+        "change": "Retention rule explicitly ends at project closure; administrative priority remains outside the semantic task."
+      }
+    ]
+  },
+  "limitations": [
+    "No independent model or human expert validated the labels.",
+    "Checks validate structure and internal alignment, not truth of all labels or translation quality.",
+    "AI-generated short synthetic cases; explicit unknown-fact wording can introduce shortcuts.",
+    "100 dependent contrast families; 600 language cases are not independent observations.",
+    "Balanced classes do not represent real-world prevalence.",
+    "This tests supplied-text semantic comparison, not permissions, retrieval, or administrative-effect correctness.",
+    "Case interpretations and bilingual labels should be independently checked by two qualified reviewers before research adoption."
+  ],
+  "candidate_model_runs": 0,
+  "evaluation_code_edits": 0,
+  "other_existing_file_edits": 0
+}
