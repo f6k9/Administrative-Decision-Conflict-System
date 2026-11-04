@@ -34,3 +34,9 @@
 - **Conflicts:** Ask about conflicting decisions or choices that cannot be resolved reliably. Preserve compatible decisions and verified progress from both contributors in files 08/09.
 - **Commit messages:** If the user has not supplied a message, ask for one and offer the Saudi date/time plus changed file names. Wait for their selection. For this publishing operation, the user selected the date/time and file-name option.
 - **Supersedes:** The task-branch default in the earlier GitHub publishing instructions. Explicit authorization for Pull/Push, review, no-force-push, and truthful publication reporting remain required.
+
+## 2026-11-04 — Descriptive commit messages
+
+- **Decision:** Commit messages should concisely describe the actual change without automatically including dates, times, or lists of filenames. Mention a filename only when it clarifies the description.
+- **Supersedes:** The date/time and changed-file naming option recorded in the earlier commit-message decision. Historical commits remain unchanged.
+- **Unchanged rule:** If the user supplies no commit message, ask for one and offer a descriptive suggestion; wait for their selection before committing.

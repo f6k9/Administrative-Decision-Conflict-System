@@ -84,11 +84,11 @@ Documentation is developed incrementally. A future document name is a proposed l
 
 ### Commit message selection
 
+- Use a concise, meaningful message describing what changed. Do not add date/time prefixes or list changed filenames by default. Mention a file only when it helps explain the change.
 - If the user supplies a commit message for the operation, use it.
-- If no message is supplied, ask in the chat for their preferred message and offer an alternative using today's date, the current Saudi Arabia time (Asia/Riyadh, UTC+03:00), and the names of the Markdown files actually changed. Describe changed code or image files too when applicable.
-- Wait for the user's answer before creating a new commit. Silence is not approval of the suggested message. Do not ask again once the user has selected a naming option for the same operation.
-- Example format: `YYYY-MM-DD HH:mm +03:00 - Update AGENTS.md, 08-decisions.md, 09-project-status.md`.
-- If synchronizing the same operation requires a merge commit, the user's selected naming option applies to that commit too; describe the integration accurately. Fast-forward updates do not require a new commit message.
+- If no message is supplied, ask in the chat for their preferred message and offer a concise description based on the actual reviewed changes, for example: `Clarify GitHub synchronization and commit message rules`.
+- Wait for the user's answer before creating a new commit. Silence is not approval of the suggested message. Do not ask again once the user has approved a message or naming approach for the same operation.
+- If synchronizing the same operation requires a merge commit, use an accurate descriptive integration message under the approved naming approach. Fast-forward updates do not require a new commit message.
 
 ## Documentation
 
