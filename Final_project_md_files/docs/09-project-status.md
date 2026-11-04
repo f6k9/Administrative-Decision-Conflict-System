@@ -4,6 +4,10 @@ Last updated: 2026-11-04
 
 ## Completed
 
+- Verified repository read access and prepared a task branch based on the existing `main` history, preserving the existing repository layout and other project files.
+
+- Added the designated GitHub repository and explicit-request publishing workflow to `AGENTS.md`, and recorded the repository decision in `08-decisions.md`. No files were pushed.
+
 - Populated `02-problem-and-scope.md` from Report I, covering the problem, target users, included work, boundaries, dependencies, and unresolved scope details. Checked consistency with the requirements and verified documentation links; no new project scope or implementation progress was asserted.
 
 - Applied the approved startup order in `AGENTS.md`: read available core documents once per chat, including requirements, then read only task-relevant additional material. Recorded the superseding startup decision in `08-decisions.md`.
@@ -17,6 +21,8 @@ Last updated: 2026-11-04
 - Recorded this documentation decision in `08-decisions.md`.
 
 ## Current work and next steps
+
+- A separate checkout was cloned from the designated repository and branch `docs/sync-project-guidance-20261104` was prepared for publishing the latest guidance and tracking updates. Existing repository documents were compared with the desktop originals; substantive changes are limited to `AGENTS.md` and files 08/09. Push success must be verified separately. The desktop documentation folder itself remains outside Git.
 
 - Review and refine the initial requirements extraction when the user requests it, confirming unresolved categories, organizational rules, data schemas, and measurable acceptance criteria.
 - Populate other topic documents when work reaches their stage and the user requests it.

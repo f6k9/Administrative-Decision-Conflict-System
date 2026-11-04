@@ -19,3 +19,10 @@
 - **Reason:** Establish consistent project context and requirements before work while avoiding repeated reading of every document.
 - **Supersedes:** The earlier startup policy that made requirements reading dependent on the task. Existing rules for discovering topic files, skipping missing/empty files, and obtaining approval for new topic documents remain in effect.
 - **Implementation:** Updated the `Before starting work` section of `AGENTS.md`. Core reading is once per chat; reread when files change or a detail needs verification.
+
+## 2026-11-04 — Designated GitHub repository
+
+- **Decision:** Use `https://github.com/f6k9/Administrative-Decision-Conflict-System` as the intended repository for shared project work.
+- **Purpose:** Let future chats identify the upload destination when the user explicitly asks to publish changes.
+- **Implementation:** Added `GitHub repository and publishing` guidance to `AGENTS.md`, including repository/branch verification, explicit upload requests, preserving teammate work, and truthful publication reporting.
+- **Limit:** Recording the URL does not configure Git, authenticate GitHub, or upload files. Repository access and existing remote contents have not been verified in this task.

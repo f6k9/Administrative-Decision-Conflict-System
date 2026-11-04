@@ -55,6 +55,18 @@ Documentation is developed incrementally. A future document name is a proposed l
 - Never include passwords, API keys, or private organizational data in code or documentation.
 - Ask for clarification when a missing requirement would materially change the implementation.
 
+## GitHub repository and publishing
+
+- Project repository designated by the user: https://github.com/f6k9/Administrative-Decision-Conflict-System
+- Repository identity: `f6k9/Administrative-Decision-Conflict-System`. This URL identifies the intended repository; it does not establish that the current folder is a Git checkout, that a remote is configured, or that authentication and write access are available.
+- When the user explicitly asks to upload or push the project changes (for example, "ارفعه"), treat that as authorization to review, commit, and push the relevant changes to this repository. Do not push merely because files were edited or tracking documents were updated.
+- Before publishing, verify the actual working directory, Git root, remote URL, current branch, worktree changes, and relevant remote state. Do not publish to an unrelated repository or silently replace an existing remote.
+- If the folder is not connected to the repository, inspect repository access and existing contents before setting up a suitable checkout within the user's authorized scope. Preserve local documents and remote history; do not blindly initialize and push over an existing project. Explain any required sign-in or missing write access without requesting passwords or tokens in chat.
+- Review the diff and run appropriate checks. Include only files relevant to the requested upload, including associated decision/status updates when applicable. Preserve unrelated work and exclude credentials, private local configuration, and temporary artifacts.
+- For concurrent team work, use an appropriate task branch. Do not directly push to the shared default branch or merge a pull request unless the user explicitly requests or has already authorized that workflow. If an upload request concerns a clearly established task branch, continue on that branch; if the intended destination remains ambiguous, ask which branch to use.
+- Never force-push, discard a teammate's changes, or overwrite remote history to resolve divergence. Inspect and combine compatible changes. For files 08 and 09, retain compatible confirmed decisions and verified progress from both contributors; ask about contradictory decisions or uncertain claims rather than choosing a version arbitrarily.
+- After publishing, report the repository, branch, commit identifier, and what was uploaded. Verify push success before claiming publication. If blocked, distinguish local saved changes or commits from changes actually pushed.
+
 ## Documentation
 
 - Keep each topic in its designated document and link to it from other files.
