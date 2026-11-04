@@ -4,7 +4,7 @@ Last updated: 2026-11-04
 
 ## Completed
 
-- Updated `AGENTS.md` for the approved direct-to-main Pull/Push workflow, preserving local and teammate changes, reviewing conflicts, and asking for commit messages when unspecified. Recorded the decision in `08-decisions.md` and verified the documentation diff. Publication of this update is pending push verification.
+- Updated `AGENTS.md` for the approved direct-to-main Pull/Push workflow, preserving local and teammate changes, reviewing conflicts, and asking for commit messages when unspecified. Recorded the decision in `08-decisions.md` and verified the documentation diff. Published to `main` and verified remote commit `bcc4a4aa892ca0df0458ce6970677d686c89f88d`. The earlier guidance-branch changes are now included in `main` as well.
 
 - Published the latest GitHub guidance and tracking updates to `f6k9/Administrative-Decision-Conflict-System`, branch `docs/sync-project-guidance-20261104`. Verified remote commit `4f2abb54c9f1e3ec72f0c573b37680e2878dea99`. The shared `main` branch was not modified.
 
