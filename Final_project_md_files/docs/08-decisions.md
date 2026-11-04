@@ -26,3 +26,11 @@
 - **Purpose:** Let future chats identify the upload destination when the user explicitly asks to publish changes.
 - **Implementation:** Added `GitHub repository and publishing` guidance to `AGENTS.md`, including repository/branch verification, explicit upload requests, preserving teammate work, and truthful publication reporting.
 - **Limit:** Recording the URL does not configure Git, authenticate GitHub, or upload files. Repository access and existing remote contents have not been verified in this task.
+
+## 2026-11-04 — Shared main workflow and commit message selection
+
+- **Decision:** Both contributors may work directly on `main`. On a requested Pull, preserve local changes and integrate the latest remote state. On a requested Push, commit relevant changes, fetch again, integrate compatible teammate work, verify, and push without force.
+- **Reason:** The user chose a simpler concurrent workflow without requiring task branches.
+- **Conflicts:** Ask about conflicting decisions or choices that cannot be resolved reliably. Preserve compatible decisions and verified progress from both contributors in files 08/09.
+- **Commit messages:** If the user has not supplied a message, ask for one and offer the Saudi date/time plus changed file names. Wait for their selection. For this publishing operation, the user selected the date/time and file-name option.
+- **Supersedes:** The task-branch default in the earlier GitHub publishing instructions. Explicit authorization for Pull/Push, review, no-force-push, and truthful publication reporting remain required.

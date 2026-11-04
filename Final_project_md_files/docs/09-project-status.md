@@ -4,6 +4,8 @@ Last updated: 2026-11-04
 
 ## Completed
 
+- Updated `AGENTS.md` for the approved direct-to-main Pull/Push workflow, preserving local and teammate changes, reviewing conflicts, and asking for commit messages when unspecified. Recorded the decision in `08-decisions.md` and verified the documentation diff. Publication of this update is pending push verification.
+
 - Published the latest GitHub guidance and tracking updates to `f6k9/Administrative-Decision-Conflict-System`, branch `docs/sync-project-guidance-20261104`. Verified remote commit `4f2abb54c9f1e3ec72f0c573b37680e2878dea99`. The shared `main` branch was not modified.
 
 - Verified repository read access and prepared a task branch based on the existing `main` history, preserving the existing repository layout and other project files.
@@ -24,7 +26,7 @@ Last updated: 2026-11-04
 
 ## Current work and next steps
 
-- A separate checkout was cloned from the designated repository and branch `docs/sync-project-guidance-20261104` was prepared for publishing the latest guidance and tracking updates. Existing repository documents were compared with the desktop originals; substantive changes are limited to `AGENTS.md` and files 08/09. The first publishing commit was confirmed against the remote branch. The desktop documentation folder itself remains outside Git.
+- The working Git checkout uses `main` under the approved workflow. Its documentation is inside `Final_project_md_files/`. The desktop documentation folder itself remains outside Git and must be synchronized with the checkout when publishing from that folder. The earlier task-branch publication remains a historical event, not the current branch policy.
 
 - Review and refine the initial requirements extraction when the user requests it, confirming unresolved categories, organizational rules, data schemas, and measurable acceptance criteria.
 - Populate other topic documents when work reaches their stage and the user requests it.

@@ -57,15 +57,38 @@ Documentation is developed incrementally. A future document name is a proposed l
 
 ## GitHub repository and publishing
 
-- Project repository designated by the user: https://github.com/f6k9/Administrative-Decision-Conflict-System
-- Repository identity: `f6k9/Administrative-Decision-Conflict-System`. This URL identifies the intended repository; it does not establish that the current folder is a Git checkout, that a remote is configured, or that authentication and write access are available.
-- When the user explicitly asks to upload or push the project changes (for example, "ارفعه"), treat that as authorization to review, commit, and push the relevant changes to this repository. Do not push merely because files were edited or tracking documents were updated.
-- Before publishing, verify the actual working directory, Git root, remote URL, current branch, worktree changes, and relevant remote state. Do not publish to an unrelated repository or silently replace an existing remote.
-- If the folder is not connected to the repository, inspect repository access and existing contents before setting up a suitable checkout within the user's authorized scope. Preserve local documents and remote history; do not blindly initialize and push over an existing project. Explain any required sign-in or missing write access without requesting passwords or tokens in chat.
-- Review the diff and run appropriate checks. Include only files relevant to the requested upload, including associated decision/status updates when applicable. Preserve unrelated work and exclude credentials, private local configuration, and temporary artifacts.
-- For concurrent team work, use an appropriate task branch. Do not directly push to the shared default branch or merge a pull request unless the user explicitly requests or has already authorized that workflow. If an upload request concerns a clearly established task branch, continue on that branch; if the intended destination remains ambiguous, ask which branch to use.
-- Never force-push, discard a teammate's changes, or overwrite remote history to resolve divergence. Inspect and combine compatible changes. For files 08 and 09, retain compatible confirmed decisions and verified progress from both contributors; ask about contradictory decisions or uncertain claims rather than choosing a version arbitrarily.
-- After publishing, report the repository, branch, commit identifier, and what was uploaded. Verify push success before claiming publication. If blocked, distinguish local saved changes or commits from changes actually pushed.
+### Repository and authorization
+
+- Project repository: https://github.com/f6k9/Administrative-Decision-Conflict-System (`f6k9/Administrative-Decision-Conflict-System`).
+- Work directly on `main` by default for this team's shared workflow. Use another branch when the user requests it. This replaces the earlier task-branch default.
+- Pull and push only when requested or explicitly authorized. Editing files or updating documentation alone does not authorize publishing or starting a synchronization operation.
+- Before synchronizing, verify the actual Git root, remote URL, branch, worktree changes, and remote state. Do not publish to an unrelated repository or silently replace a remote.
+- A repository URL does not establish that a local folder is connected or has write access. If setup is needed, inspect existing local and remote contents and preserve files and history. Explain missing sign-in or access without requesting passwords or tokens in chat.
+
+### When the user requests Pull
+
+1. Inspect local uncommitted changes and preserve them before updating. Do not discard work or make a new commit without following the commit-message rule below. Use an appropriate reversible preservation method when needed.
+2. Fetch the latest remote `main` and integrate it into local `main`, using a fast-forward when possible. If histories have diverged, inspect the differences and merge without rewriting published history.
+3. Restore any preserved local changes, review the result, and run checks appropriate to the affected files. If a conflict requires a user decision, stop the dependent operation and ask before choosing.
+4. Report what was synchronized and any unresolved issue. A Pull request alone does not authorize pushing local changes.
+
+### When the user requests Push
+
+1. Review the task changes and include only relevant files, including associated decision/status updates. Preserve unrelated work and exclude credentials, private local configuration, and temporary artifacts.
+2. Obtain a commit message under the rule below, then commit the reviewed changes locally and run appropriate checks.
+3. Fetch remote `main` again immediately before pushing, since a teammate may have published during the work. Compare and integrate their changes, preserving both contributors' compatible work.
+4. Review the combined result for textual conflicts and task-relevant inconsistencies in meaning. Ask before resolving contradictory decisions or conflicts requiring a choice; do not arbitrarily prefer a contributor's version. Automatic text merging is not proof of semantic consistency.
+5. For `docs/08-decisions.md`, retain compatible confirmed decisions and preserve supersession history. For `docs/09-project-status.md`, combine verified progress and update the current state without replacing the whole file with one contributor's version.
+6. Push to `main` without force. If a newer remote update causes a non-fast-forward rejection, fetch, inspect, integrate, and verify again before retrying. Never overwrite remote history or discard a teammate's work.
+7. Verify successful publication and report the repository, branch, commit ID, and uploaded changes. Distinguish saved files, local commits, and actual pushed commits if any step fails.
+
+### Commit message selection
+
+- If the user supplies a commit message for the operation, use it.
+- If no message is supplied, ask in the chat for their preferred message and offer an alternative using today's date, the current Saudi Arabia time (Asia/Riyadh, UTC+03:00), and the names of the Markdown files actually changed. Describe changed code or image files too when applicable.
+- Wait for the user's answer before creating a new commit. Silence is not approval of the suggested message. Do not ask again once the user has selected a naming option for the same operation.
+- Example format: `YYYY-MM-DD HH:mm +03:00 - Update AGENTS.md, 08-decisions.md, 09-project-status.md`.
+- If synchronizing the same operation requires a merge commit, the user's selected naming option applies to that commit too; describe the integration accurately. Fast-forward updates do not require a new commit message.
 
 ## Documentation
 
