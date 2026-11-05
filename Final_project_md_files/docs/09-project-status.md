@@ -1,8 +1,10 @@
 # ITISAQ — Project Status
 
-Last updated: 2026-11-04
+Last updated: 2026-11-05
 
 ## Completed
+
+- Added the approved Report II Questions 1 and 2 to `reports/report-2.md`, recorded the related decisions in `08-decisions.md`, and updated the access-model wording in `01-project-overview.md` and `02-problem-and-scope.md`. This is documentation completion only.
 
 - Saved the reviewed Report II Questions 3 and 4 in `reports/report-2.md` and synchronized `03-requirements.md` with the confirmed roles/accounts, uploads, reviewer assessments, saved revisions/history, data/security requirements, software/hardware baseline, and provisional model/fine-tuning plan. Preserved existing IDs, Report I source references, business rules, constraints, and evaluation obligations. Verified complete/unique requirement IDs, report wording against the reviewed source, Markdown structure, and relative links. This is documentation completion only.
 
@@ -30,10 +32,10 @@ Last updated: 2026-11-04
 
 ## Current work and next steps
 
-- The maintained requirements and reviewed Report II Questions 3 and 4 are saved locally. Other Report II questions are not included. Final report pagination/layout and software behavior have not been verified.
+- Report II Questions 1 to 4 are drafted in `reports/report-2.md`. Questions 5 and 6 remain to be written, and Question 6 must add fine-tuning to the schedule. Final report pagination/layout and software behavior have not been verified.
 - Resolve final data schemas, exact reviewer scopes/routing, account provisioning and authentication implementation, retention/deletion policies, interface/storage/retrieval/training-tool choices, and quantitative acceptance criteria during the relevant design/evaluation work.
 - Evaluate the provisional Gemma (`gemma4:12b`) model and fine-tuning feasibility on the initial local computer (Windows 11 Pro, AMD Ryzen 5 5600, 16 GB RAM, user-reported RTX 4070 SUPER). Record measured performance before defining minimum hardware or response-time guarantees. Training results have not been verified.
-- Prepared the four documentation updates for the requested GitHub upload in the verified `f6k9/Administrative-Decision-Conflict-System` checkout on `main`. The fetched remote matches local HEAD `848089007c4fd8ca0229b4c468ff3d9d2fbafbb8`. Await the user's commit-message approval before committing, then fetch again and verify before pushing. No commit or upload for these changes has been completed yet.
+- The Report II Questions 3 and 4 documentation update is on `main` as commit `b589581` ("Update Report II skills and detailed requirements").
 - The desktop documentation folder remains outside Git; the publishing checkout is under the project workspace at `output/itisaq-repository`, with documentation inside `Final_project_md_files/`. Preserve both copies when synchronizing. The earlier task-branch publication remains historical, not the current branch policy.
 - Populate other topic documents when work reaches their stage and the user requests it. Follow the existing approval rule before introducing new topic documents.
 

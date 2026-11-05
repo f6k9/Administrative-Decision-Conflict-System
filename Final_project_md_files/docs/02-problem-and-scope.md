@@ -39,7 +39,7 @@ The proposed prototype operates locally within a configured organization, using 
 | Administrative reviewers | Authorized personnel verifying permissions, examining potential conflicts, and determining appropriate action. |
 | Configuration administrators | Personnel maintaining and confirming organizational structures, permission rules, and reference documents. |
 
-The report specifies a simplified access model distinguishing these responsibilities. Its exact permissions and authentication mechanism remain to be defined.
+Report I specifies a simplified access model distinguishing these responsibilities. Report II confirms three system roles and individual accounts, and one authorized user may hold several roles. Exact permissions and the authentication mechanism remain to be defined.
 
 **Source:** Report I, §§2.2–2.3.
 

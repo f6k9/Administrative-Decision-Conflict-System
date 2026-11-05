@@ -45,7 +45,7 @@ Finding applicable instructions remains valuable even when the system finds no c
 | Administrative reviewers | Authorized personnel who verify permissions, examine potential conflicts, and decide the appropriate action. |
 | Configuration administrators | Personnel who maintain and confirm organizational structures, permission rules, and reference documents. |
 
-The prototype is planned to use a simplified access model that distinguishes these responsibilities.
+The prototype is planned to use a simplified access model with three system roles: Decision Author, Administrative Reviewer, and Configuration Administrator. Each user signs in with an individual account, and one authorized user may hold several roles.
 
 ## 5. Main capabilities
 

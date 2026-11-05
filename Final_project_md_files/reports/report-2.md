@@ -1,6 +1,50 @@
 # ITISAQ — Project Report II
 
-> Reviewed draft of Questions 3 and 4, saved on 2026-11-04. Other report questions are not included.
+> Draft of Questions 1 to 4. Questions 1 and 2 were added on 2026-11-05; Questions 3 and 4 were saved on 2026-11-04. Questions 5 and 6 are not included.
+
+## Question 1: Changes to the Project Proposal
+
+The project's aims remain the same. ITISAQ is still a local prototype that supports human review of draft administrative decisions before issuance. In light of instructor feedback and the team's progress, the following changes were made.
+
+| Change | Details | Reason | How it improved the proposal |
+| --- | --- | --- | --- |
+| Project focus | The focus widened from conflict detection to decision preparation and review. The system also helps users find applicable instructions when no conflict is found. | An instructor asked why the system would be needed if no conflicts exist. | The system now has clear value during routine work, not only when a conflict appears. |
+| Working model | Gemma (`gemma4:12b`) replaced the open shortlist as the provisional model for initial development. | Gemma achieved better accuracy than Qwen in the team's preliminary tests. | Development can now focus on one model, which can still be changed after further evaluation. |
+| Model fine-tuning | The team plans to fine-tune a pretrained model using project-relevant examples, subject to hardware feasibility. | The team aims to improve results on administrative tasks and develop practical fine-tuning skills. | The original and fine-tuned models can be compared on the same held-out cases to show whether fine-tuning helps. |
+| Saved drafts | Users can save drafts, return to earlier reviews, and compare revisions. | This need appeared during requirements work because users revise drafts over time. | Each review stays linked to its draft revision, so later changes do not overwrite earlier results. |
+| Document uploads | Users can upload documents through the interface. Drafts support text entry, PDF, and Word; existing decisions support PDF and Word; organizational documents also support PNG and JPG. | Requirements work showed that the system should match how staff handle documents. | The input requirements are now specific and testable. |
+| Hardware | The initial prototype will run on one computer: Windows 11 Pro, AMD Ryzen 5 5600, 16 GB RAM, and NVIDIA GeForce RTX 4070 SUPER. | The team needed a known environment for development and testing. | Performance and fine-tuning feasibility can be measured on real hardware, without treating it as a minimum requirement. |
+
+Fine-tuning is the largest addition because the original schedule did not include it. Its feasibility on this computer has not yet been tested.
+
+## Question 2: Methods to Find Information
+
+The team mainly used two approaches: a targeted literature search and local model testing. The literature search was the most effective for ITISAQ because it shaped the system design and showed what the team needed to test.
+
+### 2.1 The Two Approaches
+
+**Literature search:** The team used web searches and Google Scholar to find research on regulatory conflict detection, evidence-based language analysis, retrieval, and Arabic embeddings. Each selected source was then checked through its publication record and available full text. Six publications from 2021 to 2025 were retained and assessed using the PROMPT criteria.
+
+**Local model testing:** The team ran candidate models locally through Ollama. Testing used a fixed sample of 300 Arabic and English XNLI cases, followed by 300 bilingual administrative scenarios. These tests provided direct evidence for the choice of working model.
+
+### 2.2 Critical Comparison
+
+| Criterion | Literature search | Local model testing |
+| --- | --- | --- |
+| Main strength | Provides peer-reviewed methods, known difficulties, and evaluation ideas. | Measures how models perform on the team's own tasks and computer. |
+| Main weakness | Few sources address Arabic administrative text, and most papers cover other domains such as contracts or engineering requirements. | Results apply only to the tested models and cases. They do not explain how to design the complete system. |
+| Reliability | Sources can be traced and evaluated, but their results may not transfer to ITISAQ. | Test conditions are controlled, but the administrative scenarios are synthetic and need human review. |
+| Contribution to the project | Informs the workflow, system boundaries, and evaluation plan. | Informs the selection of a working model. |
+
+### 2.3 Most Effective Approach
+
+The literature search was the most effective approach for three reasons:
+
+1. **It shaped the design.** Research on conflict analysis and formal reasoning supported separating LLM analysis from explicit permission and scope checks.
+2. **It guided the evaluation.** The literature showed the need to evaluate retrieval separately, test Arabic independently, and present supporting evidence.
+3. **It came first.** Without this foundation, the team would not have known which tasks the local tests needed to measure.
+
+Local model testing remains necessary because the literature cannot show how a model performs on ITISAQ's own tasks. The two approaches therefore complement each other, but the literature search had the greater influence on the project as a whole.
 
 ## Question 3: What Skills Do We Need?
 

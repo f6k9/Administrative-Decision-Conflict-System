@@ -1,5 +1,17 @@
 # ITISAQ — Confirmed Decisions
 
+## 2026-11-05 — Report II Questions 1 and 2
+
+- **Decision:** Save the approved Questions 1 and 2 in `reports/report-2.md`. Question 1 reports these changes: project focus, working model, model fine-tuning, saved drafts, document uploads, and hardware.
+- **Question 2:** Compare the literature search with local model testing, and present the literature search as the most effective approach for the project as a whole.
+- **Limits:** This is report content, not software implementation. The fine-tuning schedule update belongs in Question 6, which is not yet written.
+
+## 2026-11-05 — Record the wider project focus
+
+- **Decision:** Describe ITISAQ as supporting decision preparation and review, not only conflict detection. It also helps users find applicable instructions when no conflict is found.
+- **Reason:** An instructor asked why the system would be needed if no conflicts exist.
+- **Context:** The change came before Report I and is already reflected there. It is logged now because Report II Question 1 cites it.
+
 ## 2026-11-04 — Synchronize the reviewed Report II draft and maintained requirements
 
 - **Decision:** On the user's explicit instruction, save the reviewed Questions 3 and 4 in `reports/report-2.md` and incorporate their confirmed refinements into `docs/03-requirements.md`.
