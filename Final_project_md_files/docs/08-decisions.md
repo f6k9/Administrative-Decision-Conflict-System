@@ -1,5 +1,26 @@
 # ITISAQ — Confirmed Decisions
 
+## 2026-11-07 — Report II Question 5: ERD and Class Diagram
+
+- **Decision:** Add the approved Entity Relationship Diagram and Class Diagram, with list-style explanations, to Question 5 of `reports/report-2.md`. Store the diagram images and editable Mermaid sources in `reports/figures/`.
+- **Diagram set:** Question 5 uses the Use Case, Activity, Sequence, ERD, and Class Diagrams. The Data Flow Diagram was dropped because the Activity Diagram and ERD already cover the flow and the stored records.
+- **Work split:** Knight prepares the ERD and Class Diagram; the teammate prepares the Use Case, Activity, and Sequence Diagrams. Both use the shared names agreed for Question 5.
+- **Limits:** These are proposed designs for the report. Final record schemas, storage technology, and class implementation remain open and are not verified implementation.
+
+## 2026-11-07 — Review records, findings, and analysis outcomes
+
+- **Decision:** A review produces individual **Finding** records. Each finding is either a Potential Conflict or a Relevant Instruction, with its explanation and uncertainty, and is supported by one or more **Evidence** links to Source Passages.
+- **Outcomes:** When analysis runs, its overall outcome is Potential Conflict, No Conflict Detected, or Inconclusive. When analysis is skipped, the outcome is Not Run and the review records the reason: Authorization Failed, Missing or Ambiguous Information, or Insufficient Evidence.
+- **Evidence sufficiency:** Reference Retrieval decides whether retrieved passages are sufficient for analysis (`isSufficient`). Insufficient evidence skips analysis. The rule for "sufficient" is not yet defined.
+- **Reviews per revision:** One draft revision may have several reviews, for example when missing information is supplied and the same revision is reviewed again.
+- **Analysis interface:** `ConflictAnalyzer.analyze(revision, passages)` returns an AnalysisResult containing the outcome and findings; Review Service records them in the review.
+- **Context:** Inconclusive, Not Run with a reason, and the sufficiency condition were agreed with the teammate to match the Activity and Sequence Diagrams.
+
+## 2026-11-07 — Keep fine-tuning and evaluation datasets out of the application database
+
+- **Decision:** Training, development, and evaluation datasets (DR-08) are kept as separate local files rather than database tables.
+- **Reason:** Users of the application never work with these datasets, the project already keeps its test data as files, and file storage keeps the three sets isolated from each other and from operational review records.
+
 ## 2026-11-05 — Report II Questions 1 and 2
 
 - **Decision:** Save the approved Questions 1 and 2 in `reports/report-2.md`. Question 1 reports these changes: project focus, working model, model fine-tuning, saved drafts, document uploads, and hardware.

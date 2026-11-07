@@ -1,0 +1,183 @@
+%%{init: {"theme":"base","themeVariables":{"background":"#ffffff","primaryColor":"#ffffff","primaryBorderColor":"#6b6b6b","primaryTextColor":"#1f1f1f","lineColor":"#555555","secondaryColor":"#f5f5f4","tertiaryColor":"#f5f5f4","mainBkg":"#ffffff","nodeBorder":"#6b6b6b","attributeBackgroundColorOdd":"#ffffff","attributeBackgroundColorEven":"#f5f5f4","edgeLabelBackground":"#ffffff","fontFamily":"Inter, Segoe UI, Arial, sans-serif"}}}%%
+classDiagram
+    direction TB
+
+    class ITISAQInterface {
+        +login(username, password)
+        +saveDraft(draft)
+        +viewHistory(draftId)
+        +submitDraft(revision)
+        +displayResult(review)
+        +submitAssessment(reviewId, assessment)
+        +uploadDocument(file)
+    }
+    class ReviewService {
+        +submitRevision(revision) ReviewRecord
+        +recordAssessment(reviewId, assessment)
+    }
+    class AuthorizationChecker {
+        +checkAuthorization(revision) String
+    }
+    class OrganizationalConfiguration {
+        -String configPath
+        +getRules(issuingPosition) Dict
+        +applyConfirmedUpdate(proposal)
+    }
+    class ReferenceRetrieval {
+        +findRelevantPassages(revision) List~SourcePassage~
+        +isSufficient(passages) bool
+    }
+    class ConflictAnalyzer {
+        -String modelName
+        +analyze(revision, passages) AnalysisResult
+    }
+    class AnalysisResult {
+        +String outcome
+        +List~Finding~ findings
+    }
+    class AccessControl {
+        +login(username, password) UserAccount
+        +canAccess(user, record) bool
+    }
+    class DraftStore {
+        +saveDraft(draft)
+        +getRevisions(draftId) List~DraftRevision~
+        +compareRevisions(revisionA, revisionB)
+    }
+    class LocalLanguageModel {
+        <<external>>
+        +generate(prompt) String
+    }
+    class ReviewRecordStore {
+        +saveReview(review)
+        +saveAssessment(assessment)
+        +getReview(reviewId) ReviewRecord
+    }
+    class ReferenceDocumentManager {
+        +uploadDecision(file) ReferenceDecision
+        +splitIntoPassages(decision) List~SourcePassage~
+    }
+    class ConfigurationExtractor {
+        +extractProposals(document) List~ProposedConfigUpdate~
+        +validateStructure(proposal) bool
+        +confirm(proposal, user)
+        +reject(proposal, user)
+    }
+
+    class UserAccount {
+        +int userId
+        +String fullName
+        +String username
+        -String passwordHash
+        +List~String~ roles
+        +String reviewScope
+        +bool isActive
+    }
+    class Draft {
+        +int draftId
+        +String title
+        +DateTime createdAt
+        +addRevision(revision)
+    }
+    class DraftRevision {
+        +int revisionId
+        +int revisionNo
+        +String draftText
+        +String language
+        +String issuingPositionRef
+        +String intendedAction
+        +String coverage
+        +Date effectiveFrom
+        +Date effectiveTo
+        +String inputType
+        +DateTime submittedAt
+    }
+    class ReviewRecord {
+        +int reviewId
+        +String authResult
+        +String authExplanation
+        +String conflictOutcome
+        +String notRunReason
+        +String missingInfo
+        +DateTime createdAt
+        +addFinding(finding)
+    }
+    class Finding {
+        +int findingId
+        +String findingType
+        +String explanation
+        +String uncertainty
+    }
+    class Evidence {
+        +int evidenceId
+    }
+    class SourcePassage {
+        +int passageId
+        +String passageText
+        +String location
+    }
+    class ReferenceDecision {
+        +int decisionId
+        +String title
+        +String sourceFile
+        +String language
+        +String coverage
+        +Date effectiveFrom
+        +Date effectiveTo
+        +String status
+    }
+    class ReviewerAssessment {
+        +int assessmentId
+        +String assessmentType
+        +String reason
+        +DateTime createdAt
+        +validateReason() bool
+    }
+    class OrgDocument {
+        +int docId
+        +String docType
+        +String sourceFile
+        +DateTime uploadedAt
+    }
+    class ProposedConfigUpdate {
+        +int proposalId
+        +String positionRef
+        +String proposedChange
+        +String status
+        +DateTime confirmedAt
+    }
+
+    ITISAQInterface ..> AccessControl : uses
+    ITISAQInterface ..> DraftStore : uses
+    ITISAQInterface ..> ReviewService : uses
+    ITISAQInterface ..> ReferenceDocumentManager : uses
+    ITISAQInterface ..> ConfigurationExtractor : uses
+    ReviewService ..> AuthorizationChecker : uses
+    ReviewService ..> ReferenceRetrieval : uses
+    ReviewService ..> ConflictAnalyzer : uses
+    ReviewService ..> ReviewRecordStore : uses
+    AuthorizationChecker ..> OrganizationalConfiguration : reads rules
+    ConflictAnalyzer ..> LocalLanguageModel : calls
+    ConflictAnalyzer ..> AnalysisResult : returns
+    ReviewService ..> DraftStore : uses
+    AccessControl ..> UserAccount : checks
+    DraftStore ..> Draft : stores
+    ConfigurationExtractor ..> OrganizationalConfiguration : applies confirmed
+    ReviewRecordStore ..> ReviewRecord : stores
+    ReferenceRetrieval ..> SourcePassage : returns
+    ReferenceDocumentManager ..> ReferenceDecision : creates
+    ConfigurationExtractor ..> ProposedConfigUpdate : creates
+
+    UserAccount "1" --> "0..*" Draft : authors
+    Draft "1" *-- "1..*" DraftRevision
+    DraftRevision "1" --> "0..*" ReviewRecord : checked by
+    ReviewRecord "1" *-- "0..*" Finding
+    Finding "1" *-- "1..*" Evidence
+    Evidence "0..*" --> "1" SourcePassage : cites
+    ReferenceDecision "1" *-- "1..*" SourcePassage
+    ReviewRecord "1" --> "0..*" ReviewerAssessment : receives
+    UserAccount "1" --> "0..*" ReviewerAssessment : records
+    OrgDocument "1" --> "0..*" ProposedConfigUpdate : yields
+    UserAccount "1" --> "0..*" ReferenceDecision : uploads
+    UserAccount "1" --> "0..*" OrgDocument : uploads
+    UserAccount "0..1" --> "0..*" ProposedConfigUpdate : confirms

@@ -1,0 +1,119 @@
+%%{init: {"theme":"base","themeVariables":{"background":"#ffffff","primaryColor":"#ffffff","primaryBorderColor":"#6b6b6b","primaryTextColor":"#1f1f1f","lineColor":"#555555","secondaryColor":"#f5f5f4","tertiaryColor":"#f5f5f4","mainBkg":"#ffffff","nodeBorder":"#6b6b6b","attributeBackgroundColorOdd":"#ffffff","attributeBackgroundColorEven":"#f5f5f4","edgeLabelBackground":"#ffffff","fontFamily":"Inter, Segoe UI, Arial, sans-serif"}}}%%
+erDiagram
+    USER_ACCOUNT {
+        int user_id PK
+        varchar full_name
+        varchar username
+        varchar password_hash
+        boolean is_active
+        datetime created_at
+    }
+    ROLE {
+        int role_id PK
+        varchar role_name "Decision Author / Administrative Reviewer / Configuration Administrator"
+    }
+    USER_ROLE {
+        int user_id PK, FK
+        int role_id PK, FK
+        varchar review_scope
+    }
+    DRAFT {
+        int draft_id PK
+        int author_id FK
+        varchar title
+        datetime created_at
+    }
+    DRAFT_REVISION {
+        int revision_id PK
+        int draft_id FK
+        int revision_no
+        text draft_text
+        varchar language
+        varchar issuing_position_ref "position in JSON config"
+        varchar intended_action
+        text coverage
+        date effective_from
+        date effective_to
+        varchar input_type "text / pdf / docx"
+        datetime submitted_at
+    }
+    REFERENCE_DECISION {
+        int decision_id PK
+        int uploaded_by FK
+        varchar title
+        varchar source_file
+        varchar language
+        text coverage
+        date effective_from
+        date effective_to
+        varchar status
+        datetime uploaded_at
+    }
+    SOURCE_PASSAGE {
+        int passage_id PK
+        int decision_id FK
+        text passage_text
+        varchar location "page / section"
+    }
+    REVIEW_RECORD {
+        int review_id PK
+        int revision_id FK
+        varchar auth_result "Authorization Passed / Authorization Failed / Missing or Ambiguous Information"
+        text auth_explanation
+        varchar conflict_outcome "Potential Conflict / No Conflict Detected / Inconclusive / Not Run"
+        varchar not_run_reason "Authorization Failed / Missing or Ambiguous Information / Insufficient Evidence"
+        text missing_info
+        datetime created_at
+    }
+    FINDING {
+        int finding_id PK
+        int review_id FK
+        varchar finding_type "Potential Conflict / Relevant Instruction"
+        text explanation
+        text uncertainty
+    }
+    EVIDENCE {
+        int evidence_id PK
+        int finding_id FK
+        int passage_id FK
+    }
+    REVIEWER_ASSESSMENT {
+        int assessment_id PK
+        int review_id FK
+        int reviewer_id FK
+        varchar assessment_type "Agreement / Disagreement / Additional Information Required"
+        text reason
+        datetime created_at
+    }
+    ORG_DOCUMENT {
+        int doc_id PK
+        int uploaded_by FK
+        varchar doc_type "chart / job description / rules"
+        varchar source_file
+        datetime uploaded_at
+    }
+    PROPOSED_CONFIG_UPDATE {
+        int proposal_id PK
+        int doc_id FK
+        varchar position_ref
+        text proposed_change
+        varchar status "Pending / Confirmed / Rejected"
+        int confirmed_by FK
+        datetime confirmed_at
+    }
+
+    USER_ACCOUNT ||--o{ USER_ROLE : has
+    ROLE ||--o{ USER_ROLE : assigned
+    USER_ACCOUNT ||--o{ DRAFT : authors
+    DRAFT ||--|{ DRAFT_REVISION : has
+    DRAFT_REVISION ||--o{ REVIEW_RECORD : "checked by"
+    REVIEW_RECORD ||--o{ FINDING : produces
+    FINDING ||--|{ EVIDENCE : "supported by"
+    SOURCE_PASSAGE ||--o{ EVIDENCE : "cited in"
+    REFERENCE_DECISION ||--|{ SOURCE_PASSAGE : contains
+    USER_ACCOUNT ||--o{ REFERENCE_DECISION : uploads
+    REVIEW_RECORD ||--o{ REVIEWER_ASSESSMENT : receives
+    USER_ACCOUNT ||--o{ REVIEWER_ASSESSMENT : records
+    USER_ACCOUNT ||--o{ ORG_DOCUMENT : uploads
+    ORG_DOCUMENT ||--o{ PROPOSED_CONFIG_UPDATE : yields
+    USER_ACCOUNT |o--o{ PROPOSED_CONFIG_UPDATE : confirms

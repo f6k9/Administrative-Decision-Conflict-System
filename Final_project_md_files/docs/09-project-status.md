@@ -1,8 +1,10 @@
 # ITISAQ — Project Status
 
-Last updated: 2026-11-05
+Last updated: 2026-11-07
 
 ## Completed
+
+- Added the Entity Relationship Diagram and Class Diagram, with their explanations, to Report II Question 5 in `reports/report-2.md`. Stored the diagram images and editable Mermaid sources in `reports/figures/`. Recorded the related design decisions in `08-decisions.md`. This is documentation completion only.
 
 - Added the approved Report II Questions 1 and 2 to `reports/report-2.md`, recorded the related decisions in `08-decisions.md`, and updated the access-model wording in `01-project-overview.md` and `02-problem-and-scope.md`. This is documentation completion only.
 
@@ -32,7 +34,8 @@ Last updated: 2026-11-05
 
 ## Current work and next steps
 
-- Report II Questions 1 to 4 are drafted in `reports/report-2.md`. Questions 5 and 6 remain to be written, and Question 6 must add fine-tuning to the schedule. Final report pagination/layout and software behavior have not been verified.
+- Report II Questions 1 to 4 are drafted in `reports/report-2.md`. Question 5 contains the ERD and Class Diagram; the teammate's Use Case, Activity, and Sequence Diagrams still need to be added. Question 6 remains to be written and must add fine-tuning to the schedule.
+- Confirm that the Sequence Diagram uses the shared names that the Class Diagram depends on: `Finding`, `isSufficient(passages)`, and `analyze(revision, passages)` returning an AnalysisResult. Final report pagination/layout and software behavior have not been verified.
 - Resolve final data schemas, exact reviewer scopes/routing, account provisioning and authentication implementation, retention/deletion policies, interface/storage/retrieval/training-tool choices, and quantitative acceptance criteria during the relevant design/evaluation work.
 - Evaluate the provisional Gemma (`gemma4:12b`) model and fine-tuning feasibility on the initial local computer (Windows 11 Pro, AMD Ryzen 5 5600, 16 GB RAM, user-reported RTX 4070 SUPER). Record measured performance before defining minimum hardware or response-time guarantees. Training results have not been verified.
 - The Report II Questions 3 and 4 documentation update is on `main` as commit `b589581` ("Update Report II skills and detailed requirements").

@@ -1,6 +1,6 @@
 # ITISAQ — Project Report II
 
-> Draft of Questions 1 to 4. Questions 1 and 2 were added on 2026-11-05; Questions 3 and 4 were saved on 2026-11-04. Questions 5 and 6 are not included.
+> Draft of Questions 1 to 5. Questions 1 and 2 were added on 2026-11-05; Questions 3 and 4 were saved on 2026-11-04. Question 5 currently contains the Entity Relationship Diagram and Class Diagram, added on 2026-11-07; the Use Case, Activity, and Sequence Diagrams are still to be added. Question 6 is not included.
 
 ## Question 1: Changes to the Project Proposal
 
@@ -308,3 +308,60 @@ ITISAQ shall protect organizational information and restrict system operations a
 | AR-01 | ITISAQ shall support human review before decision issuance. It shall not autonomously approve, issue, or apply administrative decisions. |
 | AR-02 | Organizational authorization checks shall remain separate from LLM-based conflict analysis. The model shall not invent authority or assume that higher organizational rank automatically grants permission. |
 | AR-03 | System results shall be limited to the available organizational configuration and reference sources. Missing evidence and uncertain interpretations shall be identified explicitly. |
+
+## Question 5: System Design
+
+> The Use Case, Activity, and Sequence Diagrams are prepared separately and will be added to this section. Editable Mermaid sources for the diagrams below are stored next to the images in `figures/`.
+
+### Entity Relationship Diagram
+
+![ITISAQ Entity Relationship Diagram](figures/q5-erd.png)
+
+The ERD shows the main records ITISAQ stores to support draft submission, authorization checks, conflict analysis, and human review. All records are stored locally.
+
+- **USER_ACCOUNT:** Stores individual user accounts used to sign in and to link each action to an identifiable user.
+- **ROLE:** Holds the three system roles: Decision Author, Administrative Reviewer, and Configuration Administrator.
+- **USER_ROLE:** Links users to roles, allowing one user to hold several roles. It also stores the review scope that limits which records a reviewer can access.
+- **DRAFT:** Represents a draft decision owned by its Decision Author. It has one or more revisions.
+- **DRAFT_REVISION:** Stores one version of a draft, including its text, issuing position, intended action, coverage, and effective dates. The issuing position refers to the JSON configuration rather than a database table.
+- **REVIEW_RECORD:** Stores the system's result for a specific revision: the authorization result, analysis outcome, the reason analysis was not run if it was skipped, and missing information. A revision can be reviewed more than once.
+- **FINDING:** Stores one result within a review, either a potential conflict or a relevant instruction, with its explanation and uncertainty.
+- **EVIDENCE:** Links each finding to at least one source passage, so every result can be traced to the original text.
+- **REFERENCE_DECISION:** Stores uploaded decisions and instructions with their source file, coverage, effective dates, and status.
+- **SOURCE_PASSAGE:** Stores a passage taken from a reference decision, with its location in the original document.
+- **REVIEWER_ASSESSMENT:** Stores the Administrative Reviewer's Agreement, Disagreement, or Additional Information Required. A reason is required for the last two.
+- **ORG_DOCUMENT:** Stores uploaded organizational charts, job descriptions, and rules.
+- **PROPOSED_CONFIG_UPDATE:** Stores configuration changes extracted from organizational documents. They stay separate from the active configuration until an authorized user confirms or rejects them.
+
+Training, development, and evaluation datasets are not part of the application database. They are kept as separate local files so that each set stays isolated.
+
+### Class Diagram
+
+![ITISAQ Class Diagram](figures/q5-class-diagram.png)
+
+The Class Diagram shows the proposed software classes of ITISAQ. Service classes carry out the system's operations, and entity classes represent the stored records from the ERD.
+
+- **ITISAQInterface:** The screens used by all three roles. It handles sign-in, saving drafts, viewing history, submitting drafts, viewing results, recording assessments, and uploading documents.
+- **AccessControl:** Handles sign-in and checks whether a user may access a record based on their roles and review scope.
+- **DraftStore:** Saves drafts, retrieves earlier revisions, and compares revisions.
+- **ReviewService:** Main control class for the review workflow. It calls the authorization check, retrieval, and analysis in order, then saves the result.
+- **AuthorizationChecker:** Checks the issuing position's permission and scope. It returns Authorization Passed, Authorization Failed, or Missing or Ambiguous Information.
+- **OrganizationalConfiguration:** Reads the reviewed permission and scope rules from the JSON configuration. It applies updates only after an authorized person confirms them.
+- **ReferenceRetrieval:** Finds relevant source passages and decides whether they are sufficient for analysis.
+- **ConflictAnalyzer:** Compares the draft with the retrieved passages using the local language model and returns an AnalysisResult.
+- **AnalysisResult:** Carries the analysis outcome (Potential Conflict, No Conflict Detected, or Inconclusive) and its findings back to ReviewService.
+- **LocalLanguageModel:** External component representing the language model running locally through Ollama. It is called only by ConflictAnalyzer.
+- **ReviewRecordStore:** Saves and retrieves review records and reviewer assessments.
+- **ReferenceDocumentManager:** Stores uploaded reference decisions and divides them into source passages.
+- **ConfigurationExtractor:** Extracts proposed updates from organizational documents, validates their structure, and records confirmation or rejection.
+- **UserAccount:** Represents a system user with assigned roles and review scope. It is linked to drafts, uploads, assessments, and confirmations.
+- **Draft:** Represents a draft decision owned by its author. It contains one or more revisions.
+- **DraftRevision:** Represents one version of a draft. Each revision can be reviewed more than once.
+- **ReviewRecord:** Represents the system's result for a revision, including the authorization result and analysis outcome.
+- **Finding:** Represents one potential conflict or relevant instruction within a review.
+- **Evidence:** Links a finding to its supporting source passage.
+- **SourcePassage:** Represents a passage from a reference decision, with its location.
+- **ReferenceDecision:** Represents an uploaded decision with its coverage, dates, and status.
+- **ReviewerAssessment:** Represents the reviewer's assessment of a result, with a reason when required.
+- **OrgDocument:** Represents an uploaded organizational chart, job description, or rules document.
+- **ProposedConfigUpdate:** Represents an extracted configuration change awaiting confirmation or rejection.
