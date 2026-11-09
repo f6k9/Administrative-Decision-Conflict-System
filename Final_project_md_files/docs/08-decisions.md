@@ -1,9 +1,19 @@
 # ITISAQ — Confirmed Decisions
 
+## 2026-11-07 — Add one Level 1 Data Flow Diagram to Report II Question 5
+
+- **Decision:** Add one Level 1 Data Flow Diagram to the initial design. It will show the main ITISAQ processes, local data stores, and data exchanged with the three user roles.
+- **Supersedes:** The earlier decision to omit the Data Flow Diagram. The existing six figures remain part of the report plan.
+
+## 2026-11-07 — Remove the Data Flow Diagram from Report II Question 5
+
+- **Decision:** Omit the Data Flow Diagram from Question 5. Include the Use Case Diagram, both Activity diagrams, the Sequence Diagram, the Entity–Relationship Diagram, and the Class Diagram.
+- **Supersedes:** The inclusion of a Data Flow Diagram in the earlier Question 5 diagram plan. The Class Diagram remains in scope.
+
 ## 2026-11-07 — Report II Question 5: ERD and Class Diagram
 
 - **Decision:** Add the approved Entity Relationship Diagram and Class Diagram, with list-style explanations, to Question 5 of `reports/report-2.md`. Store the diagram images and editable Mermaid sources in `reports/figures/`.
-- **Diagram set:** Question 5 uses the Use Case, Activity, Sequence, ERD, and Class Diagrams. The Data Flow Diagram was dropped because the Activity Diagram and ERD already cover the flow and the stored records.
+- **Diagram set:** Question 5 uses the Use Case, Activity, Sequence, ERD, and Class Diagrams. The Data Flow Diagram was dropped because the Activity Diagram and ERD already cover the flow and the stored records. The later Level 1 Data Flow Diagram decision supersedes that omission.
 - **Work split:** Knight prepares the ERD and Class Diagram; the teammate prepares the Use Case, Activity, and Sequence Diagrams. Both use the shared names agreed for Question 5.
 - **Limits:** These are proposed designs for the report. Final record schemas, storage technology, and class implementation remain open and are not verified implementation.
 
@@ -20,6 +30,23 @@
 
 - **Decision:** Training, development, and evaluation datasets (DR-08) are kept as separate local files rather than database tables.
 - **Reason:** Users of the application never work with these datasets, the project already keeps its test data as files, and file storage keeps the three sets isolated from each other and from operational review records.
+
+## 2026-11-07 — Align the initial review design across diagrams
+
+- **Decision:** Use the shared lifelines, message names, and record names for the Sequence, Class, and Entity–Relationship diagrams. Model the reviewed Organizational Configuration (JSON) and the Local Language Model (Ollama) as separate lifelines. Ollama runs locally and is called by the Conflict Analyzer.
+- **Review outcomes:** Check authorization before retrieval, and start analysis only when the retrieved evidence is sufficient. Use Potential Conflict, No Conflict Detected, or Inconclusive for a completed analysis. Use Not Run with a separate reason when analysis is skipped, including Insufficient Evidence.
+- **Finding:** A Finding is an individual Potential Conflict or Relevant Instruction within a Review Record. Its Evidence links to a Source Passage. Inconclusive is an overall analysis outcome.
+- **Scope:** These agreements guide the initial design diagrams. Final schemas and implementation details remain open.
+
+## 2026-11-07 — Include a Class Diagram in Report II Question 5
+
+- **Decision:** Include a Class Diagram alongside the Use Case, Activity, Data Flow, Sequence, and Entity–Relationship diagrams in the initial design.
+
+## 2026-11-05 — Use Mermaid for initial design diagrams
+
+- **Decision:** Prepare the Report II Question 5 initial design diagrams in Mermaid, following the user's explicit selection.
+- **Context:** Supply diagram source that can be imported into draw.io, with descriptive text for each figure. Importing or manually refining the diagrams in draw.io has not been verified.
+- **Boundary:** Selecting the modeling notation does not confirm proposed database schemas, component interfaces, or unresolved implementation technologies. These remain design proposals pending review.
 
 ## 2026-11-05 — Report II Questions 1 and 2
 

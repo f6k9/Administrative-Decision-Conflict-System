@@ -1,6 +1,6 @@
 # ITISAQ — Project Report II
 
-> Draft of Questions 1 to 5. Questions 1 and 2 were added on 2026-11-05; Questions 3 and 4 were saved on 2026-11-04. Question 5 currently contains the Entity Relationship Diagram and Class Diagram, added on 2026-11-07; the Use Case, Activity, and Sequence Diagrams are still to be added. Question 6 is not included.
+> Draft of Questions 1 to 6. Question 5 presents the initial system design, and Question 6 outlines the planned work.
 
 ## Question 1: Changes to the Project Proposal
 
@@ -309,11 +309,51 @@ ITISAQ shall protect organizational information and restrict system operations a
 | AR-02 | Organizational authorization checks shall remain separate from LLM-based conflict analysis. The model shall not invent authority or assume that higher organizational rank automatically grants permission. |
 | AR-03 | System results shall be limited to the available organizational configuration and reference sources. Missing evidence and uncertain interpretations shall be identified explicitly. |
 
-## Question 5: System Design
+## Question 5: Initial System Design
 
-> The Use Case, Activity, and Sequence Diagrams are prepared separately and will be added to this section. Editable Mermaid sources for the diagrams below are stored next to the images in `figures/`.
+### 5.1 Use Case Diagram
 
-### Entity Relationship Diagram
+![ITISAQ Use Case Diagram](figures/q5-use-case.png)
+
+The Use Case Diagram defines the functional boundary of ITISAQ and identifies three actors: the Decision Author, the Administrative Reviewer, and the Configuration Administrator. The diagram groups the use cases into Draft Authoring, Administrative Review, Configuration Management, and Shared Use Cases. All three actors use **Sign In**. The Decision Author and the Administrative Reviewer also share **View Review History, Results, and Evidence**. The author can access their own drafts and review history, while the reviewer can access records within their authorized review scope.
+
+Within **Draft Authoring**, the Decision Author uses **Create, Edit, or Save Draft**, **Submit Draft for Review**, and **Compare Draft Revisions**. The author can submit a draft for its first review or resubmit it after making changes. For each submission, ITISAQ checks whether the identified issuing position has permission to take the proposed action and whether the draft falls within its authorized scope. Each review result remains linked to the revision that was examined, so the author can compare revisions and revisit the evidence behind earlier findings.
+
+Within **Administrative Review**, the Administrative Reviewer uses **Record Review Assessment** after inspecting the saved result and its supporting evidence. The reviewer can record agreement with the system result, disagreement, or a request for additional information. Disagreement and requests for additional information require a reason. ITISAQ preserves the assessment alongside the original system result in the review history. Formal approval and issuance follow the organization’s own process outside ITISAQ.
+
+Within **Configuration Management**, the Configuration Administrator uses **Upload Reference Decisions**, **Upload Organizational Documents**, **Maintain Organizational Configuration**, and **Review and Confirm Proposed Configuration Update**. Reference decisions provide the source material used during draft review. Organizational documents, such as organizational charts, job descriptions, and official rules, can support proposed changes to the configuration. A proposed update becomes active only after structural validation and confirmation by an authorized person.
+
+### 5.2 Draft Decision Review Activity Diagram
+
+![Draft Decision Review Activity Diagram](figures/q5-draft-review-activity.png)
+
+The activity diagram illustrates how a draft decision moves through three swimlanes: the Decision Author, ITISAQ, and the Administrative Reviewer. The flow begins when the author submits a draft revision by pasting text or uploading a document. ITISAQ checks whether the issuing position has permission to carry out the intended action within the draft’s organizational scope. If information is missing or ambiguous, the system shows what needs clarification and saves the outcome. The author can supply the missing details and resubmit. If the permission or scope check fails, ITISAQ explains the reason, saves the outcome, and ends the current review attempt.
+
+When authorization passes, ITISAQ retrieves relevant decisions and their source passages. If the retrieved evidence is insufficient, the system explains what is missing and saves the outcome. When the evidence is sufficient, the local language model compares the draft with the retrieved passages. If it identifies a potential conflict, ITISAQ shows the finding, an explanation, and the supporting passage. If it detects no conflict within the reviewed sources, ITISAQ displays that result and lists the relevant decisions. If the analysis is inconclusive, the system explains what remains uncertain and presents the available evidence. The result, evidence, and uncertainty are saved against the exact draft revision reviewed.
+
+The author can stop after receiving the result or revise and resubmit the draft. An Administrative Reviewer can inspect the saved result within their authorized scope and record agreement, disagreement, or a request for additional information. Disagreement and requests for information require a reason. A request keeps the assessment unresolved while the information is pending. If the author supplies the missing details and resubmits, ITISAQ starts a new review while retaining the earlier result and assessment. Formal approval and issuance remain with the organization’s authorized process.
+
+### 5.3 Organizational Configuration Update Activity Diagram
+
+![Organizational Configuration Update Activity Diagram](figures/q5-configuration-update-activity.png)
+
+The activity diagram illustrates how ITISAQ prepares and applies an update to its organizational configuration. The flow begins when the Configuration Administrator uploads an organizational chart, job description, or official rule. ITISAQ extracts the relevant information locally using text extraction, optical character recognition (OCR), or a vision model, depending on the document. It then prepares a proposed update, associates the extracted information with the relevant organizational positions, and retains references to the source documents.
+
+ITISAQ checks whether the proposed update has a valid structure. If validation fails, the system shows the issues and keeps the proposal inactive. If validation passes, the proposal moves to human review. The reviewer examines the proposed changes, the positions they affect, and the supporting evidence.
+
+If an authorized person confirms the update, ITISAQ saves it to the active organizational configuration in JSON. The confirmed rules can then be used in future permission and scope checks. If confirmation is declined or deferred, the proposal stays inactive and ITISAQ continues to use the existing rules.
+
+### 5.4 Draft Decision Review Sequence Diagram
+
+![Draft Decision Review Sequence Diagram](figures/q5-draft-review-sequence.png)
+
+The sequence diagram shows how ITISAQ processes a submitted draft and allows an Administrative Reviewer to assess the result. The process begins when the Decision Author submits a draft revision through the ITISAQ Interface. The interface sends the revision to the Review Service, which asks the Authorization Checker to verify the issuing position’s permission and scope against the reviewed organizational configuration in JSON. If required information is missing or ambiguous, ITISAQ records what needs clarification. If authorization fails, it records the reason. Only a passed check allows the review to continue to retrieval.
+
+The Review Service asks Reference Retrieval to return relevant decisions and source passages. If the evidence is insufficient, the service records **Not Run** as the analysis status and **Insufficient Evidence** as the reason. If the evidence is sufficient, the Review Service sends the draft and passages to the Conflict Analyzer, which calls the local language model through Ollama. The Conflict Analyzer returns an outcome and any findings. The outcome can be **Potential Conflict**, **No Conflict Detected** within the reviewed sources, or **Inconclusive** when uncertainty remains after analysis. The Review Service saves the result and any available evidence in the Review Record Store, linked to the exact draft revision. The interface then displays the saved result to the author.
+
+An Administrative Reviewer can open the saved review within their authorized scope and inspect the result and evidence. The reviewer can record agreement, disagreement, or a request for additional information. Disagreement and requests for additional information require a reason, and an information request leaves the assessment unresolved while the information is pending. The system stores the assessment alongside the original result. If the author submits a revised draft, ITISAQ starts a new review and retains the earlier result and assessment in the review history. Formal approval and issuance remain with the organization’s authorized process.
+
+### 5.5 Entity–Relationship Diagram
 
 ![ITISAQ Entity Relationship Diagram](figures/q5-erd.png)
 
@@ -335,7 +375,7 @@ The ERD shows the main records ITISAQ stores to support draft submission, author
 
 Training, development, and evaluation datasets are not part of the application database. They are kept as separate local files so that each set stays isolated.
 
-### Class Diagram
+### 5.6 Class Diagram
 
 ![ITISAQ Class Diagram](figures/q5-class-diagram.png)
 
@@ -365,3 +405,33 @@ The Class Diagram shows the proposed software classes of ITISAQ. Service classes
 - **ReviewerAssessment:** Represents the reviewer's assessment of a result, with a reason when required.
 - **OrgDocument:** Represents an uploaded organizational chart, job description, or rules document.
 - **ProposedConfigUpdate:** Represents an extracted configuration change awaiting confirmation or rejection.
+
+### 5.7 Data Flow Diagram
+
+![ITISAQ Level 1 Data Flow Diagram](figures/q5-level-1-dfd.png)
+
+The Data Flow Diagram shows how ITISAQ exchanges data with the Decision Author, Administrative Reviewer, and Configuration Administrator. The Decision Author sends draft revisions, clarification details, or requests to access saved revisions to **Manage Draft Revisions (1.0)**. This process reads from and writes to **Drafts and Revisions (D1)** and sends the submitted revision to **Check Permission and Scope (2.0)**. The authorization process reads the active rules from **Reviewed Organizational Configuration (D5)**. Drafts that pass the check go to **Retrieve Evidence and Analyze Draft (3.0)**. Failed or incomplete authorization results go directly to **Manage Review Records and Assessments (4.0)**.
+
+The retrieval and analysis process reads source passages and reference metadata from **Reference Decisions and Source Passages (D2)**. It sends the analysis outcome and any available evidence to the review records process. That process saves the result against the exact draft revision in **Review Records and Assessments (D3)** and returns the result, supporting evidence, or missing-detail notice to the author. The Administrative Reviewer can request a saved review within their authorized scope and submit an assessment. The assessment is stored alongside the original result.
+
+The Configuration Administrator supplies two kinds of documents. Uploaded reference decisions go to **Manage Reference Decisions (5.0)**, which stores the decisions and indexed passages in **D2** for later retrieval. Organizational documents go to **Manage Organizational Configuration (6.0)**, which stores the documents, proposed changes, and their status in **Organizational Documents and Proposed Updates (D4)**. The process returns proposals and validation issues to the administrator. A proposed change is written to the active JSON configuration in **D5** only after validation and authorized confirmation.
+
+### 5.8 Hardware and Local Deployment
+
+The initial ITISAQ prototype is designed to run on a single development computer with Windows 11 Pro, an AMD Ryzen 5 5600 processor, 16 GB of RAM, and an NVIDIA GeForce RTX 4070 SUPER graphics card, as specified in Section 4.4.2. The user interface, Python application, document processing, retrieval, and storage run on the same computer. The Python application uses the reviewed JSON configuration to check permissions and scope and communicates locally with Ollama for language model inference. Uploaded documents, retrieval indexes, and saved review records remain on the computer.
+
+Since all prototype components run on one computer, a separate network design is unnecessary for this stage. The listed hardware is the development and testing environment. Minimum hardware requirements will be determined through testing.
+
+### 5.9 Modeling Tools and Limitations
+
+Mermaid was used to draft parts of the activity and sequence diagrams. Its text-based notation made it easy to revise decision branches and the order of messages while developing the initial design. The team used draw.io to arrange and edit the final figures, including swimlanes, connectors, and labels.
+
+Mermaid’s automatic layout gave limited control over where actors and connectors appeared, so some diagrams needed manual layout adjustments in draw.io. Screenshots also made small labels harder to read in Word, particularly in the Sequence, Entity–Relationship, and Class diagrams.
+
+## Question 6: What Work We Intend to Carry Out in the Near Future
+
+Our immediate priority is to review the initial design, incorporate supervisor feedback, and prepare Arabic and English test cases. These cases will cover valid drafts, permission and scope failures, missing information, and potential conflicts. Preparing them before implementation gives us expected outcomes against which we can test the system.
+
+During the implementation stage, we will first build the core text-based review workflow. This includes draft submission, local storage, and permission and scope checks using the reviewed JSON rules. Once those checks are working, we will connect retrieval and local conflict analysis, then add evidence presentation and reviewer assessments. This order lets us verify the authorization rules independently and helps us tell whether a later error comes from retrieval or model interpretation. We will then extend the prototype to extract proposed configuration updates from organizational documents and support authorized confirmation.
+
+The updated schedule adds a **local fine-tuning feasibility check** after we measure the original model’s performance and before formal evaluation. If the development computer can support fine-tuning, we will run a small pilot using project-relevant examples. We will keep training, development, and final evaluation cases separate. During evaluation, we will compare the original and fine-tuned models on the same held-out cases. If fine-tuning is infeasible, we will evaluate the original model and document the hardware limitation.
