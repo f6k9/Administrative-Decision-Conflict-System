@@ -1,8 +1,10 @@
 # ITISAQ — Project Status
 
-Last updated: 2026-11-09
+Last updated: 2026-11-14
 
 ## Completed
+
+- Updated the agent instructions to ask the team for missing information and wait for answers before generating dependent work. Recorded the confirmed workflow rule in `08-decisions.md`.
 
 - Completed the Report II Markdown draft through Question 6 using the formatted report. Added the remaining Question 5 diagrams and explanations, local deployment and modeling tools, and the near-term work plan. Verified seven figure links and the FR-01 through FR-26 numbering and supported formats.
 

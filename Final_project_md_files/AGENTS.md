@@ -53,7 +53,7 @@ Documentation is developed incrementally. A future document name is a proposed l
 - Do not modify academic reports unless explicitly requested.
 - Do not add external services, paid dependencies, or send project data outside the local environment without explicit approval.
 - Never include passwords, API keys, or private organizational data in code or documentation.
-- Ask for clarification when a missing requirement would materially change the implementation.
+- Before generating project content or implementing a change, use the information the team has already provided and the approved project sources. If required information or a decision is still missing or unclear, ask the team specific questions in the chat and wait for their answers before generating or implementing the work that depends on them. Do not guess, invent answers, or treat silence as confirmation.
 
 ## GitHub repository and publishing
 

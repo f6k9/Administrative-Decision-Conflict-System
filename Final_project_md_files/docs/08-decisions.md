@@ -1,5 +1,10 @@
 # ITISAQ — Confirmed Decisions
 
+## 2026-11-14 — Ask the team for missing information before generating work
+
+- **Decision:** When project work depends on information or a decision that the team has not supplied and approved sources do not resolve, ask the team specific questions and wait for their answers before generating the dependent work. Do not fill the gap with assumptions.
+- **Implementation:** Recorded under [Working rules](../AGENTS.md#working-rules).
+
 ## 2026-11-07 — Add one Level 1 Data Flow Diagram to Report II Question 5
 
 - **Decision:** Add one Level 1 Data Flow Diagram to the initial design. It will show the main ITISAQ processes, local data stores, and data exchanged with the three user roles.
